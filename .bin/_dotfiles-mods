@@ -1,10 +1,14 @@
 #!/bin/bash
 
-set -ex
+set -e
 
 DB="$HOME/.config/dotfiles/db"
 HASHDB="$DB/hashes"
 mkdir -p "$HASHDB"
+
+echo "Authorize sudo once, to store authorization..."
+sudo open
+echo "...stored"
 
 contains() {
   match="$1"
@@ -73,8 +77,12 @@ compare_db_val() {
   fi
 }
 
-cd "$HOME"
+rem() {
+  return 1
+}
+
 SCRIPTS=$(find "$(dirname $(dirname $(readlink -f $0)))/.mods.d" -iname "*.sh" | sort)
+cd "$HOME"
 
 # TODO: proper argv handling
 
@@ -91,12 +99,12 @@ for script in $SCRIPTS; do
   id="$(dirname $script)-$(basename $script)"
 
   if
-    ! has_file_hash "$script" || \ # if script isn't installed
-    (has_changed_hash "$FILE" && contains "change" "${rerun[@]}" || \ # or if it changed
-    (has_changed_hash "$FILE" && [ "$TARGET" == "upgrade" ] && contains "upgrade" "${rerun[@]}" && [ -z "$version" ] ) || \ # or if target upgrade, and without version
-    (has_changed_hash "$FILE" && [ "$TARGET" == "upgrade" ] && contains "upgrade" "${rerun[@]}" && ! compare_db_val "$id-version" "$version" ) || \ # or if target upgrade, and with different version
-    (has_changed_hash_multiple "${files[@]}" && contains "watch" "${rerun[@]}") # some files have changed that the script watches
-  ; then
+    ! has_file_hash "$script" || rem if script isnt installed || \
+    (has_changed_hash "$FILE" && contains "change" "${rerun[@]}") || rem or if it changed || \
+    (has_changed_hash "$FILE" && [ "$TARGET" == "upgrade" ] && contains "upgrade" "${rerun[@]}" && [ -z "$version" ] ) || rem or if target upgrade, and without version || \
+    (has_changed_hash "$FILE" && [ "$TARGET" == "upgrade" ] && contains "upgrade" "${rerun[@]}" && ! compare_db_val "$id-version" "$version" ) || rem or if target upgrade, and with different version || \
+    (has_changed_hash_multiple "${files[@]}" && contains "watch" "${rerun[@]}") || rem or some files have changed that the script watches || \
+  false; then
     echo "Installing/Updating $id..."
     bash -e "$script"
     echo "DONE!"
