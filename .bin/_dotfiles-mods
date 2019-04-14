@@ -1,0 +1,42 @@
+#!/bin/bash
+
+set -ex
+
+DB="$HOME/.config/dotfiles/db"
+HASHDB="$DB/hashes"
+mkdir -p "$HASHDB"
+
+contains() {
+  match="$1"
+  shift
+  for e in "$@"; do
+    if [ "$e" == "$match" ]; then
+      return 0
+    fi
+  done
+  return 1
+}
+
+get_var() {
+  OUT=$(cat "$SCRIPT" | grep "# $1: $2" | sed "s|^# $1: ||")
+  if [ -z "$OUT" ]; then
+    echo "$2"
+  fi
+}
+
+store_file_hash() {
+  FILE="$1"
+}
+
+cd "$HOME/.mods.d"
+SCRIPTS=$(find -iname "*.sh" | sort)
+
+# TODO: proper argv handling
+
+TARGET="$1"
+if [ -z "$TARGET" ]; then
+  TARGET="update"
+fi
+
+for script in $SCRIPTS; do
+  
