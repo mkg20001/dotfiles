@@ -15,3 +15,9 @@ mkg's Dotfiles and Setup Scripts
 - main folder: files as is
 - .private.d/: private files and settings
 - .sync.d/: also private, but synced files. symlinked.
+
+# Install
+
+```sh
+curl https://github.com/mkg20001/dotfiles/raw/master/.bin/_dotfiles_install | bash -
+```
