@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt install -y ubuntu-desktop
+sudo apt install -y ubuntu-desktop gnome-contacts gnome-documents
