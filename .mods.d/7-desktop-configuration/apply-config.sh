@@ -1,4 +1,4 @@
 #!/bin/bash
 
 export MAIN="$SCRIPTFOLDER/pics"
-sed "s|\$MAIN|$MAIN|g" <("$SCRIPTFOLDER/dconf.conf") | dconf load /
+cat "$SCRIPTFOLDER/dconf.conf" | sed "s|\$MAIN|$MAIN|g" | dconf load /
