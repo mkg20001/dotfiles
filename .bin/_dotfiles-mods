@@ -114,7 +114,7 @@ for script in $SCRIPTS; do
 
   rerun=($(get_var upgrade change)) # rce, but all of this is rce anyways so why bother?
   version=$(get_var rerun)
-  files=($(get_var watch-file | sed "s|~|$MAINFOLDER"))
+  files=($(get_var watch-file | sed "s|~|$MAINFOLDER|g"))
 
   id="$(basename $(dirname $script))-$(basename $script)"
 
