@@ -21,15 +21,60 @@ get_var() {
   OUT=$(cat "$SCRIPT" | grep "# $1: $2" | sed "s|^# $1: ||")
   if [ -z "$OUT" ]; then
     echo "$2"
+  else
+    echo "$OUT"
   fi
 }
 
-store_file_hash() {
+_file_hash() {
   FILE="$1"
+  FDB="$HASHDB/$1"
+  CURHASH=$(sha256sum "$FILE" | fold -w 64 | head -n 1)
+}
+
+store_file_hash() {
+  echo "$CURHASH" > "$FDB"
+}
+
+has_file_hash() {
+  _file_hash "$@"
+  if [ ! -e "$FDB" ]; then
+    return 1
+  fi
+}
+
+has_changed_hash() {
+  if ! has_file_hash "$@"; then
+    echo "ERROR: CANNOT CHECK HASH CHANGE IF HASH NOT IN DB" >&2
+    exit 2
+  fi
+  if [[ "$CURHASH" != "$(cat $FDB)" ]]; then
+    return 1
+  fi
+}
+
+has_changed_hash_multiple() {
+  for file in "$@"; do
+    has_changed_hash "$file"
+  done
+}
+
+store_db_val() {
+  echo "$2" > "$DB/$1"
+}
+
+read_db_val() {
+  cat "$DB/$1"
+}
+
+compare_db_val() {
+  if [[ "$2" != "$(cat "$DB/$!")" ]]; then
+    return 1
+  fi
 }
 
 cd "$HOME/.mods.d"
-SCRIPTS=$(find -iname "*.sh" | sort)
+SCRIPTS=$(find "$(dirname $(dirname $(readlink -f $0)))/.mods.d" -iname "*.sh" | sort)
 
 # TODO: proper argv handling
 
@@ -39,4 +84,29 @@ if [ -z "$TARGET" ]; then
 fi
 
 for script in $SCRIPTS; do
-  
+  rerun=($(get_var upgrade always)) # rce, but all of this is rce anyways so why bother?
+  version=$(get_var rerun)
+  files=($(get_var watch-file))
+
+  id="$(dirname $script)-$(basename $script)"
+
+  if
+    ! has_file_hash "$script" || \ # if script isn't installed
+    (has_changed_hash "$FILE" && contains "always" "${rerun[@]}" || \ # or if it changed
+    (has_changed_hash "$FILE" && [ "$TARGET" == "upgrade" ] && contains "upgrade" "${rerun[@]}" && [ -z "$version" ] ) || \ # or if target upgrade, and without version
+    (has_changed_hash "$FILE" && [ "$TARGET" == "upgrade" ] && contains "upgrade" "${rerun[@]}" && ! compare_db_val "$id-version" "$version" ) || \ # or if target upgrade, and with different version
+    (has_changed_hash_multiple "${files[@]}" && contains "watch" "${rerun[@]}") # some files have changed that the script watches
+  ; then
+    echo "Installing/Updating $id..."
+    bash -e "$script"
+    echo "DONE!"
+
+    for file in "${files[@]}"; do
+      store_file_hash "$file"
+    done
+    store_db_val "$id-version" "$version"
+  else
+    echo "Skipping $id..."
+    # TODO: warning about file-change
+  fi
+done
