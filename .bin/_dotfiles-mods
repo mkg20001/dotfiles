@@ -112,13 +112,13 @@ for script in $SCRIPTS; do
   export MODFOLDER="$(dirname $SCRIPTFOLDER)"
 
   if
-    ! has_file_hash "$script" || rem if script isnt installed || \
-    (has_changed_hash "$FILE" && contains "change" "${rerun[@]}") || rem or if it changed || \
-    (has_changed_hash "$FILE" && [ "$TARGET" == "upgrade" ] && contains "upgrade" "${rerun[@]}" && [ -z "$version" ] ) || rem or if target upgrade, and without version || \
-    (has_changed_hash "$FILE" && [ "$TARGET" == "upgrade" ] && contains "upgrade" "${rerun[@]}" && ! compare_db_val "$id-version" "$version" ) || rem or if target upgrade, and with different version || \
-    (has_changed_hash_multiple "${files[@]}" && contains "watch" "${rerun[@]}") || rem or some files have changed that the script watches || \
+    (! has_file_hash "$script" && task="Installing") || rem if script isnt installed || \
+    (has_changed_hash "$FILE" && contains "change" "${rerun[@]}" && task="Updating") || rem or if it changed || \
+    (has_changed_hash "$FILE" && [ "$TARGET" == "upgrade" ] && contains "upgrade" "${rerun[@]}" && [ -z "$version" ] && task="Upgrading") || rem or if target upgrade, and without version || \
+    (has_changed_hash "$FILE" && [ "$TARGET" == "upgrade" ] && contains "upgrade" "${rerun[@]}" && ! compare_db_val "$id-version" "$version" && task="Upgrading") || rem or if target upgrade, and with different version || \
+    (has_changed_hash_multiple "${files[@]}" && contains "watch" "${rerun[@]}" && task="Re-applying") || rem or some files have changed that the script watches || \
   false; then
-    log "Installing/Updating $id..."
+    log "$task $id..."
     bash -e "$script"
     log "DONE!"
 
