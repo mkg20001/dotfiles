@@ -99,6 +99,9 @@ for script in $SCRIPTS; do
 
   id="$(basename $(dirname $script))-$(basename $script)"
 
+  export SCRIPTFOLDER="$(dirname $script)"
+  export MODFOLDER="$(dirname $SCRIPTFOLDER)"
+
   if
     ! has_file_hash "$script" || rem if script isnt installed || \
     (has_changed_hash "$FILE" && contains "change" "${rerun[@]}") || rem or if it changed || \
