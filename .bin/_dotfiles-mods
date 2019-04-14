@@ -116,6 +116,7 @@ for script in $SCRIPTS; do
     for file in "${files[@]}"; do
       store_file_hash "$file"
     done
+    store_file_hash "$file"
     store_db_val "$id-version" "$version"
   else
     echo "Skipping $id..."
