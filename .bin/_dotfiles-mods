@@ -22,7 +22,7 @@ contains() {
 }
 
 get_var() {
-  OUT=$(cat "$SCRIPT" | grep "# $1: $2" | sed "s|^# $1: ||")
+  OUT=$(cat "$script" | grep "# $1: $2" | sed "s|^# $1: ||")
   if [ -z "$OUT" ]; then
     echo "$2"
   else
