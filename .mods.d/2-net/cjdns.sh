@@ -1,3 +1,8 @@
+#!/bin/bash
+
+# rerun: upgrade
+# version: v20.2
+
     CJD_VER="v20.2"
     cjdMain() {
       cd /opt
