@@ -71,6 +71,12 @@ has_changed_hash_multiple() {
   done
 }
 
+has_file_hash_multiple() {
+  for file in "$@"; do
+    has_file_hash "$file"
+  done
+}
+
 store_db_val() {
   echo "$2" > "$DB/$1"
 }
@@ -102,21 +108,22 @@ if [ -z "$TARGET" ]; then
 fi
 
 for script in $SCRIPTS; do
-  rerun=($(get_var upgrade change)) # rce, but all of this is rce anyways so why bother?
-  version=$(get_var rerun)
-  files=($(get_var watch-file))
-
-  id="$(basename $(dirname $script))-$(basename $script)"
-
   export SCRIPTFOLDER="$(dirname $script)"
   export MODFOLDER="$(dirname $SCRIPTFOLDER)"
+  export MAINFOLDER="$(dirname $MODFOLDER)"
+
+  rerun=($(get_var upgrade change)) # rce, but all of this is rce anyways so why bother?
+  version=$(get_var rerun)
+  files=($(get_var watch-file | sed "s|~|$MAINFOLDER"))
+
+  id="$(basename $(dirname $script))-$(basename $script)"
 
   if
     { ! has_file_hash "$script" && task="Installing"; } || rem if script isnt installed || \
     { has_changed_hash "$script" && contains "change" "${rerun[@]}" && task="Updating"; } || rem or if it changed || \
     { has_changed_hash "$script" && [ "$TARGET" == "upgrade" ] && contains "upgrade" "${rerun[@]}" && [ -z "$version" ] && task="Upgrading"; } || rem or if target upgrade, and without version || \
     { has_changed_hash "$script" && [ "$TARGET" == "upgrade" ] && contains "upgrade" "${rerun[@]}" && ! compare_db_val "$id-version" "$version" && task="Upgrading"; } || rem or if target upgrade, and with different version || \
-    { has_changed_hash_multiple "${files[@]}" && contains "watch" "${rerun[@]}" && task="Re-applying"; } || rem or some files have changed that the script watches || \
+    { (! has_file_hash_multiple "${files[@]}" || has_changed_hash_multiple "${files[@]}") && contains "watch" "${rerun[@]}" && task="Re-applying"; } || rem or some files have changed that the script watches || \
   false; then
     log "$task $id..."
     bash -e "$script"
