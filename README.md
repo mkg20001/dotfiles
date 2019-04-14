@@ -4,6 +4,7 @@ mkg's Dotfiles and Setup Scripts
 
 # ToDo
 
+- [ ] more gnome settings
 - [ ] .atom config template & packages
 - [ ] .gitconfig
 - [ ] find way to merge dotfiles from repo with private values, without exposing them

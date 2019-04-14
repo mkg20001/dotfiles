@@ -3,8 +3,13 @@
 # rerun: upgrade change
 
 # extensions.gnome.org installer - src https://github.com/brunelli/gnome-shell-extension-installer
-wget -O /tmp/gnome-shell-extension-installer "https://github.com/brunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer"
+wget -sO /tmp/gnome-shell-extension-installer "https://github.com/brunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer"
 install -o root -g root -m 755 /tmp/gnome-shell-extension-installer /usr/bin/gnome-shell-extension-installer
+# gnome shell extension control -
+wget -sO /tmp/gnome-shell-extension-ctrl "https://github.com/cyberalex4life/gnome-shell-extension-cl/raw/master/gnome-shell-extension-cl"
+install -o root -g root -m 755 /tmp/gnome-shell-extension-ctrl /usr/bin/gnome-shell-extension-ctrl
+# chrome/ff gnome-shell integration
+sudo apt install -y chrome-gnome-shell
 
 i() { gnome-shell-extension-installer "$@"; }
 
