@@ -68,6 +68,6 @@ Vagrant.configure("2") do |config|
     cp -rp /vagrant/.git /home/vagrant
     cd /home/vagrant
     git reset --hard HEAD
-    bash .bin/_dotfiles_mods
+    bash .bin/_dotfiles-mods
   SHELL
 end
