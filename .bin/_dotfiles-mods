@@ -117,7 +117,7 @@ for script in $SCRIPTS; do
     bash -e "$script"
     echo "DONE!"
 
-    for file in ${files[*]}; do
+    for file in "${files[@]}"; do
       store_file_hash "$file"
     done
     store_file_hash "$script"
