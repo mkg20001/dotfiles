@@ -97,7 +97,7 @@ for script in $SCRIPTS; do
   version=$(get_var rerun)
   files=($(get_var watch-file))
 
-  id="$(dirname $script)-$(basename $script)"
+  id="$(basename $(dirname $script))-$(basename $script)"
 
   if
     ! has_file_hash "$script" || rem if script isnt installed || \
