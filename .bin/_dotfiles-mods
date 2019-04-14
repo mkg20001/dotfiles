@@ -38,6 +38,7 @@ _file_hash() {
 }
 
 store_file_hash() {
+  _file_hash "$@"
   echo "$CURHASH" > "$FDB"
 }
 
