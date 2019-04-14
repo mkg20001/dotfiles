@@ -1,6 +1,6 @@
 # dotfiles
 
-OpenSourcing my dotfiles
+mkg's Dotfiles and Setup Scripts
 
 # ToDo
 
