@@ -10,6 +10,10 @@ echo "Authorize sudo once, to store authorization..."
 sudo /bin/bash -c echo
 echo "...stored"
 
+log() {
+  echo "*** $*"
+}
+
 contains() {
   match="$1"
   shift
@@ -51,7 +55,7 @@ has_file_hash() {
 
 has_changed_hash() {
   if ! has_file_hash "$@"; then
-    echo "ERROR: CANNOT CHECK HASH CHANGE IF HASH NOT IN DB" >&2
+    log "ERROR: CANNOT CHECK HASH CHANGE IF HASH NOT IN DB" >&2
     exit 2
   fi
   if [ "$CURHASH" == "$(cat $FDB)" ]; then
@@ -114,9 +118,9 @@ for script in $SCRIPTS; do
     (has_changed_hash "$FILE" && [ "$TARGET" == "upgrade" ] && contains "upgrade" "${rerun[@]}" && ! compare_db_val "$id-version" "$version" ) || rem or if target upgrade, and with different version || \
     (has_changed_hash_multiple "${files[@]}" && contains "watch" "${rerun[@]}") || rem or some files have changed that the script watches || \
   false; then
-    echo "Installing/Updating $id..."
+    log "Installing/Updating $id..."
     bash -e "$script"
-    echo "DONE!"
+    log "DONE!"
 
     for file in "${files[@]}"; do
       store_file_hash "$file"
@@ -124,7 +128,7 @@ for script in $SCRIPTS; do
     store_file_hash "$script"
     store_db_val "$id-version" "$version"
   else
-    echo "Skipping $id..."
+    log "Skipping $id..."
     # TODO: warning about file-change
   fi
 done
