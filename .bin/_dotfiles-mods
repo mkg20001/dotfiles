@@ -53,7 +53,9 @@ has_changed_hash() {
     echo "ERROR: CANNOT CHECK HASH CHANGE IF HASH NOT IN DB" >&2
     exit 2
   fi
-  if [[ "$CURHASH" != "$(cat $FDB)" ]]; then
+  if [ "$CURHASH" == "$(cat $FDB)" ]; then
+    return 0
+  else
     return 1
   fi
 }
@@ -73,7 +75,9 @@ read_db_val() {
 }
 
 compare_db_val() {
-  if [[ "$2" != "$(cat "$DB/$!")" ]]; then
+  if [ "$2" != "$(cat "$DB/$!")" ]; then
+    return 0
+  else
     return 1
   fi
 }
