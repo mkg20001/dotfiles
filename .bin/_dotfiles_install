@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cd $HOME
+git clone https://github.com/mkg20001/dotfiles /tmp/d
+mv /tmp/d/.git .
+git reset --hard HEAD
+bash .bin/_dotfiles-mods

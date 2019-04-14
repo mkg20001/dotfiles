@@ -7,7 +7,7 @@ HASHDB="$DB/hashes"
 mkdir -p "$HASHDB"
 
 echo "Authorize sudo once, to store authorization..."
-sudo open
+sudo /bin/bash -c echo
 echo "...stored"
 
 contains() {
