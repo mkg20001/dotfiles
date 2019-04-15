@@ -1,0 +1,14 @@
+{
+  "name": "maint-d",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dconf-dump.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MPL-2.0",
+  "dependencies": {
+    "minimatch": "^3.0.4"
+  }
+}
