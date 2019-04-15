@@ -1,3 +1,9 @@
 #!/bin/bash
 
 MAIN=$(dirname $(dirname $(readlink -f $0)))
+
+cd "$MAIN"
+
+node .maint.d/dconf-dump.js
+
+git diff
