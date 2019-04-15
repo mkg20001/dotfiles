@@ -6,8 +6,8 @@ DB="$HOME/.config/dotfiles/db"
 HASHDB="$DB/hashes"
 mkdir -p "$HASHDB"
 
-echo "Authorize sudo once, to store authorization..."
-sudo /bin/bash -c echo
+echo -n "Authorize sudo once, to store authorization... "
+sudo /bin/bash -c echo -n
 echo "...stored"
 
 log() {

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+MAIN=$(dirname $(dirname $(readlink -f $0)))

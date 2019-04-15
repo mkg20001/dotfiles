@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -e
+
+[ -z "$1" ] && exit
+
+token=$(pass show _$1)
+oathtool --totp -b "$token"
