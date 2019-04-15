@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DL=$(curl -s https://teamspeak.com/en/downloads/ | grep -o "https.*run" | grep amd64 | uniq)
-wget -O /tmp/ts3.run
+wget -O /tmp/ts3.run "$DL"
 sed "s|^MS_PrintLicense$|true|g" -i /tmp/ts3.run 
 chmod +x /tmp/ts3.run
 /tmp/ts3.run --target "$HOME/.ts3"
