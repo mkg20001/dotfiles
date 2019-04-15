@@ -23,7 +23,7 @@ function dconfToString(conf) {
     }
     out += '\n'
   }
-  
+
   return out
 }
 
@@ -49,13 +49,13 @@ for (const group in stripped) {
       delete stripped[group][key]
     }
   }
-  
+
   if (!Object.keys(stripped[group]).length) {
     delete stripped[group]
   }
 }
 
-stripped['org/gnome/desktop/screensaver']['picture-uri'] = 'file://$MAIN/lock.png'
-stripped['org/gnome/desktop/background']['picture-uri'] = 'file://$MAIN/wall.jpg'
+stripped['org/gnome/desktop/screensaver']['picture-uri'] = "'file://$MAIN/lock.png'"
+stripped['org/gnome/desktop/background']['picture-uri'] = "'file://$MAIN/wall.jpg'"
 
 fs.writeFileSync(path.join(__dirname, '..', '.mods.d', '7-desktop-configuration/dconf.conf'), dconfToString(stripped))
