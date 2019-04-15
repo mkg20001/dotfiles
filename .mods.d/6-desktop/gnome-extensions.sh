@@ -20,7 +20,3 @@ i 1319 # gsconnect
 i 1285 # hotel-manager
 i 1287 # unite
 i 19 # user themes
-
-# extension setting backup - src https://gist.github.com/balderclaassen/d12cfb70b1695c11402116d8b7f79059
-# dconf dump /org/gnome/shell/extensions
-# dconf load /org/gnome/shell/extensions/ <"$SCRIPTFOLDER/gnome-extensions.conf"
