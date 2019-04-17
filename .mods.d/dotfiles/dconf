@@ -35,6 +35,9 @@ show-weekdate=true
 theme='Adwaita'
 visual-bell=false
 
+[org/gnome/desktop/peripherals/touchpad]
+two-finger-scrolling-enabled=true
+
 [org/gnome/desktop/peripherals/mouse]
 speed=1.0
 accel-profile='adaptive'
@@ -88,9 +91,6 @@ icon-theme='Papirus-Dark'
 mru-sources=[('xkb', 'de'), ('xkb', 'us')]
 sources=[('xkb', 'de'), ('xkb', 'us')]
 xkb-options=['grp_led:scroll']
-
-[org/gnome/control-center]
-last-panel='network'
 
 [org/gnome/shell]
 enable-hot-corners=true

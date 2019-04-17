@@ -19,25 +19,25 @@ const config = parseConfig(read(MAINDIR, 'config')).map(el => {
   return el
 })
 
-function import (el) {
+function dotImport (el) {
   const remote = read(REMOTEDIR, el.pathRemote)
   el.module.import(el.pathLocal, remote)
 }
 
-function export (el) {
+function dotExport (el) {
   const local = el.module.parse(el.module.export(el.pathLocal))
-  const processed = applyIgnore(local, el.ignoreList)
-  fs.writeFileSync(path.join(REMOTEDIR, el.pathRemote))
+  const processed = el.module.applyIgnore(local, el.ignoreList)
+  fs.writeFileSync(path.join(REMOTEDIR, el.pathRemote), el.module.stringify(processed))
 }
 
 // TODO: merge
 
 require('yargs') // eslint-disable-line
   .command('export', 'Export all dotfiles', (yargs) => yargs, (argv) => {
-    config.forEach(el => export(el))
+    config.forEach(el => dotExport(el))
   })
   .command('import', 'Import all dotfiles', (yargs) => yargs, (argv) => {
-    config.forEach(el => import(el))
+    config.forEach(el => dotImport(el))
   })
   .option('verbose', {
     alias: 'v',

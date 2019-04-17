@@ -5,6 +5,7 @@ desktop/ibus/general@version
 system/proxy@*
 apps/update-manager@*
 org/gtk/settings/file-chooser@*
+org/gnome/control-center@*
 org/gnome/rhythmbox@*
 org/gnome/rhythmbox/*@*
 org/gnome/rhythmbox/*/*@*

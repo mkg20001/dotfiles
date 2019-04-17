@@ -2,7 +2,7 @@
 
 module.exports = {
   parseConfig (str) {
-    return str.split('\n').map(filter).map(str => {
+    return str.split('\n').filter(Boolean).map(str => {
       let out = {}
 
       str.split(' ').map(str => {

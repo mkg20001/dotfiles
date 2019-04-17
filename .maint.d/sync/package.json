@@ -9,6 +9,7 @@
   "author": "",
   "license": "MPL-2.0",
   "dependencies": {
-    "minimatch": "^3.0.4"
+    "minimatch": "^3.0.4",
+    "yargs": "^13.2.2"
   }
 }
