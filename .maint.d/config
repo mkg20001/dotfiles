@@ -1,0 +1,3 @@
+type=dconf pathLocal=/ pathRemote=.mods.d/dotfiles/dconf ignore=dconf-ignore
+type=cson pathLocal=.atom/config.cson pathRemote=.mods.d/dotfiles/atom-config.cson ignore=atom-ignore
+type=cson pathLocal=.atom/keymap.cson pathRemote=.mods.d/dotfiles/atom-keymap.cson
