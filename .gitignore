@@ -1,2 +1,15 @@
-.vagrant
-*.log
+*
+!.bin
+!.eslintrc
+!.git
+!.gitignore
+!.gitlab-ci.yml
+!.maint.d/
+!.maint.d/**
+!.mods.d/
+!.mods.d/**
+!.private.d/**
+!README.md
+!.sync.d/
+!.sync.d/**
+!Vagrantfile
