@@ -1,0 +1,57 @@
+[credential]
+	helper = cache --timeout=7200
+[push]
+	default = simple
+[core]
+	autocrlf = input
+	pager = diff-so-fancy | less --tabs=4 -RFX
+	editor = nano
+[color]
+	ui = true
+[gpg]
+	program = gpg2
+[alias]
+	patch-file = format-patch
+	apply-patch = apply
+	dbranch = branch -d
+	subup = submodule foreach git pull origin master
+	cbranch = rev-parse --abbrev-ref HEAD
+	up = "!git remote update -p; git merge --ff-only @{u}"
+	abranch = branch -a
+	lbranch = ls-remote
+	starton = checkout -b
+	goto = checkout
+	get = remote update -p
+	pretty = log --oneline --graph --decorate
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	agc = gc --aggressive
+	hist = log --pretty=format:'%h %ad | [%an] %s%d' --graph --date=short
+	type = cat-file -t
+	dump = cat-file -p
+	browse = instaweb --httpd apache2
+	stopbr = instaweb --httpd apache2 --stop
+	histlist = "!git log --format=%n%H --name-only --diff-filter=A | awk '/^$/{C=!C;next}C{commit=$1;next}{print commit\":\"$0,commit\":\"$0}' | git cat-file --batch-check='%(objectsize) %(rest)'"
+	sizefind = "!git log --format=%n%H --name-only --diff-filter=A | awk '/^$/{C=!C;next}C{commit=$1;next}{print commit\":\"$0,commit\":\"$0}' | git cat-file --batch-check='%(objectsize) %(rest)' | sort -n"
+[pull]
+	ff = only
+[zeronet]
+	home = $HOME/ZeroNet
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = yellow
+	frag = blue bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[diff-so-fancy]
+	stripLeadingSymbols = false
+[commit]
+	gpgsign = true

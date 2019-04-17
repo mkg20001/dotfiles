@@ -2,5 +2,6 @@
 
 module.exports = {
   cson: require('./cson'),
-  dconf: require('./dconf')
+  dconf: require('./dconf'),
+  gitconf: require('./gitconf')
 }

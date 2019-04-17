@@ -15,7 +15,7 @@ const CSON = module.exports = {
   },
   import (path, str) {
     out = out.replace(/\$HOME/g, SRCDIR)
-    return write(str, SRCDIR, path)
+    return write(str + '\n', SRCDIR, path)
   },
   merge (local, remote) {
     remote = flatten(remote, {safe: true})
@@ -34,9 +34,7 @@ const CSON = module.exports = {
     const flat = flatten(orig, {safe: true})
 
     for (const key in flat) {
-      console.log(key)
       if (match(key, config, inv)) {
-        console.log('del', key)
         delete flat[key]
       }
     }
