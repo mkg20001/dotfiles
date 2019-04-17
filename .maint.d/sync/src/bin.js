@@ -23,8 +23,9 @@ const config = parseConfig(read(MAINDIR, 'config')).map(el => {
 function dotImport (el) {
   const remote = el.module.parse(read(REMOTEDIR, el.pathRemote))
   const local = el.module.parse(el.module.export(el.pathLocal))
-  el.module.merge(local, remote) // TODO: rm keys that aren't in ignore
-  el.module.import(el.pathLocal, el.module.stringify(localo))
+  const localIgnored = el.module.applyIgnore(local, el.ignoreList, true) // only keep the ignored keys, others will be removed as needed
+  el.module.merge(localIgnored, remote)
+  el.module.import(el.pathLocal, el.module.stringify(localIgnored))
 }
 
 function dotExport (el) {
