@@ -8,6 +8,7 @@
 !.maint.d/**
 !.mods.d/
 !.mods.d/**
+!.private.d/
 !.private.d/**
 !README.md
 !.sync.d/
