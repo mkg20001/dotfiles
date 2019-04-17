@@ -3,14 +3,25 @@
 const cp = require('child_process')
 const path = require('path')
 const minimatch = require('minimatch')
+const {match} = require('../shared')
 
 const DCONF = module.exports = {
   export (path) {
-    return String(cp.execSync('dconf dump ' + JSON.stringify(path)))
+    return String(cp.execSync('dconf dump ' + JSON.stringify(path))) // export dconf as string
   },
   import (path, str) {
-    str.replace(/\$MAIN/g, path.join(path.dirname(path.dirname(path.dirname(path.dirname(__dirname)))), '.mods.d/7-desktop-configuration/pics/'))
-    cp.spawnSync('dconf load ' + JSON.stringify(path), {stdin: Buffer.from(str)})
+    str.replace(/\$MAIN/g, path.join(path.dirname(path.dirname(path.dirname(path.dirname(__dirname)))), '.mods.d/7-desktop-configuration/pics/')) // path for the background pictures
+    cp.spawnSync('dconf load ' + JSON.stringify(path), {stdin: Buffer.from(str)}) // then push that into dconf
+  },
+  merge (local, remote) {
+    for (const group in remote) {
+      if (!local[group]) { local[group] = {} } // create local group if it does not exist already
+      for (const key in remote[group]) {
+        local[group][key] = remote[group][key] // override keys with values from remote
+      }
+    }
+
+    return local
   },
   parse(dconf) {
     let settings = {}
@@ -44,16 +55,12 @@ const DCONF = module.exports = {
 
     return out
   },
-  applyIgnore(orig, strip) {
+  applyIgnore(orig, config, inv) {
     const stripped = JSON.parse(JSON.stringify(orig)) // TODO: perf
 
     for (const group in stripped) {
       for (const key in stripped[group]) {
-        let id = `${group}@${key}`
-        let del = Boolean(strip.filter(m => !m.neg && minimatch(id, m.line)).length)
-        let nodel = Boolean(strip.filter(m => m.neg && minimatch(id, m.line)).length)
-        if (del && !nodel) {
-          console.log('DEL', group, key)
+        if (match(`${group}@${key}`, config, inv)) {
           delete stripped[group][key]
         }
       }

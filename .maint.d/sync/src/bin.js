@@ -20,8 +20,10 @@ const config = parseConfig(read(MAINDIR, 'config')).map(el => {
 })
 
 function dotImport (el) {
-  const remote = read(REMOTEDIR, el.pathRemote)
-  el.module.import(el.pathLocal, remote)
+  const remote = el.module.parse(read(REMOTEDIR, el.pathRemote))
+  const local = el.module.parse(el.module.export(el.pathLocal))
+  el.module.merge(local, remote) // TODO: rm keys that aren't in ignore
+  el.module.import(el.pathLocal, el.module.stringify(localo))
 }
 
 function dotExport (el) {
