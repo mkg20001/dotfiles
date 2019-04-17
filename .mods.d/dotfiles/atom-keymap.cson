@@ -1,0 +1,5 @@
+"atom-workspace, atom-workspace atom-text-editor":
+  "ctrl-alt-c": "color-picker:open"
+  "ctrl-shift-m": "markdown-preview:toggle"
+  "ctrl-shift-f": "standard-formatter:format"
+  "ctrl-shift-h": "pane:focus-left-pane"

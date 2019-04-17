@@ -2,8 +2,7 @@
 
 const cp = require('child_process')
 const path = require('path')
-const minimatch = require('minimatch')
-const {match} = require('../shared')
+const {match} = require('../utils')
 
 const DCONF = module.exports = {
   export (path) {

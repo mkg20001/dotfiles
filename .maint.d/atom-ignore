@@ -1,0 +1,5 @@
+*.nuclide.nuclide-remote-projects.**
+*.nuclide.atom-ide-terminal.lineHeight
+*.general._analyticsUserId
+*.linter-ui-default.panelHeight
+*.exception-reporting.*

@@ -1,0 +1,165 @@
+"*":
+  linter: {}
+  teletype: {}
+  "ide-rust": {}
+  "todo-show": {}
+  core:
+    themes: [
+      "atom-material-ui"
+      "one-dark-syntax"
+    ]
+    audioBeep: false
+    projectHome: "$HOME/Projekte"
+    followSymlinks: false
+    disabledPackages: [
+      "Hydrogen"
+      "language-ember-script"
+      "language-ember-htmlbars"
+      "language-ember"
+      "spell-check"
+      "linter-js-standard"
+      "atom-autocomplete-php"
+      "atom-arma-language"
+      "atom-jshint"
+      "linter"
+      "atom-typescript"
+      "atom-svg-icon-snippets"
+      "coffee-navigator"
+      "ember-cli-helper"
+      "emberjs-atom"
+      "ide-yaml"
+      "imagemin"
+      "lcov-info"
+      "teletype"
+      "coverage-gutter"
+      "coverage-markers"
+      "atom-ide-ui"
+      "linter-rust"
+      "tree-view"
+      "image-view"
+      "file-icons"
+      "Twitch-Atom"
+      "git-diff"
+      "markdown-image-helper"
+      "markdown-image-paste"
+      "markdown-img-paste"
+      "markdown-assistant"
+    ]
+    telemetryConsent: "limited"
+    uriHandlerRegistration: "always"
+    customFileTypes:
+      source:
+        ini: [
+          ".hgrc"
+          ".buckconfig"
+          ".flowconfig"
+        ]
+        json: [
+          "BUCK.autodeps"
+        ]
+        python: [
+          "BUCK"
+        ]
+    packagesWithKeymapsDisabled: [
+      "standard-formatter"
+    ]
+  editor:
+    fontSize: 13
+    invisibles: {}
+  "markdown-preview": {}
+  "linter-shellcheck": {}
+  "atom-beautify":
+    css: {}
+    yaml: {}
+    js:
+      jslint_happy: true
+      end_with_newline: true
+      max_preserve_newlines: 1
+      space_after_anon_function: true
+    json:
+      brace_style: "end-expand"
+      end_with_newline: true
+    html:
+      indent_size: 2
+    python:
+      sort_imports: true
+    coffeescript:
+      indent_size: 2
+      default_beautifier: "Coffee Formatter"
+      max_preserve_newlines: 3
+    markdown:
+      default_beautifier: "Remark"
+  "linter-js-standard": {}
+  "markdown-pdf":
+    syntax: "one-dark-syntax"
+  "split-diff":
+    diffWords: true
+    scrollSyncType: "Vertical + Horizontal"
+    leftEditorColor: "red"
+    ignoreWhitespace: true
+    rightEditorColor: "green"
+  "atom-clock":
+    dateFormat: "[Quarter] Q, [Week] W | dddd, MMMM Do YYYY | hh:mm"
+  welcome:
+    showOnStartup: false
+  minimap:
+    plugins:
+      linter: true
+      "git-diff": true
+      pigments: true
+      linterDecorationsZIndex: 0
+      pigmentsDecorationsZIndex: 0
+      "git-diffDecorationsZIndex": 0
+    disablePythonDocLinks: true
+    adjustAbsoluteModeHeight: true
+  "atom-package-deps":
+    ignored: []
+  "atom-ide-ui":
+    use:
+      hyperclick: "default"
+      "atom-ide-global": "default"
+      "atom-ide-console": "default"
+      "atom-ide-datatip": "default"
+      "atom-ide-debugger": "default"
+      "atom-ide-terminal": "default"
+      "atom-ide-code-format": "default"
+      "atom-ide-diagnostics": "default"
+      "atom-ide-definitions": "default"
+      "atom-ide-busy-signal": "default"
+      "atom-ide-code-actions": "default"
+      "atom-ide-outline-view": "default"
+      "atom-ide-diagnostics-ui": "default"
+      "atom-ide-signature-help": "default"
+      "atom-ide-code-highlight": "default"
+      "atom-ide-find-references": "default"
+    "atom-ide-diagnostics-ui":
+      autoVisibility: true
+      showDirectoryColumn: true
+      showDiagnosticTraces: true
+  "linter-eslint":
+    autofix:
+      fixOnSave: true
+      rulesToDisableWhileFixing: [
+        "strict"
+      ]
+    global:
+      eslintrcPath: "$HOME/.eslintrc"
+      useGlobalEslint: true
+    advanced:
+      eslintRulesDirs: [
+        "/usr/lib/node_modules/aegir/node_modules"
+      ]
+    disabling:
+      disableWhenNoEslintConfig: false
+  "atom-material-ui":
+    ui:
+      panelShadows: true
+    tabs:
+      compactTabs: true
+      tintedTabBar: true
+    colors:
+      paintCursor: true
+  "linter-jshint":
+    lintInlineJavaScript: true
+  "autocomplete-plus":
+    autoActivationDelay: 500

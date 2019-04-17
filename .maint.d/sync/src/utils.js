@@ -3,11 +3,11 @@
 const path = require('path')
 const os = require('os')
 const fs = require('fs')
+const minimatch = require('minimatch')
 
 const MAINDIR = path.dirname(path.dirname(__dirname))
 const SRCDIR = os.homedir()
 const REMOTEDIR = path.dirname(MAINDIR)
-const MODULES = require('./modules')
 const read = (...a) => String(fs.readFileSync(path.join(...a)))
 const write = (content, ...a) => fs.writeFileSync(path.join(...a), content)
 
@@ -24,7 +24,6 @@ module.exports = {
   MAINDIR,
   SRCDIR,
   REMOTEDIR,
-  MODULES,
   read,
   match
 }

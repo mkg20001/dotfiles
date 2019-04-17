@@ -2,7 +2,7 @@
 
 const cp = require('child_process')
 const minimatch = require('minimatch')
-const {SRCDIR, read, write, match} = require('../shared')
+const {SRCDIR, read, write, match} = require('../utils')
 const dset = require('dset')
 const flatten = require('flat')
 const {unflatten} = flatten
@@ -10,20 +10,18 @@ const season = require('season')
 
 const CSON = module.exports = {
   export (path) {
-    return read(SRCDIR, path)
+    let out = read(SRCDIR, path)
+    return out.replace(new RegExp(SRCDIR, 'g'), '$HOME')
   },
   import (path, str) {
+    out = out.replace(/\$HOME/g, SRCDIR)
     return write(str, SRCDIR, path)
   },
   merge (local, remote) {
+    remote = flatten(remote, {safe: true})
+
     for (const key in remote) {
-      dset()
-    }
-    for (const group in remote) {
-      if (!local[group]) { local[group] = {} } // create local group if it does not exist already
-      for (const key in remote[group]) {
-        local[group][key] = remote[group][key] // override keys with values from remote
-      }
+      dset(local, key, remote[key])
     }
 
     return local
@@ -36,11 +34,13 @@ const CSON = module.exports = {
     const flat = flatten(orig, {safe: true})
 
     for (const key in flat) {
+      console.log(key)
       if (match(key, config, inv)) {
+        console.log('del', key)
         delete flat[key]
       }
     }
 
-    return unflatten(orig, {safe: true})
+    return unflatten(flat, {safe: true})
   }
 }

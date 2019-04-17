@@ -4,7 +4,8 @@ const fs = require('fs')
 const path = require('path')
 const os = require('os')
 
-const {MAINDIR, SRCDIR, REMOTEDIR, MODULES, read} = require('./shared')
+const {MAINDIR, SRCDIR, REMOTEDIR, read} = require('./utils')
+const MODULES = require('./modules')
 
 const {parseConfig} = require('.')
 const {parseIgnore, applyIgnore} = require('./ignore')
