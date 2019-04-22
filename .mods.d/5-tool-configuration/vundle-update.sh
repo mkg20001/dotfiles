@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# rerun: change watch
+# rerun: watch change
 # watch-file: ~/.vimrc
 
 if [ -z "$SCRIPTFOLDER" ]; then
