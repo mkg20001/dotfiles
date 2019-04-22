@@ -1,9 +1,12 @@
 set nocompatible              " be iMproved, required
+
+" Use 2 spaces. Not less, not more
 set smartindent
 set shiftwidth=2
 set smarttab
 set tabstop=2
 set softtabstop=2
+
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
