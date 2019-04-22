@@ -27,6 +27,9 @@ Plugin 'vim-syntastic/syntastic'
 " LSP integration
 Plugin 'w0rp/ale'
 
+" cheat codes :P
+Bundle 'dbeniamine/cheat.sh-vim'
+
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
