@@ -3,4 +3,8 @@
 # rerun: change watch
 # watch-file: ~/.vimrc
 
-vim +PluginInstall # +qall
+if [ -z "$SCRIPTFOLDER" ]; then
+  vim +PluginInstall
+else
+  vim +PluginInstall +qall # run headless
+fi
