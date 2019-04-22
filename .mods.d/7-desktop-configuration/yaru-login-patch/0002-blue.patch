@@ -1,0 +1,270 @@
+From 3c72803d53d73559bbf21c8e226c05cb23548344 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Maciej=20Kr=C3=BCger?= <mkg20001@gmail.com>
+Date: Mon, 22 Apr 2019 15:47:50 +0200
+Subject: [PATCH 2/2] blue
+
+---
+ gnome-shell.css | 67 +++++++++++++++++++++++++------------------------
+ 1 file changed, 34 insertions(+), 33 deletions(-)
+
+diff --git a/gnome-shell.css b/gnome-shell.css
+index 3c0d04c..c9c62b6 100644
+--- a/gnome-shell.css
++++ b/gnome-shell.css
+@@ -39,7 +39,7 @@ stage {
+   text-shadow: none; }
+   .button:focus {
+     transition-duration: 200ms;
+-    box-shadow: inset 0px 0px 0px 1px #E95420; }
++    box-shadow: inset 0px 0px 0px 1px #03A9F4; /* md lb 500 */ }
+   .button:hover {
+     transition-duration: 200ms;
+     background-color: #373737; }
+@@ -69,7 +69,7 @@ stage {
+     transition-duration: 200ms; }
+   .modal-dialog-linked-button:focus, .notification-banner .notification-button:focus, .hotplug-notification-item:focus {
+     transition-duration: 200ms;
+-    box-shadow: inset 0px 0px 0px 1px #E95420; }
++    box-shadow: inset 0px 0px 0px 1px #03A9F4; /* md lb 500 */ }
+   .modal-dialog-linked-button:hover, .notification-banner .notification-button:hover, .hotplug-notification-item:hover {
+     transition-duration: 200ms;
+     background-color: white; }
+@@ -107,11 +107,11 @@ StEntry {
+   background-color: #181818;
+   border-color: #060606;
+   box-shadow: none;
+-  selection-background-color: #E95420;
++  selection-background-color: #03A9F4; /* md lb 500 */
+   selected-color: #ffffff; }
+   StEntry:focus {
+     color: #F7F7F7;
+-    border-color: #E95420;
++    border-color: #03A9F4; /* md lb 500 */
+     box-shadow: none; }
+   StEntry:insensitive {
+     color: #8e8e8e;
+@@ -145,7 +145,7 @@ StScrollBar {
+     StScrollBar StButton#vhandle:hover, StScrollBar StButton#hhandle:hover {
+       background-color: #cdcdcd; }
+     StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
+-      background-color: #E95420; }
++      background-color: #03A9F4; /* md lb 500 */ }
+ 
+ /* Slider */
+ .slider {
+@@ -228,7 +228,7 @@ StScrollBar {
+     width: 20em;
+     margin-bottom: 6px; }
+     .modal-dialog .run-dialog-entry:focus {
+-      border-color: #E95420; }
++      border-color: #03A9F4; /* md lb 500 */ }
+   .modal-dialog .run-dialog-error-box {
+     padding-top: 16px;
+     spacing: 6px; }
+@@ -645,7 +645,7 @@ StScrollBar {
+ 
+ /* Window Cycler */
+ .cycler-highlight {
+-  border: 5px solid #E95420; }
++  border: 5px solid #03A9F4; /* md lb 500 */ }
+ 
+ /* Workspace Switcher */
+ .workspace-switcher-group {
+@@ -739,7 +739,7 @@ StScrollBar {
+     -panel-corner-border-width: 2px;
+     -panel-corner-border-color: transparent; }
+     #panel .panel-corner:active, #panel .panel-corner:overview, #panel .panel-corner:focus {
+-      -panel-corner-border-color: #eb6637; }
++      -panel-corner-border-color: #03A9F4; /* md lb 500 */ }
+     #panel .panel-corner.lock-screen, #panel .panel-corner.login-screen, #panel .panel-corner.unlock-screen {
+       -panel-corner-radius: 0;
+       -panel-corner-background-color: transparent;
+@@ -758,7 +758,7 @@ StScrollBar {
+       color: white; }
+     #panel .panel-button:active, #panel .panel-button:overview, #panel .panel-button:focus, #panel .panel-button:checked {
+       background-color: rgba(0, 0, 0, 0.01);
+-      box-shadow: inset 0px -2px #E95420;
++      box-shadow: inset 0px -2px #03A9F4; /* md lb 500 */
+       color: white; }
+     #panel .panel-button .system-status-icon {
+       icon-size: 1.09em;
+@@ -927,7 +927,7 @@ StScrollBar {
+     color: white;
+     background-color: transparent;
+     border-radius: 4px;
+-    border: 2px solid #E95420;
++    border: 2px solid #03A9F4; /* md lb 500 */
+     margin: 0; }
+     .calendar-day-base:selected:hover {
+       background-color: rgba(255, 255, 255, 0.2); }
+@@ -1246,7 +1246,7 @@ StScrollBar {
+     padding: 7px 9px; }
+   .search-entry:focus {
+     border-width: 1px;
+-    border-color: #E95420; }
++    border-color: #03A9F4; /* md lb 500 */ }
+   .search-entry .search-entry-icon {
+     icon-size: 1em;
+     padding: 0 4px;
+@@ -1365,7 +1365,7 @@ StScrollBar {
+   .app-view-control:checked {
+     color: #F7F7F7;
+     font-weight: bold;
+-    box-shadow: inset 0 -2px #E95420; }
++    box-shadow: inset 0 -2px #03A9F4; /* md lb 500 */ }
+   .app-view-control:first-child {
+     border-right-width: 0;
+     border-radius: 0; }
+@@ -1417,7 +1417,7 @@ StScrollBar {
+   height: 6px;
+   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+   border-radius: 3px;
+-  background-color: #E95420;
++  background-color: #03A9F4; /* md lb 500 */
+   margin-bottom: 1px; }
+ 
+ .search-provider-icon,
+@@ -1492,7 +1492,7 @@ StScrollBar {
+     height: 24px; }
+ 
+ .workspace-thumbnail-indicator {
+-  border: 0px solid #E95420;
++  border: 0px solid #03A9F4; /* md lb 500 */
+   border-left-width: 2px;
+   padding: 4px; }
+ 
+@@ -1518,7 +1518,7 @@ StScrollBar {
+   box-shadow: none; }
+   .modal-dialog StEntry:focus, .prompt-dialog StEntry:focus, .audio-device-selection-dialog StEntry:focus, .access-dialog StEntry:focus, .geolocation-dialog StEntry:focus, .extension-dialog StEntry:focus, .inhibit-shortcuts-dialog StEntry:focus, .nm-dialog StEntry:focus, .notification-banner StEntry:focus, .login-dialog StEntry:focus {
+     color: #3D3D3D;
+-    border-color: #E95420;
++    border-color: #03A9F4; /* md lb 500 */
+     box-shadow: none; }
+   .modal-dialog StEntry:insensitive, .prompt-dialog StEntry:insensitive, .audio-device-selection-dialog StEntry:insensitive, .access-dialog StEntry:insensitive, .geolocation-dialog StEntry:insensitive, .extension-dialog StEntry:insensitive, .inhibit-shortcuts-dialog StEntry:insensitive, .nm-dialog StEntry:insensitive, .notification-banner StEntry:insensitive, .login-dialog StEntry:insensitive {
+     color: #8e8e8e;
+@@ -1576,7 +1576,7 @@ StScrollBar {
+   width: 1.6em;
+   -shell-counter-overlap-x: 3px;
+   -shell-counter-overlap-y: 3px;
+-  background-color: #E95420;
++  background-color: #03A9F4; /* md lb 500 */
+   color: #ffffff;
+   border: 2px solid #F7F7F7;
+   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+@@ -1662,7 +1662,7 @@ StScrollBar {
+ 
+ /* Eeeky things */
+ .magnifier-zoom-region {
+-  border: 2px solid #E95420; }
++  border: 2px solid #03A9F4; /* md lb 500 */ }
+   .magnifier-zoom-region.full-screen {
+     border-width: 0; }
+ 
+@@ -1694,7 +1694,7 @@ StScrollBar {
+   color: #F7F7F7; }
+   .keyboard-key:focus {
+     transition-duration: 200ms;
+-    box-shadow: inset 0px 0px 0px 1px #E95420; }
++    box-shadow: inset 0px 0px 0px 1px #03A9F4; /* md lb 500 */ }
+   .keyboard-key:hover, .keyboard-key:checked {
+     transition-duration: 200ms;
+     background-color: #575757; }
+@@ -1761,7 +1761,7 @@ StScrollBar {
+   padding: 0.3em 0.5em 0.3em 0.5em;
+   border-radius: 4px; }
+   .candidate-box:selected, .candidate-box:hover {
+-    background-color: #E95420;
++    background-color: #03A9F4; /* md lb 500 */
+     color: #ffffff; }
+ 
+ .candidate-page-button-box {
+@@ -1816,7 +1816,7 @@ StScrollBar {
+       box-shadow: none; }
+     .login-dialog .modal-dialog-button:focus {
+       box-shadow: none;
+-      border-color: #E95420; }
++      border-color: #03A9F4; }
+     .login-dialog .modal-dialog-button:hover {
+       transition-duration: 200ms;
+       background-color: #fafafa; }
+@@ -1832,15 +1832,15 @@ StScrollBar {
+       padding-bottom: 5px;
+       padding-top: 5px;
+       transition-duration: 200ms;
+-      background-color: #3EB34F;
+-      border-color: #37a047;
++      background-color: #4FC3F7; /* md lb 300 */
++      border-color: #29B6F6; /* md lb 400 */
+       color: #F7F7F7;
+       icon-shadow: none;
+       text-shadow: none;
+       box-shadow: none; }
+       .login-dialog .modal-dialog-button:default:hover {
+         transition-duration: 200ms;
+-        background-color: #5dc76c; }
++        background-color: #29B6F6; }
+       .login-dialog .modal-dialog-button:default:focus {
+         transition-duration: 200ms;
+         box-shadow: inset 0px 0px 0px 1px white; }
+@@ -1849,17 +1849,15 @@ StScrollBar {
+         box-shadow: none; }
+       .login-dialog .modal-dialog-button:default:focus:hover {
+         transition-duration: 200ms;
+-        background-color: #5dc76c; }
++        background-color: #29B6F6; }
+       .login-dialog .modal-dialog-button:default:insensitive {
+         transition-duration: 200ms;
+         color: #8e8e8e;
+-        border-color: #37a047;
+-        background-color: rgba(78, 172, 92, 0.7);
+         box-shadow: none;
+         text-shadow: none;
+         icon-shadow: none;
+-        background-color: #24672e;
+-        border-color: #24672e;
++        background-color: #0288D1; /* md lb 700 */
++        border-color: #0288D1; /* mb lb 700 */
+         color: rgba(255, 255, 255, 0.5); }
+ 
+ .login-dialog-logo-bin {
+@@ -1900,10 +1898,10 @@ StScrollBar {
+   spacing: 12px;
+   width: 23em; }
+   .login-dialog-user-list:expanded .login-dialog-user-list-item:selected {
+-    background-color: #E95420;
++    background-color: #03A9F4; /* md lb 500 */
+     color: #ffffff; }
+   .login-dialog-user-list:expanded .login-dialog-user-list-item:logged-in {
+-    border-right: 2px solid #E95420; }
++    border-right: 2px solid #03A9F4; /* md lb 500 */ }
+ 
+ .login-dialog-user-list-item {
+   border-radius: 5px;
+@@ -2014,7 +2012,10 @@ StScrollBar {
+   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4); }
+ 
+ #lockDialogGroup {
+-  background-color: #2C001E; }
++  background: #aaaaff url(file:///usr/share/backgrounds/Blue_by_ElSlunko.jpg); /* from ubuntu-wallpapers-maverick */
++  background-repeat: no-repeat;
++  background-size: cover;
++  background-position: center; }
+ 
+ #screenShieldNotifications StButton#vhandle, #screenShieldNotifications StButton#hhandle {
+   background-color: rgba(37, 37, 37, 0.3); }
+@@ -2204,10 +2205,10 @@ StScrollBar {
+ 
+ #dashtodockContainer .notification-badge {
+   color: white;
+-  background-color: #3EB34F;
++  background-color: #4FC3F7; /* md lb 300 */
+   padding: 0.2em 0.5em;
+   border-radius: 1em;
+-  border: 1px solid #318d3e;
++  border: 1px solid #29B6F6; /* md lb 400 */
+   box-shadow: -1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+   font-weight: bold;
+   text-align: center;
+-- 
+2.20.1
+
