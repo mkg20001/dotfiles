@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Convert a file to something that you can toss into the browser URL bar
+
+file="$1"
+
+mime=$(mimetype --output-format=%m $file)
+
+echo -n "data:$mime;base64,"
+base64 -w0 "$file"
+echo
