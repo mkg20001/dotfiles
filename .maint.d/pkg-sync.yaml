@@ -1,0 +1,27 @@
+atom:
+  commands:
+    list:
+      - apm
+      - list
+      - "--bare"
+      - "--installed"
+    install:
+      - apm
+      - install
+      - "#"
+    install.multi: true
+    remove:
+      - apm
+      - remove
+      - "#"
+    remove.multi: true
+    update.useinstall: true
+    update.multi: true
+  process:
+    regex: "/([A-Z0-9a-z-]+)@([0-9.]+)/gmi"
+    regex-groups:
+      name: 1
+      version: 2
+    pkg-format: "NAME@VERSION"
+  fs:
+    directory: "$HOME/.atom/packages"

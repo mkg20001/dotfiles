@@ -20,28 +20,28 @@ const config = parseConfig(read(MAINDIR, 'config')).map(el => {
   return el
 })
 
-function dotImport (el) {
-  const remote = el.module.parse(read(REMOTEDIR, el.pathRemote))
-  const local = el.module.parse(el.module.export(el.pathLocal))
+async function dotImport (el) {
+  const remote = await el.module.parse(read(REMOTEDIR, el.pathRemote))
+  const local = await el.module.parse(await el.module.export(el.pathLocal))
   const localIgnored = el.module.applyIgnore(local, el.ignoreList, true) // only keep the ignored keys, others will be removed as needed
   el.module.merge(localIgnored, remote)
-  el.module.import(el.pathLocal, el.module.stringify(localIgnored))
+  await el.module.import(el.pathLocal, await el.module.stringify(localIgnored))
 }
 
-function dotExport (el) {
-  const local = el.module.parse(el.module.export(el.pathLocal))
+async function dotExport (el) {
+  const local = await el.module.parse(await el.module.export(el.pathLocal))
   const processed = el.module.applyIgnore(local, el.ignoreList)
-  fs.writeFileSync(path.join(REMOTEDIR, el.pathRemote), el.module.stringify(processed))
+  fs.writeFileSync(path.join(REMOTEDIR, el.pathRemote), await el.module.stringify(processed))
 }
 
 // TODO: merge
 
 require('yargs') // eslint-disable-line
-  .command('export', 'Export all dotfiles', (yargs) => yargs, (argv) => {
-    config.forEach(el => dotExport(el))
+  .command('export', 'Export all dotfiles', (yargs) => yargs, async (argv) => {
+    await Promise.all(config.map(el => dotExport(el)))
   })
-  .command('import', 'Import all dotfiles', (yargs) => yargs, (argv) => {
-    config.forEach(el => dotImport(el))
+  .command('import', 'Import all dotfiles', (yargs) => yargs, async (argv) => {
+    await Promise.all(config.map(el => dotImport(el)))
   })
   .option('verbose', {
     alias: 'v',
