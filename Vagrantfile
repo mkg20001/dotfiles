@@ -69,6 +69,6 @@ Vagrant.configure("2") do |config|
     cd /home/vagrant
 		chown vagrant:vagrant -R /home/vagrant/.git
 		su -u vagrant -c "git reset --hard HEAD"
-		su -u vagrant -c "bash .bin/_dotfiles-mods"
+		su -u vagrant -c "bash .bin/_dotfiles-install"
   SHELL
 end
