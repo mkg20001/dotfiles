@@ -1,0 +1,3 @@
+#!/bin/sh
+cd $HOME/Android-Dev/android-studio
+bash bin/studio.sh

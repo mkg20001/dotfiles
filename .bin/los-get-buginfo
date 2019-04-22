@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Get buginfo from device as required by https://gitlab.com/LineageOS/issues/android
+
+KERNEL=$(adb shell uname -a | grep -o "[0-9][0-9]*.[0-9][0-9]*.[0-9][0-9]*" | head -n 1)
+MODVERSION=$(adb shell getprop ro.modversion) # ex 16.0-20190311-NIGHTLY-bacon
+IFS='-' read -ra SPLIT <<< "$MODVERSION"
+DATE=$(echo "${SPLIT[1]}" | sed -r "s|([0-9][0-9][0-9][0-9])([0-9][0-9])([0-9][0-9])|\1-\2-\3|g")
+BASEBAND=$(adb shell getprop gsm.version.baseband)
+
+echo "
+/device ${SPLIT[3]}
+/version lineage-${SPLIT[0]}
+/date $DATE
+/kernel $KERNEL
+/baseband $BASEBAND
+"
