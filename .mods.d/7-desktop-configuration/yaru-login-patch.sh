@@ -3,6 +3,8 @@
 # rerun: change watch
 # watch-file: /usr/share/gnome-shell/theme/Yaru/gnome-shell.css
 
+sudo apt install -y ubuntu-wallpapers-maverick
+
 THEME="/usr/share/gnome-shell/theme/Yaru"
 
 cd $THEME
@@ -12,6 +14,7 @@ if [ -e ".git" ]; then
     git reset --hard HEAD~
   fi # no match: was overriden by upgrade
   rm -rf .git
+  cp gnome-shell.css gnome-shell.css.bak
 fi
 
 TMP=$(mktemp -d)
