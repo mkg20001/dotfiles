@@ -30,7 +30,7 @@ git add patched
 git commit -m "init"
 
 git am "$SCRIPTFOLDER/yaru-login-patch/"*.patch
-echo "git diff HEAD~ > blue.patch && rm -rf .git && git init && git add patched && git commit -m init && cp $THEME/gnome-shell.css . && git add gnome-shell.css && git commit -m base gnome-shell.css && git apply blue.patch && git add gnome-shell.css && git commit -m blue && git format-patch -o '$SCRIPTFOLDER/yaru-login-patch' HEAD~~" > "$THEME/save-changes.sh"
+sudo sh -c 'echo "git diff HEAD~ > blue.patch && rm -rf .git && git init && git add patched && git commit -m init && cp $THEME/gnome-shell.css . && git add gnome-shell.css && git commit -m base gnome-shell.css && git apply blue.patch && git add gnome-shell.css && git commit -m blue && git format-patch -o '$SCRIPTFOLDER/yaru-login-patch' HEAD~~" > "$THEME/save-changes.sh"'
 
 cp "$THEME/gnome-shell.css" .
 git add gnome-shell.css
