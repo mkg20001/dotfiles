@@ -1,6 +1,6 @@
 'use strict'
 
-const {MAINDIR, read, match} = require('../../utils')
+const {SRCDIR, MAINDIR, read, exists, match} = require('../../utils')
 
 const yaml = require('js-yaml')
 const conf = yaml.safeLoad(read(MAINDIR, 'pkg-sync.yaml'))
@@ -32,6 +32,9 @@ module.exports = (subtype) => {
       await module.remove(diff.remove.map(String))
       await module.update(diff.update.map(String))
       await module.install(diff.install.map(String))
+    },
+    exists (path) {
+      return exists(SRCDIR, path)
     },
     merge (local, remote) {
       remote = wrapList(module.processList(remote))
