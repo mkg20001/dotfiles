@@ -1,14 +1,15 @@
 'use strict'
 
+require('colors')
+
 const fs = require('fs')
 const path = require('path')
-const os = require('os')
 
-const {MAINDIR, SRCDIR, REMOTEDIR, read} = require('./utils')
+const {MAINDIR, REMOTEDIR, read} = require('./utils')
 const MODULES = require('./modules')
 
 const {parseConfig} = require('.')
-const {parseIgnore, applyIgnore} = require('./ignore')
+const {parseIgnore} = require('./ignore')
 
 const config = parseConfig(read(MAINDIR, 'config')).map(el => {
   let [type, subtype] = el.type.split(':')

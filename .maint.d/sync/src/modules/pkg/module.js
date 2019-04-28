@@ -17,6 +17,7 @@ const bl = require('bl')
 
 function spawn (cmd, args) {
   return new Promise((resolve, reject) => {
+    console.log('$'.yellow.bold + ' ' + [cmd].concat(args).join(' ').blue.bold) // eslint-disable-line no-console
     const p = cp.spawn(cmd, args, {stdio: 'pipe'})
     p.stdout = p.stdout.pipe(bl())
     p.stderr = p.stderr.pipe(bl())
@@ -35,11 +36,15 @@ function spawn (cmd, args) {
 module.exports = function PKGModule (config) {
   async function genericInstall (cmd, multi, pkg) {
     let batches = multi ? [pkg] : pkg.map(p => [p])
-    let splitIndex = cmd.indexOf(cmd)
-    let pre = cmd.slice(0, splitIndex - 1)
+    let splitIndex = cmd.indexOf('#')
+    let pre = cmd.slice(0, splitIndex)
     let post = cmd.slice(splitIndex + 1)
-    cmd = pre.shift()
-    await Promise.all(batches.map(batch => spawn(cmd, pre.concat(batch).concat(post))))
+    for (let i = 0; i < batches.length; i++) {
+      let batch = batches[i]
+      if (batch.length) {
+        await exec(pre.concat(batch).concat(post))
+      }
+    }
   }
 
   async function exec (cmd) {
@@ -63,8 +68,8 @@ module.exports = function PKGModule (config) {
       return processList(String(list.stdout))
     },
     processList,
-    install: (pkgs) => genericInstall(config.commands.install, config.commands['install.multi']),
-    remove: (pkgs) => genericInstall(config.commands.remove, config.commands['remove.multi']),
-    update: (pkgs) => genericInstall(config.commands['update.useinstall'] ? config.commands.install : config.commands.update, config.commands['update.multi'])
+    install: (pkgs) => genericInstall(config.commands.install, config.commands['install.multi'], pkgs),
+    remove: (pkgs) => genericInstall(config.commands.remove, config.commands['remove.multi'], pkgs),
+    update: (pkgs) => genericInstall(config.commands['update.useinstall'] ? config.commands.install : config.commands.update, config.commands['update.multi'], pkgs)
   }
 }

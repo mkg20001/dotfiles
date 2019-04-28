@@ -10,6 +10,7 @@
   "license": "MPL-2.0",
   "dependencies": {
     "bl": "^3.0.0",
+    "colors": "^1.3.3",
     "dlv": "^1.1.2",
     "dset": "^2.0.1",
     "flat": "^4.1.0",

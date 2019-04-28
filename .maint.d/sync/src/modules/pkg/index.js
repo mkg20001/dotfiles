@@ -29,9 +29,9 @@ module.exports = (subtype) => {
       return wrapList(list)
     },
     async import (path, {diff}) {
-      await module.remove(diff.remove)
-      await module.update(diff.update)
-      await module.install(diff.install)
+      await module.remove(diff.remove.map(String))
+      await module.update(diff.update.map(String))
+      await module.install(diff.install.map(String))
     },
     merge (local, remote) {
       remote = wrapList(module.processList(remote))
