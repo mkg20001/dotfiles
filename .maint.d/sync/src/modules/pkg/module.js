@@ -49,16 +49,19 @@ module.exports = function PKGModule (config) {
   let parseRegex = new RegExp(parseFormatted[1], parseFormatted[2])
   let regexGroups = config.process['regex-groups']
 
+  const processList = (list) => list
+    .split('\n')
+    .filter(Boolean)
+    .map(str => str.match(parseRegex))
+    .filter(Boolean) // TODO: list invalid entries
+    .map(res => PKG(res[regexGroups.name], res[regexGroups.version], config.process['pkg-format']))
+
   return {
     list: async () => {
       let list = await exec(config.commands.list)
-      return String(list.stdout)
-        .split('\n')
-        .filter(Boolean)
-        .map(str => str.match(parseRegex))
-        .filter(Boolean) // TODO: list invalid entries
-        .map(res => PKG(res[regexGroups.name], res[regexGroups.version], config.process['pkg-format']))
+      return processList(String(list.stdout))
     },
+    processList,
     install: (pkgs) => genericInstall(config.commands.install, config.commands['install.multi']),
     remove: (pkgs) => genericInstall(config.commands.remove, config.commands['remove.multi']),
     update: (pkgs) => genericInstall(config.commands['update.useinstall'] ? config.commands.install : config.commands.update, config.commands['update.multi'])

@@ -1,15 +1,15 @@
 'use strict'
 
 const cp = require('child_process')
-const path = require('path')
+const P = require('path')
 const {match} = require('../utils')
 
-const DCONF = module.exports = {
+module.exports = {
   export (path) {
     return String(cp.execSync('dconf dump ' + JSON.stringify(path))) // export dconf as string
   },
   import (path, str) {
-    str.replace(/\$MAIN/g, path.join(path.dirname(path.dirname(path.dirname(path.dirname(__dirname)))), '.mods.d/7-desktop-configuration/pics/')) // path for the background pictures
+    str.replace(/\$MAIN/g, P.join(P.dirname(P.dirname(P.dirname(P.dirname(__dirname)))), '.mods.d/7-desktop-configuration/pics/')) // path for the background pictures
     cp.spawnSync('dconf load ' + JSON.stringify(path), {stdin: Buffer.from(str)}) // then push that into dconf
   },
   merge (local, remote) {
@@ -22,7 +22,7 @@ const DCONF = module.exports = {
 
     return local
   },
-  parse(dconf) {
+  parse (dconf) {
     let settings = {}
     let cur
 
@@ -42,7 +42,7 @@ const DCONF = module.exports = {
 
     return settings
   },
-  stringify(conf) {
+  stringify (conf) {
     let out = ''
     for (const group in conf) {
       out += `[${group}]\n`
@@ -54,7 +54,7 @@ const DCONF = module.exports = {
 
     return out
   },
-  applyIgnore(orig, config, inv) {
+  applyIgnore (orig, config, inv) {
     const stripped = JSON.parse(JSON.stringify(orig)) // TODO: perf
 
     for (const group in stripped) {

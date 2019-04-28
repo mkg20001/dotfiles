@@ -25,5 +25,6 @@ module.exports = {
   SRCDIR,
   REMOTEDIR,
   read,
+  write,
   match
 }

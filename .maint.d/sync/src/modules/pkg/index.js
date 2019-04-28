@@ -1,12 +1,6 @@
 'use strict'
 
-const cp = require('child_process')
-const minimatch = require('minimatch')
-const {SRCDIR, MAINDIR, read, write, match} = require('../../utils')
-const dset = require('dset')
-const flatten = require('flat')
-const {unflatten} = flatten
-const season = require('season')
+const {MAINDIR, read, match} = require('../../utils')
 
 const yaml = require('js-yaml')
 const conf = yaml.safeLoad(read(MAINDIR, 'pkg-sync.yaml'))
@@ -17,25 +11,30 @@ for (const module in conf) {
   modules[module] = PKGModule(conf[module])
 }
 
+const wrapList = (list) => {
+  return {
+    list,
+    toString: () => list.map(String).join('\n') + '\n',
+    contains: (name) => Boolean(list.filter(pkg => pkg.name === name).length),
+    containsPkg: (pkg) => Boolean(list.filter(rPkg => rPkg.compare(pkg)).length)
+  }
+}
+
 module.exports = (subtype) => {
   const module = modules[subtype]
   return {
     async export (path) {
       const list = await module.list()
 
-      return {
-        list,
-        toString: () => list.map(String).join('\n') + '\n',
-        contains: (name) => Boolean(list.filter(pkg => pkg.name === name).length),
-        containsPkg: (pkg) => Boolean(list.filter(rPkg => rPkg.compare(pkg)).length)
-      }
+      return wrapList(list)
     },
-    async import (path, {diff, module}) {
+    async import (path, {diff}) {
       await module.remove(diff.remove)
       await module.update(diff.update)
       await module.install(diff.install)
     },
     merge (local, remote) {
+      remote = wrapList(module.processList(remote))
       let notInLocal = remote.list.filter(pkg => !local.contains(pkg.name))
       let newLocal = local.list.filter(pkg => !remote.contains(pkg.name)).concat(notInLocal)
 

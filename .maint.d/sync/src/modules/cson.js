@@ -1,21 +1,19 @@
 'use strict'
 
-const cp = require('child_process')
-const minimatch = require('minimatch')
 const {SRCDIR, read, write, match} = require('../utils')
 const dset = require('dset')
 const flatten = require('flat')
 const {unflatten} = flatten
 const season = require('season')
 
-const CSON = module.exports = {
+module.exports = {
   export (path) {
     let out = read(SRCDIR, path)
     return out.replace(new RegExp(SRCDIR, 'g'), '$HOME')
   },
-  import (path, str) {
+  import (path, out) {
     out = out.replace(/\$HOME/g, SRCDIR)
-    return write(str + '\n', SRCDIR, path)
+    return write(out + '\n', SRCDIR, path)
   },
   merge (local, remote) {
     remote = flatten(remote, {safe: true})
@@ -28,10 +26,10 @@ const CSON = module.exports = {
   },
   parse: season.parse,
   stringify: season.stringify,
-  applyIgnore(orig, config, inv) {
-    const stripped = JSON.parse(JSON.stringify(orig)) // TODO: perf
+  applyIgnore (orig, config, inv) {
+    const cloned = JSON.parse(JSON.stringify(orig)) // TODO: perf
 
-    const flat = flatten(orig, {safe: true})
+    const flat = flatten(cloned, {safe: true})
 
     for (const key in flat) {
       if (match(key, config, inv)) {

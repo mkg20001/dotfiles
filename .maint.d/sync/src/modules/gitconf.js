@@ -9,9 +9,9 @@ const DCONF = module.exports = {
     let out = read(SRCDIR, path)
     return out.replace(new RegExp(SRCDIR, 'g'), '$HOME')
   },
-  import (path, str) {
+  import (path, out) {
     out = out.replace(/\$HOME/g, SRCDIR)
-    return write(str + '\n', SRCDIR, path)
+    return write(out + '\n', SRCDIR, path)
   },
   merge (local, remote) {
     for (const group in remote) {
