@@ -12,7 +12,7 @@ module.exports = {
   },
   async import (path, str) {
     str = str.replace(/\$MAIN/g, P.join(P.dirname(P.dirname(P.dirname(P.dirname(__dirname)))), '.mods.d/7-desktop-configuration/pics/')) // path for the background pictures
-    await exec(['dconf', 'load'], {}, (p) => {
+    await exec(['dconf', 'load', path], {}, (p) => {
       bl(Buffer.from(str)).pipe(p.stdin)
     }) // then push that into dconf
   },
