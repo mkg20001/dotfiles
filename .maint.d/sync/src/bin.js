@@ -23,14 +23,21 @@ const config = parseConfig(read(MAINDIR, 'config')).map(el => {
 })
 
 async function dotImport (el) {
+  console.log(`Importing ${el.pathRemote}...`.green.bold) // eslint-disable-line no-console
   const remote = await el.module.parse(read(REMOTEDIR, el.pathRemote))
-  const local = await el.module.parse(await el.module.export(el.pathLocal))
-  const localIgnored = el.module.applyIgnore(local, el.ignoreList, true) // only keep the ignored keys, others will be removed as needed
-  el.module.merge(localIgnored, remote)
-  await el.module.import(el.pathLocal, await el.module.stringify(localIgnored))
+
+  if (await el.module.exists(el.pathLocal)) { // if we already have a local file, merge
+    const local = await el.module.parse(await el.module.export(el.pathLocal))
+    const localIgnored = el.module.applyIgnore(local, el.ignoreList, true) // only keep the ignored keys, others will be removed as needed
+    el.module.merge(localIgnored, remote)
+    await el.module.import(el.pathLocal, await el.module.stringify(localIgnored))
+  } else { // else simply create
+    await el.module.import(el.pathLocal, await el.module.stringify(remote))
+  }
 }
 
 async function dotExport (el) {
+  console.log(`Exporting ${el.pathRemote}...`.green.bold) // eslint-disable-line no-console
   const local = await el.module.parse(await el.module.export(el.pathLocal))
   const processed = el.module.applyIgnore(local, el.ignoreList)
   fs.writeFileSync(path.join(REMOTEDIR, el.pathRemote), await el.module.stringify(processed))

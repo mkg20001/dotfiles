@@ -2,7 +2,7 @@
 
 const cp = require('child_process')
 const path = require('path')
-const {SRCDIR, read, write, match} = require('../utils')
+const {SRCDIR, read, write, exists, match} = require('../utils')
 
 const DCONF = module.exports = {
   export (path) {
@@ -12,6 +12,9 @@ const DCONF = module.exports = {
   import (path, out) {
     out = out.replace(/\$HOME/g, SRCDIR)
     return write(out + '\n', SRCDIR, path)
+  },
+  exists (path) {
+    return exists(SRCDIR, path)
   },
   merge (local, remote) {
     for (const group in remote) {
@@ -23,7 +26,7 @@ const DCONF = module.exports = {
 
     return local
   },
-  parse(dconf) {
+  parse (dconf) {
     let settings = {}
     let cur
 
@@ -39,7 +42,7 @@ const DCONF = module.exports = {
 
     return settings
   },
-  stringify(conf) {
+  stringify (conf) {
     let out = ''
     for (const group in conf) {
       out += `[${group}]\n`
@@ -50,7 +53,7 @@ const DCONF = module.exports = {
 
     return out
   },
-  applyIgnore(orig, config, inv) {
+  applyIgnore (orig, config, inv) {
     const stripped = JSON.parse(JSON.stringify(orig)) // TODO: perf
 
     for (const group in stripped) {

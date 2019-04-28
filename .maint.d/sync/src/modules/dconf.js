@@ -12,6 +12,9 @@ module.exports = {
     str.replace(/\$MAIN/g, P.join(P.dirname(P.dirname(P.dirname(P.dirname(__dirname)))), '.mods.d/7-desktop-configuration/pics/')) // path for the background pictures
     cp.spawnSync('dconf load ' + JSON.stringify(path), {stdin: Buffer.from(str)}) // then push that into dconf
   },
+  exists (path) { // if it doesn't, dconf dump will simply not give any output
+    return true
+  },
   merge (local, remote) {
     for (const group in remote) {
       if (!local[group]) { local[group] = {} } // create local group if it does not exist already

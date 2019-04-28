@@ -1,6 +1,6 @@
 'use strict'
 
-const {SRCDIR, read, write, match} = require('../utils')
+const {SRCDIR, read, write, exists, match} = require('../utils')
 const dset = require('dset')
 const flatten = require('flat')
 const {unflatten} = flatten
@@ -14,6 +14,9 @@ module.exports = {
   import (path, out) {
     out = out.replace(/\$HOME/g, SRCDIR)
     return write(out + '\n', SRCDIR, path)
+  },
+  exists (path) {
+    return exists(SRCDIR, path)
   },
   merge (local, remote) {
     remote = flatten(remote, {safe: true})

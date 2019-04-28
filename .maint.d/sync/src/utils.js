@@ -10,6 +10,7 @@ const SRCDIR = os.homedir()
 const REMOTEDIR = path.dirname(MAINDIR)
 const read = (...a) => String(fs.readFileSync(path.join(...a)))
 const write = (content, ...a) => fs.writeFileSync(path.join(...a), content)
+const exists = (...a) => fs.existsSync(path.join(...a))
 
 const match = (id, config, inv) => { // TODO: recursive nodel&del
   let del = Boolean(config.filter(m => !m.neg && minimatch(id, m.line)).length)
@@ -26,5 +27,6 @@ module.exports = {
   REMOTEDIR,
   read,
   write,
+  exists,
   match
 }
