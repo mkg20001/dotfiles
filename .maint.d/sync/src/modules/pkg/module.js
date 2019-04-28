@@ -8,6 +8,7 @@ function PKG (name, ver, format) {
     name,
     ver,
     formatted,
+    toString: () => formatted,
     compare: (other) => other.name === name && other.ver === ver
   }
 }
@@ -44,7 +45,7 @@ module.exports = function PKGModule (config) {
     return spawn(cmd.shift(), cmd)
   }
 
-  let parseFormatted = config.process.regex.match(/\/(.+)\/(.+)/g)
+  let parseFormatted = config.process.regex.match(/\/(.+)\/(.+)/)
   let parseRegex = new RegExp(parseFormatted[1], parseFormatted[2])
   let regexGroups = config.process['regex-groups']
 
@@ -55,6 +56,7 @@ module.exports = function PKGModule (config) {
         .split('\n')
         .filter(Boolean)
         .map(str => str.match(parseRegex))
+        .filter(Boolean) // TODO: list invalid entries
         .map(res => PKG(res[regexGroups.name], res[regexGroups.version], config.process['pkg-format']))
     },
     install: (pkgs) => genericInstall(config.commands.install, config.commands['install.multi']),

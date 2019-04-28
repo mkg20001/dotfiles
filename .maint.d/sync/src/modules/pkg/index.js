@@ -25,7 +25,7 @@ module.exports = (subtype) => {
 
       return {
         list,
-        toString: () => list.map(String),
+        toString: () => list.map(String).join('\n') + '\n',
         contains: (name) => Boolean(list.filter(pkg => pkg.name === name).length),
         containsPkg: (pkg) => Boolean(list.filter(rPkg => rPkg.compare(pkg)).length)
       }
@@ -49,7 +49,7 @@ module.exports = (subtype) => {
       return local
     },
     parse: v => v,
-    stringify: v => v,
+    stringify: v => v, // v.toString() takes care of that
     applyIgnore (orig, config, inv) { // TODO: add
       return orig
     }

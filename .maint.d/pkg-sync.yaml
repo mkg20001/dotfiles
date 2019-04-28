@@ -18,10 +18,10 @@ atom:
     update.useinstall: true
     update.multi: true
   process:
-    regex: "/([A-Z0-9a-z-]+)@([0-9.]+)/gmi"
+    regex: "/([A-Z0-9a-z-]+)@([0-9.]+)/mi"
     regex-groups:
       name: 1
       version: 2
-    pkg-format: "NAME@VERSION"
+    pkg-format: "NAME@VER"
   fs:
     directory: "$HOME/.atom/packages"
