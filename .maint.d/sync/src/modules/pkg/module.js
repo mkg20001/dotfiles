@@ -23,6 +23,7 @@ function spawn (cmd, args) {
 
     p.once('exit', (code, sig) => {
       if (code || sig) {
+        console.log(['[stdout]', String(p.stdout), '[stderr]', String(p.stderr)].join('\n')) // eslint-disable-line no-console
         reject(new Error('Process unexpectedly quit with ' + (code || sig)))
       } else {
         resolve(p)
