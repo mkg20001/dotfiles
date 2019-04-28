@@ -1,16 +1,18 @@
 'use strict'
 
-const cp = require('child_process')
+/* eslint-disable guard-for-in */
+
 const P = require('path')
-const {match} = require('../utils')
+const {match, exec} = require('../utils')
+const bl = require('bl')
 
 module.exports = {
-  export (path) {
-    return String(cp.execSync('dconf dump ' + JSON.stringify(path))) // export dconf as string
+  async export (path) {
+    return String((await exec(['dconf', 'dump', path])).stdout) // export dconf as string
   },
-  import (path, str) {
+  async import (path, str) {
     str.replace(/\$MAIN/g, P.join(P.dirname(P.dirname(P.dirname(P.dirname(__dirname)))), '.mods.d/7-desktop-configuration/pics/')) // path for the background pictures
-    cp.spawnSync('dconf load ' + JSON.stringify(path), {stdin: Buffer.from(str)}) // then push that into dconf
+    await exec(['dconf', 'load'], {stdio: [bl(str), 'pipe', 'pipe']}) // then push that into dconf
   },
   exists (path) { // if it doesn't, dconf dump will simply not give any output
     return true
@@ -33,7 +35,7 @@ module.exports = {
       if (line.startsWith('[')) {
         let name = line.replace('[', '').replace(']', '')
         settings[name] = cur = {}
-      } else if (~line.indexOf('=')) {
+      } else if (line.indexOf('=') !== -1) {
         let [name, ...content] = line.split('=')
         cur[name] = content.join('=')
       }

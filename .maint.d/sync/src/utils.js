@@ -8,10 +8,10 @@ const minimatch = require('minimatch')
 const cp = require('child_process')
 const bl = require('bl')
 
-function spawn (cmd, args) {
+function spawn (cmd, args, opt) {
   return new Promise((resolve, reject) => {
     console.log('$'.yellow.bold + ' ' + [cmd].concat(args).join(' ').blue.bold) // eslint-disable-line no-console
-    const p = cp.spawn(cmd, args, {stdio: 'pipe'})
+    const p = cp.spawn(cmd, args, Object.assign({stdio: 'pipe'}, opt))
     p.stdout = p.stdout.pipe(bl())
     p.stderr = p.stderr.pipe(bl())
 
@@ -26,8 +26,8 @@ function spawn (cmd, args) {
   })
 }
 
-async function exec (cmd) {
-  return spawn(cmd.shift(), cmd)
+async function exec (cmd, opt) {
+  return spawn(cmd.shift(), cmd, opt)
 }
 
 const MAINDIR = path.dirname(path.dirname(__dirname))
