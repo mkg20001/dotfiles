@@ -5,7 +5,6 @@
 const P = require('path')
 const {match, exec} = require('../utils')
 const bl = require('bl')
-const stream = require('stream')
 
 module.exports = {
   async export (path) {
@@ -13,10 +12,9 @@ module.exports = {
   },
   async import (path, str) {
     str = str.replace(/\$MAIN/g, P.join(P.dirname(P.dirname(P.dirname(P.dirname(__dirname)))), '.mods.d/7-desktop-configuration/pics/')) // path for the background pictures
-
-    const configStream = new stream.PassThrough()
-    configStream.end(Buffer.from(str))
-    await exec(['dconf', 'load'], {stdio: [configStream, 'pipe', 'pipe']}) // then push that into dconf
+    await exec(['dconf', 'load'], {}, (p) => {
+      bl(Buffer.from(str)).pipe(p.stdin)
+    }) // then push that into dconf
   },
   exists (path) { // if it doesn't, dconf dump will simply not give any output
     return true
