@@ -4,6 +4,10 @@ preload-engines=['xkb:de::ger', 'xkb:us::eng']
 [org/gnome/rhythmbox/plugins]
 active-plugins=['rb', 'replaygain', 'power-manager', 'notification', 'mtpdevice', 'mpris', 'mmkeys', 'iradio', 'ipod', 'generic-player', 'dbus-media-server', 'daap', 'audioscrobbler', 'audiocd', 'artsearch', 'android']
 
+[org/gnome/eog/view]
+background-color='rgb(0,0,0)'
+use-background-color=true
+
 [org/gnome/nautilus/icon-view]
 default-zoom-level='small'
 
@@ -15,10 +19,6 @@ network-icon-visible=true
 search-view='list-view'
 default-folder-viewer='icon-view'
 search-filter-time-type='last_modified'
-
-[org/gnome/eog/view]
-background-color='rgb(0,0,0)'
-use-background-color=true
 
 [org/gnome/desktop/notifications]
 show-banners=false
@@ -158,7 +158,7 @@ hinting='slight'
 
 [org/gnome/Totem]
 subtitle-encoding='UTF-8'
-active-plugins=['vimeo', 'variable-rate', 'skipto', 'screenshot', 'screensaver', 'save-file', 'recent', 'movie-properties', 'media_player_keys', 'autoload-subtitles', 'apple-trailers']
+active-plugins=['vimeo', 'variable-rate', 'skipto', 'screenshot', 'screensaver', 'save-file', 'rotation', 'recent', 'movie-properties', 'media_player_keys', 'autoload-subtitles', 'apple-trailers']
 repeat=true
 
 [org/gnome/deja-dup]
@@ -166,7 +166,7 @@ backend='goa'
 prompt-check='disabled'
 
 [org/gnome/gedit/plugins]
-active-plugins=['time', 'spell', 'modelines', 'filebrowser', 'externaltools', 'docinfo']
+active-plugins=['time', 'spell', 'snippets', 'quickhighlight', 'modelines', 'filebrowser', 'externaltools', 'docinfo']
 
 [org/gnome/gedit/preferences/editor]
 display-overview-map=true

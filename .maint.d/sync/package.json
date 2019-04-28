@@ -9,9 +9,11 @@
   "author": "",
   "license": "MPL-2.0",
   "dependencies": {
+    "bl": "^3.0.0",
     "dlv": "^1.1.2",
     "dset": "^2.0.1",
     "flat": "^4.1.0",
+    "js-yaml": "^3.13.1",
     "minimatch": "^3.0.4",
     "season": "^6.0.2",
     "yargs": "^13.2.2"

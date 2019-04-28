@@ -11,7 +11,8 @@ const {parseConfig} = require('.')
 const {parseIgnore, applyIgnore} = require('./ignore')
 
 const config = parseConfig(read(MAINDIR, 'config')).map(el => {
-  el.module = MODULES[el.type]
+  let [type, subtype] = el.type.split(':')
+  el.module = subtype ? MODULES[type](subtype) : MODULES[type]
   if (el.ignore) {
     el.ignoreList = parseIgnore(read(MAINDIR, el.ignore))
   } else {

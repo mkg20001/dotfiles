@@ -2,7 +2,7 @@
 
 const cp = require('child_process')
 
-function PKG(name, ver, format) {
+function PKG (name, ver, format) {
   let formatted = format.replace('NAME', name).replace('VER', ver)
   return {
     name,
@@ -20,9 +20,9 @@ function spawn (cmd, args) {
     p.stdout = p.stdout.pipe(bl())
     p.stderr = p.stderr.pipe(bl())
 
-    p.once('exit', (code || sig) => {
+    p.once('exit', (code, sig) => {
       if (code || sig) {
-        reject(new Error('Process unexpectedly quit with ' + (code || sig))
+        reject(new Error('Process unexpectedly quit with ' + (code || sig)))
       } else {
         resolve(p)
       }
@@ -31,7 +31,7 @@ function spawn (cmd, args) {
 }
 
 module.exports = function PKGModule (config) {
-  async function genericInstall(cmd, multi, pkg) {
+  async function genericInstall (cmd, multi, pkg) {
     let batches = multi ? [pkg] : pkg.map(p => [p])
     let splitIndex = cmd.indexOf(cmd)
     let pre = cmd.slice(0, splitIndex - 1)
@@ -44,22 +44,21 @@ module.exports = function PKGModule (config) {
     return spawn(cmd.shift(), cmd)
   }
 
-	let parseFormatted = config.process.regex.match(/\/(.+)\/(.+)/g)
-	let parseRegex = new RegExp(parseFormatted[1], parseFormatted[2])
+  let parseFormatted = config.process.regex.match(/\/(.+)\/(.+)/g)
+  let parseRegex = new RegExp(parseFormatted[1], parseFormatted[2])
   let regexGroups = config.process['regex-groups']
 
   return {
     list: async () => {
       let list = await exec(config.commands.list)
-      return list
-				.split('\n')
-				.filter(Boolean)
-				.map(str => str.match(parseRegex))
-			  .map(res => PKG(res[regexGroups.name], res[regexGroups.version], config.process['pkg-format']))
+      return String(list.stdout)
+        .split('\n')
+        .filter(Boolean)
+        .map(str => str.match(parseRegex))
+        .map(res => PKG(res[regexGroups.name], res[regexGroups.version], config.process['pkg-format']))
     },
     install: (pkgs) => genericInstall(config.commands.install, config.commands['install.multi']),
     remove: (pkgs) => genericInstall(config.commands.remove, config.commands['remove.multi']),
-		update: (pkgs) => genericInstall(config.commands['update.useinstall'] ? config.commands.install : config.commands.update, config.commands['update.multi']),
-
+    update: (pkgs) => genericInstall(config.commands['update.useinstall'] ? config.commands.install : config.commands.update, config.commands['update.multi'])
   }
 }
