@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt install -y build-tools cmake
+sudo apt install -y build-essential cmake
