@@ -44,8 +44,12 @@ module.exports = {
     })
 
     // hack
-    settings['org/gnome/desktop/screensaver']['picture-uri'] = "'file://$MAIN/lock.png'"
-    settings['org/gnome/desktop/background']['picture-uri'] = "'file://$MAIN/wall.jpg'"
+    if (settings['org/gnome/desktop/screensaver']) {
+      settings['org/gnome/desktop/screensaver']['picture-uri'] = "'file://$MAIN/lock.png'"
+    }
+    if (settings['org/gnome/desktop/background']) {
+      settings['org/gnome/desktop/background']['picture-uri'] = "'file://$MAIN/wall.jpg'"
+    }
 
     return settings
   },
