@@ -1,10 +1,6 @@
 #!/bin/bash
 
-# TODO: somehow write "1\n" to sh
-wget https://sh.rustup.rs -O /tmp/rustup
-chmod +x /tmp/rustup
-echo -e "1\n" | sh /tmp/rustup
-rm /tmp/rustup
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh /dev/stdin -y
 source $HOME/.cargo/env
 
 rustup install stable
