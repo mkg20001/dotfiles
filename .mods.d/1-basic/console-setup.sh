@@ -5,7 +5,7 @@ echo '
 
 # Consult the console-setup(5) manual page.
 
-ACTIVE_CONSOLES="/dev/tty[1-6]"
+ACTIVE_CONSOLES="/dev/tty[1-9]"
 
 CHARMAP="UTF-8"
 
@@ -17,4 +17,4 @@ VIDEOMODE=
 
 # The following is an example how to use a braille font
 # FONT="lat9w-08.psf.gz brl-8x8.psf"
-' > /etc/default/console
+' > /etc/default/console-setup
