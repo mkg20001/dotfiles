@@ -16,5 +16,6 @@
 !.bash.d/
 !.bash.d/**
 !.bash_aliases
+!.htop.js
 !Vagrantfile
 !.vimrc
