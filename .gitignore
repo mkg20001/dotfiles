@@ -13,5 +13,8 @@
 !README.md
 !.sync.d/
 !.sync.d/**
+!.bash.d/
+!.bash.d/**
+!.bash_aliases
 !Vagrantfile
 !.vimrc
