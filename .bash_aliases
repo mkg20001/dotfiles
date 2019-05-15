@@ -5,8 +5,8 @@ for f in $(dir "$HOME/.bash.d"); do
 done
 
 if [ -d "$HOME/.private.d/.bash.d" ]; then
-  for f in $(dir "$HOME/.bash.d"); do
-    . "$HOME/.private.d/$f"
+  for f in $(dir "$HOME/.private.d/.bash.d"); do
+    . "$HOME/.private.d/.bash.d/$f"
   done
 fi
 
@@ -44,7 +44,7 @@ fi
 
 alias _npmaudit="npm_config_registry=https://registry.npmjs.org npm audit"
 alias _npmmv="mv node_modules /tmp/node_modules_trash.$$.\$RANDOM -v"
-alias _purgeandtesti="rm -rfv node_modules/ package-lock.json .cache && ncu -u -a && ionice -c3 npm i && npm test"
+alias _purgeandtesti="rm -rfv node_modules/ package-lock.json .cache && ncu -u && ionice -c3 npm i && npm test"
 alias renpmi="rm -rfv node_modules/ package-lock.json && npm i"
 alias upnpmi="rm -rfv node_modules/ package-lock.json && ncu -u -a && npm i"
 alias lintloop="while ! aegir lint; do echo; done && echo OK"
