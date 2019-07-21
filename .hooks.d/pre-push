@@ -48,7 +48,6 @@ do
 			exit 1
 		fi
 		
-		echo "$local_ref / $remote_ref / $remote / $url"
 		group=$(echo "$url" | sed -r 's%([a-z0-9]+@[a-z0-9.]+:|[a-z]+:\/\/[a-z0-9.-]+\/)([a-z0-9.-]+)\/([a-z0-9.-]+)%\2%')
 		
 		if [ -e "$HOME/.private.d/master-push-blacklist.txt" ] && grep "^$group\$" "$HOME/.private.d/master-push-blacklist.txt" > /dev/null && [ -z "$MASTER_PUSH_OVERRIDE" ]; then
