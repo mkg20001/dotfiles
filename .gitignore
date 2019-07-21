@@ -11,8 +11,6 @@
 !.private.d/
 !.private.d/**
 !README.md
-!.sync.d/
-!.sync.d/**
 !.bash.d/
 !.bash.d/**
 !.bash_aliases
