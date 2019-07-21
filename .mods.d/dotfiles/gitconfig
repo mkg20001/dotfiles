@@ -6,6 +6,7 @@
 	autocrlf = input
 	pager = diff-so-fancy | less --tabs=4 -RFX
 	editor = nano
+	hooksPath = $HOME/.hooks.d
 [color]
 	ui = true
 [gpg]
@@ -55,3 +56,8 @@
 	stripLeadingSymbols = false
 [commit]
 	gpgsign = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

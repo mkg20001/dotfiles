@@ -49,7 +49,7 @@ alias renpmi="rm -rfv node_modules/ package-lock.json && npm i"
 alias upnpmi="rm -rfv node_modules/ package-lock.json && ncu -u -a && npm i"
 alias lintloop="while ! aegir lint; do echo; done && echo OK"
 alias npmpu="npm_config_registry=https://registry.npmjs.org npm publish"
-alias _aegir_release="npm_config_registry=https://registry.npmjs.org npx aegir release"
+alias _aegir_release="npm_config_registry=https://registry.npmjs.org MASTER_PUSH_OVERRIDE=1 npx aegir release"
 alias nup="npm_config_registry=https://registry.npmjs.org ncu -u -a"
 alias nreg="npm_config_registry=https://registry.npmjs.org "
 
