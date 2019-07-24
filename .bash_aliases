@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export PATH="$PATH:$HOME/.bin"
+
 for f in $(dir "$HOME/.bash.d"); do
   . "$HOME/.bash.d/$f"
 done
@@ -35,10 +37,11 @@ if [ -e "$HOME/Android-Dev/android-studio/jre" ]; then
   export CCACHE_COMPRESS=1
   export ANDROID_JACK_VM_ARGS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4G"
   export JAVA_HOME="$HOME/Android-Dev/android-studio/jre"
-  alias gradle="./gradlew"
 else
   export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
 fi
+
+alias gradle="./gradlew"
 
 # Node
 
@@ -46,11 +49,11 @@ alias _npmaudit="npm_config_registry=https://registry.npmjs.org npm audit"
 alias _npmmv="mv node_modules /tmp/node_modules_trash.$$.\$RANDOM -v"
 alias _purgeandtesti="rm -rfv node_modules/ package-lock.json .cache && ncu -u && ionice -c3 npm i && npm test"
 alias renpmi="rm -rfv node_modules/ package-lock.json && npm i"
-alias upnpmi="rm -rfv node_modules/ package-lock.json && ncu -u -a && npm i"
+alias upnpmi="rm -rfv node_modules/ package-lock.json && ncu -u && npm i"
 alias lintloop="while ! aegir lint; do echo; done && echo OK"
 alias npmpu="npm_config_registry=https://registry.npmjs.org npm publish"
 alias _aegir_release="npm_config_registry=https://registry.npmjs.org MASTER_PUSH_OVERRIDE=1 npx aegir release"
-alias nup="npm_config_registry=https://registry.npmjs.org ncu -u -a"
+alias nup="npm_config_registry=https://registry.npmjs.org ncu -u"
 alias nreg="npm_config_registry=https://registry.npmjs.org "
 
 alias _npm_release_patch="npm version patch && pu && pu --tags && npmpu"
@@ -96,7 +99,7 @@ alias nano="vim"
 alias _tor=". torsocks on"
 alias _t="torify"
 alias no="yes | sed 's|y|n|g'"
-alias ldiff='function _ldiff() { sed -r "s|(.)|\1\n|g" "$1" > /tmp/ldiffA && sed -r "s|(.)|\1\n|g" "$2" > /tmp/ldiffB && meld /tmp/ldiffA /tmp/ldiffB; }; _ldiff "$@"'
+alias ldiff='function _ldiff() { sed -r "s|(.)|\1\n|g" "$1" > /tmp/ldiffA && sed -r "s|(.)|\1\n|g" "$2" > /tmp/ldiffB && meld /tmp/ldiffA /tmp/ldiffB; }; _ldiff "$@"' # line diff
 alias atom="ionice -c 3 /usr/bin/atom"
 alias wireshark="_w() { LC_ALL=C wireshark \"\$@\" & }; _w"
 alias ts3="bash $HOME/.ts3client/TS3/ts3client_runscript.sh"
