@@ -153,7 +153,9 @@ alias ytdl='function _ytdl() { for v in "$@"; do youtube-dl -x --audio-format be
 
 showbanner=true
 
-[ "$NO_BANNER" == "1" ] && showbanner=false # TODO: detect asciinema
+alias _asciinema_rec="NO_BANNER=1 asciinema rec"
+
+[ "$NO_BANNER" == "1" ] && showbanner=false
 
 if $showbanner; then
   # Run
