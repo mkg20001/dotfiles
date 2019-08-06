@@ -111,6 +111,7 @@ alias usbtty2="sudo screen /dev/ttyUSB0 115200"
 alias curlpost='curl --header "Content-Type: application/json" --request POST --data'
 alias curlput='curl --header "Content-Type: application/json" --request PUT --data'
 alias sysrq='function _sysrq() { sudo sh -c "echo $1 > /proc/sysrq-trigger"; }; _sysrq'
+alias _syncclean='find -iname "*sync-conflict*" -print -delete'
 
 function _mktmp() {
   PREV="$PWD"
