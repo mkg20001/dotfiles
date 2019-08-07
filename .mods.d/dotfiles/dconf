@@ -165,8 +165,14 @@ repeat=true
 backend='goa'
 prompt-check='disabled'
 
+[org/gnome/gedit/plugins/wordcompletion]
+minimum-word-size=uint32 3
+
+[org/gnome/gedit/plugins/drawspaces]
+draw-spaces=['space', 'tab', 'leading', 'trailing']
+
 [org/gnome/gedit/plugins]
-active-plugins=['time', 'spell', 'snippets', 'quickhighlight', 'modelines', 'filebrowser', 'externaltools', 'docinfo']
+active-plugins=['charmap', 'terminal', 'wordcompletion', 'docinfo', 'quickhighlight', 'drawspaces', 'sort', 'codecomment', 'bracketcompletion', 'findinfiles', 'externaltools', 'bookmarks', 'spell', 'colorpicker', 'textsize', 'modelines', 'smartspaces', 'git', 'multiedit', 'snippets', 'time', 'filebrowser']
 
 [org/gnome/gedit/preferences/editor]
 display-overview-map=true
