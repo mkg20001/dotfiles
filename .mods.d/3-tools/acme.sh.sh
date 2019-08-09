@@ -1,5 +1,5 @@
 #!/bin/bash
 
-# rerun: change
+# rerun: change upgrade
 
 curl https://get.acme.sh | sh
