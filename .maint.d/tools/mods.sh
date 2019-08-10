@@ -26,7 +26,7 @@ contains() {
 }
 
 get_var() {
-  OUT=$(cat "$script" | grep "# $1: $2" | sed "s|^# $1: ||")
+  OUT=$(cat "$script" | grep "^# *$1:" | sed "s|^# *$1: *||")
   if [ -z "$OUT" ]; then
     echo "$2"
   else
@@ -54,7 +54,7 @@ has_file_hash() {
 }
 
 has_changed_hash() {
-  if ! has_file_hash "$@"; then
+  if ! has_file_hash "$@"; then # this calls _file_hash
     log "ERROR: CANNOT CHECK HASH CHANGE IF HASH NOT IN DB" >&2
     exit 2
   fi
@@ -66,9 +66,15 @@ has_changed_hash() {
 }
 
 has_changed_hash_multiple() {
+  res=1
+
   for file in "$@"; do
-    has_changed_hash "$file"
+    if has_changed_hash "$file"; then
+      res=0
+    fi
   done
+
+  return $res
 }
 
 has_file_hash_multiple() {
@@ -104,7 +110,7 @@ cd "$HOME"
 
 TARGET="$1"
 if [ -z "$TARGET" ]; then
-  TARGET="update"
+  TARGET="sync"
 fi
 
 for script in $SCRIPTS; do
@@ -112,17 +118,18 @@ for script in $SCRIPTS; do
   export MODFOLDER="$(dirname $SCRIPTFOLDER)"
   export MAINFOLDER="$(dirname $MODFOLDER)"
 
-  rerun=($(get_var upgrade change)) # rce, but all of this is rce anyways so why bother?
-  version=$(get_var rerun)
+  rerun=($(get_var rerun change)) # rce, but all of this is rce anyways so why bother?
+  version=$(get_var version)
   files=($(get_var watch-file | sed "s|~|$MAINFOLDER|g"))
 
   id="$(basename $(dirname $script))-$(basename $script)"
 
   if
     { ! has_file_hash "$script" && task="Installing"; } || rem if script isnt installed || \
-    { has_changed_hash "$script" && contains "change" "${rerun[@]}" && task="Updating"; } || rem or if it changed || \
-    { has_changed_hash "$script" && [ "$TARGET" == "upgrade" ] && contains "upgrade" "${rerun[@]}" && [ -z "$version" ] && task="Upgrading"; } || rem or if target upgrade, and without version || \
-    { has_changed_hash "$script" && [ "$TARGET" == "upgrade" ] && contains "upgrade" "${rerun[@]}" && ! compare_db_val "$id-version" "$version" && task="Upgrading"; } || rem or if target upgrade, and with different version || \
+    { has_changed_hash "$script" && contains "change" "${rerun[@]}" && task="Updating"; } || rem or if it changed and rerun change || \
+    { [ "$TARGET" == "upgrade" ] && contains "upgrade" "${rerun[@]}" && [ -z "$version" ] && task="Upgrading"; } || rem or if target upgrade, and without version || \
+    { [ "$TARGET" == "upgrade" ] && contains "upgrade" "${rerun[@]}" && ! compare_db_val "$id-version" "$version" && task="Upgrading"; } || rem or if target upgrade, and with different version || \
+    { contains "version" "${rerun[@]}" && ! compare_db_val "$id-version" "$version" && task="Upgrading"; } || rem or if rerun version, and with different version || \
     { (! has_file_hash_multiple "${files[@]}" || has_changed_hash_multiple "${files[@]}") && contains "watch" "${rerun[@]}" && task="Re-applying"; } || rem or some files have changed that the script watches || \
   false; then
     log "$task $id..."
