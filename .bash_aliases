@@ -87,6 +87,7 @@ alias gdiff="git diff"
 alias goto="git branch"
 alias _pu='torify git push'
 alias _prpull='function _prpull { git fetch origin "pull/$1/head:pr-$1" && git goto "pr-$1"; }; _prpull'
+alias _gclean="git gc --aggressive"
 
 alias _unhook="rm -rfv .git/hooks"
 alias _pureb="git pull ; git rebase origin/master && pu"
