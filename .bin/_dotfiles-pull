@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -e
+
+MAIN=$(dirname $(dirname $(readlink -f $0)))
+
+cd "$MAIN"
+
+git stash
+git pull ; git rebase origin/master
+git stash pop
+
+cd .sync.d
+bash sync.sh
