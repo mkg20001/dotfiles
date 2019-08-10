@@ -1,8 +1,0 @@
-#!/bin/bash
-
-MAIN=$(dirname "$(readlink -f $0)")
-
-export PATH="$PATH:$MAIN"
-
-_dotfiles-mods
-_dotfiles-sync import

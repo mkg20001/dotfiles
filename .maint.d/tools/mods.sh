@@ -97,7 +97,7 @@ rem() {
   return 1
 }
 
-SCRIPTS=$(find "$(dirname $(dirname $(readlink -f $0)))/.mods.d" -iname "*.sh" | sort)
+SCRIPTS=$(find "$(dirname $(dirname $(dirname $(readlink -f $0))))/.mods.d" -iname "*.sh" | sort)
 cd "$HOME"
 
 # TODO: proper argv handling

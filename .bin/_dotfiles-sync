@@ -1,9 +1,0 @@
-#!/bin/bash
-
-MAIN=$(dirname $(dirname $(readlink -f $0)))
-
-cd "$MAIN"
-
-node .maint.d/sync/src/bin.js "$@"
-
-git diff

@@ -1,0 +1,45 @@
+#!/bin/bash
+
+MAIN=$(dirname $(dirname "$(readlink -f $0)"))
+TOOLS="$MAIN/.maint.d/tools"
+
+cd "$MAIN"
+
+cmd_mods() {
+  "$TOOLS/mods.sh" "$@"
+}
+
+cmd_sync() {
+  # $1: import/export
+  node "$TOOLS/sync.js" "$@"
+  git diff
+}
+
+cmd_install() {
+  cmd_mods
+  cmd_sync import
+}
+
+cmd_pull() {
+  git stash
+  git pull ; git rebase origin/master
+  git stash pop
+
+  cd .sync.d
+  bash sync.sh
+  exit 0
+}
+
+if [ ! -z "$1" ] && [ -n "$(LC_ALL=C type -t cmd_$1)" ] && [ "$(LC_ALL=C type -t cmd_$1)" = function ]; then
+  CMD="$1"
+  __="$0"
+  shift
+  "cmd_$CMD" "$@"
+  exit 0
+else
+  echo "Usage: $0 <cmd>"
+  echo " - mods: Sync dotfiles mods, accepts: [<'upgrade'>]"
+  echo " - sync: Sync dotfiles configs, accepts: <'import'/'export'>"
+  echo " - install: Do the initial installation"
+  echo " - pull: Pull the newest files from repo and .sync.d"
+fi

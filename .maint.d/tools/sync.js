@@ -1,0 +1,1 @@
+../sync/src/bin.js
