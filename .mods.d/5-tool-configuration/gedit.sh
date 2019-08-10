@@ -2,4 +2,4 @@
 
 # rerun: upgrade change
 
-sudo apt install gedit-plugin-*
+sudo apt install gedit-plugin-* -y
