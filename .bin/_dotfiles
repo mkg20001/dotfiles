@@ -30,6 +30,15 @@ cmd_pull() {
   exit 0
 }
 
+cmd_routine() {
+  small-cleanup-script
+
+  cmd_sync export
+  cmd_pull
+  cmd_mods
+  cmd_sync import
+}
+
 if [ ! -z "$1" ] && [ -n "$(LC_ALL=C type -t cmd_$1)" ] && [ "$(LC_ALL=C type -t cmd_$1)" = function ]; then
   CMD="$1"
   __="$0"
@@ -42,4 +51,5 @@ else
   echo " - sync: Sync dotfiles configs, accepts: <'import'/'export'>"
   echo " - install: Do the initial installation"
   echo " - pull: Pull the newest files from repo and .sync.d"
+  echo " - routine: Run the update routine(s)"
 fi
