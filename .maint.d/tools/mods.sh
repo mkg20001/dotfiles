@@ -38,7 +38,7 @@ _file_hash() {
   FILE="$1"
   FILE_SAFE=$(echo "$FILE" | sed "s|/|@|g")
   FDB="$HASHDB/$FILE_SAFE"
-  CURHASH=$(sha256sum "$FILE" | fold -w 64 | head -n 1)
+  CURHASH=$(sudo sha256sum "$FILE" | fold -w 64 | head -n 1)
 }
 
 store_file_hash() {
