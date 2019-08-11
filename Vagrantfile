@@ -66,9 +66,10 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
+    set -e
     rm -rf /home/vagrant/.git # TODO: persist private changes using merge hook. and also maybe clone & pull if already exists
     cp -rp /vagrant/.git /home/vagrant
-    apt-get update && apt-get install -y xvfb-run
+    apt-get update && apt-get install -y xvfb
     cd /home/vagrant
     chown vagrant:vagrant -R /home/vagrant/.git
     su -c "git reset --hard HEAD && mkdir -p .atom" vagrant
