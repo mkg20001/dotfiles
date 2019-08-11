@@ -70,7 +70,7 @@ Vagrant.configure("2") do |config|
     cp -rp /vagrant/.git /home/vagrant
     cd /home/vagrant
     chown vagrant:vagrant -R /home/vagrant/.git
-    su -c "git reset --hard HEAD" vagrant
+    su -c "git reset --hard HEAD && mkdir -p .atom" vagrant
     su -c "bash .bin/_dotfiles install" vagrant
   SHELL
 end
