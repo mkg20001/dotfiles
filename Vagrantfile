@@ -68,9 +68,10 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
     rm -rf /home/vagrant/.git # TODO: persist private changes using merge hook. and also maybe clone & pull if already exists
     cp -rp /vagrant/.git /home/vagrant
+    apt-get update && apt-get install -y xvfb-run
     cd /home/vagrant
     chown vagrant:vagrant -R /home/vagrant/.git
     su -c "git reset --hard HEAD && mkdir -p .atom" vagrant
-    su -c "bash .bin/_dotfiles install" vagrant
+    su -c "xvfb-run bash .bin/_dotfiles install" vagrant
   SHELL
 end
