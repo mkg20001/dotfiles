@@ -11,7 +11,7 @@ h() {
 
 if [ -e "$INPUT" ]; then
   h data=@"$INPUT"
-elif [ -t 1 ] && [[ "$INPUT" == "-" ]]; then
+elif [[ "$INPUT" == "-" ]]; then
   INPUT=$(cat /dev/stdin)
   h data="$INPUT"
 elif [ ! -z "$INPUT" ]; then
