@@ -1,0 +1,22 @@
+#!/bin/bash
+
+INPUT="$1"
+SERV="https://haste.mkg20001.io"
+
+h() {
+  OUT=$(curl -s "$SERV/documents" --form "$@")
+  KEY=$(echo "$OUT" | jq -r .key)
+  echo "$SERV/$KEY"
+}
+
+if [ -e "$INPUT" ]; then
+  h data=@"$INPUT"
+elif [ -t 1 ] && [[ "$INPUT" == "-" ]]; then
+  INPUT=$(cat /dev/stdin)
+  h data="$INPUT"
+elif [ ! -z "$INPUT" ]; then
+  h data="$INPUT"
+else
+  echo "Usage: $0 <file/-/data>"
+fi
+
