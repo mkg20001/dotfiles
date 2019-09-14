@@ -25,3 +25,26 @@ atom:
     pkg-format: "NAME@VER"
   fs:
     directory: "$HOME/.atom/packages"
+gnome-shell:
+  commands:
+    list:
+      - bash
+      - "$HOME/.maint.d/sync/src/get-gnome-shell-extensions.sh"
+    install:
+      - gnome-shell-extension-installer
+      - "#"
+    install.multi: true
+    remove: # TODO: add
+      - echo
+      - "#"
+    remove.multi: true
+    update.useinstall: true
+    update.multi: true
+  process:
+    regex: "/([0-9]+)@([0-9]+)/mi"
+    regex-groups:
+      name: 1
+      version: 2
+    pkg-format: "NAME@VER"
+  fs:
+    directory: "$HOME/.local/share/gnome-shell/extensions"
