@@ -47,15 +47,15 @@ alias gradle="./gradlew"
 
 alias _npmaudit="npm_config_registry=https://registry.npmjs.org npm audit"
 alias _npmmv="mv node_modules /tmp/node_modules_trash.$$.\$RANDOM -v"
-alias _purgeandtesti="rm -rfv node_modules/ package-lock.json yarn.lock .cache .parcel-cache && ncu -u && ionice -c3 yarn install && yarn test"
+alias _purgeandtesti="rm -rfv node_modules/ package-lock.json yarn.lock .cache .parcel-cache && ncu --dep prod,dev -u && ionice -c3 yarn install && yarn test"
 alias renpmi="rm -rfv node_modules/ package-lock.json && npm i"
-alias upnpmi="rm -rfv node_modules/ package-lock.json && ncu -u && npm i"
+alias upnpmi="rm -rfv node_modules/ package-lock.json && ncu --dep prod,dev -u && npm i"
 alias lintloop="while ! aegir lint; do echo; done && echo OK"
 alias npmpu="npm_config_registry=https://registry.npmjs.org npm publish"
 alias _npm_release='function _release() { npm version "$1" && npmpu && pu && pu --tags; }; _release'
 alias _npm_release_patch="npm version patch && pu && pu --tags && npmpu"
 alias _aegir_release="npm_config_registry=https://registry.npmjs.org MASTER_PUSH_OVERRIDE=1 npx aegir release"
-alias nup="npm_config_registry=https://registry.npmjs.org ncu -u"
+alias nup="npm_config_registry=https://registry.npmjs.org ncu --dep prod,dev -u"
 alias nreg="npm_config_registry=https://registry.npmjs.org "
 alias ni="yarn install"
 
