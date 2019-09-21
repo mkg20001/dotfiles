@@ -5,4 +5,7 @@ set -e
 [ -z "$1" ] && exit
 
 token=$(pass show _$1)
-oathtool --totp -b "$token"
+pass=$(oathtool --totp -b "$token")
+
+echo "$pass" | xsel -b
+echo "$pass"
