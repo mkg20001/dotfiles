@@ -1,0 +1,4 @@
+#!/bin/bash
+
+num=${1/"tel:"/""}
+twinkle --call "$num"
