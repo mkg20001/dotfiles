@@ -22,18 +22,12 @@ cd "$TMP"
 sudo -E git init
 touch patched
 sudo chmod 777 .git/config
-echo "[user]
-	email = mkg20001@gmail.com
-	name = Maciej Krüger
-	username = mkg20001
-[commit]
-	gpgsign = false
-" >> .git/config
+echo -e "[user]\n\temail = mkg20001@gmail.com\n\tname = Maciej Krüger\n\tusername = mkg20001\n[commit]\n\tgpgsign = false" >> .git/config
 sudo -E git add patched
 sudo -E git commit -m "init"
 
+sudo sh -c 'echo "git diff HEAD~ > blue.patch && rm -rf .git && git init && sudo chmod 777 .git/config && echo -e "[user]\n\temail = mkg20001@gmail.com\n\tname = Maciej Krüger\n\tusername = mkg20001\n[commit]\n\tgpgsign = false" >> .git/config && git add patched && git commit -m init && cp '$THEME/gnome-shell.css' . && git add gnome-shell.css && git commit -m base gnome-shell.css && git apply blue.patch && git add gnome-shell.css && git commit -m blue && git format-patch -o '$SCRIPTFOLDER/yaru-login-patch' HEAD~~" > "$TMP/save-changes.sh"'
 sudo -E git am "$SCRIPTFOLDER/yaru-login-patch/"*.patch
-sudo sh -c 'echo "git diff HEAD~ > blue.patch && rm -rf .git && git init && git add patched && git commit -m init && cp $THEME/gnome-shell.css . && git add gnome-shell.css && git commit -m base gnome-shell.css && git apply blue.patch && git add gnome-shell.css && git commit -m blue && git format-patch -o '$SCRIPTFOLDER/yaru-login-patch' HEAD~~" > "$THEME/save-changes.sh"'
 
 sudo cp "$THEME/gnome-shell.css" .
 sudo -E git add gnome-shell.css

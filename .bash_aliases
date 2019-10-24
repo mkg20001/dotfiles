@@ -71,6 +71,10 @@ alias _testc="nodemon -x 'npm run test:nocov'"
 alias _xvfbtest="xvfb-run nodemon -x npm test"
 alias nrun='nodemon index.js | bunyan -l 0'
 
+# Moz
+
+export PATH="/home/maciej/.mozbuild/git-cinnabar:$PATH"
+
 # Git
 
 alias _mykeys="(echo SSH && echo && cat $HOME/.ssh/id_rsa.pub && echo && echo GPG && echo && gpg2 --armor --export $MYKEY)"
@@ -155,6 +159,8 @@ alias fyss='function _fyss() { sudo -E ionice -c1 nice "$@" ; }; _fyss'
 alias pall='while true; do sudo progress | grep -v "^No "; done'
 alias _isthisflashdeadyet='sudo badblocks -b 4096 -c 4096 -n -s'
 alias ytdl='function _ytdl() { for v in "$@"; do youtube-dl -x --audio-format best $v ; done ; }; _ytdl'
+alias ytpldl='youtube-dl --download-archive downloaded.txt --no-post-overwrites -ciwx --write-info-json -x --embed-thumbnail --add-metadata --audio-format opus'
+alias _btm="clear;tput cup 100000 0"
 
 # Banners and stuff
 
