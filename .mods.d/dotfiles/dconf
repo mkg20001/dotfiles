@@ -29,7 +29,6 @@ shared-path='/home/maciej/Downloads'
 active-display-scale=1
 alttab-switcher-delay=100
 alttab-switcher-style='icons+preview'
-applet-cache-updated=1558351589
 command-history=['gnome-screenshot -ac', 'thunderbird+', 'thunderbird', 'gedit .gitconfig', 'gnome-calculator', 'gnome-disks', 'peek', '2fa google', '2fa github', 'gnome-terminal', 'xterm', 'gedit', '2fa npm+', '2fa npm']
 desklet-snap-interval=25
 desktop-effects-close-effect='traditional'
@@ -51,12 +50,12 @@ desktop-effects-unmaximize-effect='none'
 desktop-effects-unmaximize-time=100
 desktop-effects-unmaximize-transition='easeNone'
 device-aliases=['/org/freedesktop/UPower/devices/battery_BAT1:=Intern']
-enabled-applets=['panel1:right:2:systray@cinnamon.org:0', 'panel2:left:0:menu@cinnamon.org:1', 'panel1:left:1:show-desktop@cinnamon.org:2', 'panel1:left:2:panel-launchers@cinnamon.org:3', 'panel1:left:3:window-list@cinnamon.org:4', 'panel1:right:3:keyboard@cinnamon.org:5', 'panel1:right:5:notifications@cinnamon.org:6', 'panel1:right:8:removable-drives@cinnamon.org:7', 'panel1:right:1:user@cinnamon.org:8', 'panel1:right:7:network@cinnamon.org:9', 'panel1:right:4:power@cinnamon.org:11', 'panel1:right:0:calendar@cinnamon.org:12', 'panel1:right:6:sound@cinnamon.org:13', 'panel2:left:1:window-list@cinnamon.org:14', 'panel3:center:0:calendar@cinnamon.org:15']
+enabled-applets=['panel1:right:3:systray@cinnamon.org:0', 'panel2:left:0:menu@cinnamon.org:1', 'panel1:left:1:show-desktop@cinnamon.org:2', 'panel1:left:2:panel-launchers@cinnamon.org:3', 'panel1:left:3:window-list@cinnamon.org:4', 'panel1:right:5:keyboard@cinnamon.org:5', 'panel1:right:7:notifications@cinnamon.org:6', 'panel1:right:10:removable-drives@cinnamon.org:7', 'panel1:right:2:user@cinnamon.org:8', 'panel1:right:9:network@cinnamon.org:9', 'panel1:right:6:power@cinnamon.org:11', 'panel1:right:1:calendar@cinnamon.org:12', 'panel1:right:8:sound@cinnamon.org:13', 'panel2:left:1:window-list@cinnamon.org:14', 'panel3:center:0:calendar@cinnamon.org:15', 'panel1:right:4:SpicesUpdate@claudiux:17']
 enabled-desklets=['diskspace@schorschii:1:1825:75', 'binaryclock2@euxneks:9:1500:375']
-enabled-extensions=['Win7AltTab@entelechy']
+enabled-extensions=['Win7AltTab@entelechy', 'desktop-icons-per-workspace@cardsurf', 'cinnamon-maximus@fmete']
 favorite-apps=['org.gnome.Terminal.desktop', 'firefox.desktop', 'atom.desktop', 'nemo.desktop', 'cinnamon-settings.desktop']
 hotcorner-layout=['expo:false:0', 'scale:false:0', 'scale:false:0', 'desktop:false:0']
-next-applet-id=17
+next-applet-id=18
 next-desklet-id=14
 panel-edit-mode=false
 panel-launchers=['DEPRECATED']
@@ -243,6 +242,7 @@ secondary-click-time=1.2
 
 [org/gnome/desktop/background]
 color-shading-type='solid'
+draw-background=true
 picture-options='zoom'
 picture-uri='file://$MAIN/wall.jpg'
 primary-color='#000000'
@@ -472,6 +472,11 @@ favorite-apps=['rhythmbox.desktop', 'thunderbird.desktop', 'org.gnome.gedit.desk
 
 [org/gnome/shell/extensions/caffeine]
 show-notifications=false
+user-enabled=true
+
+[org/gnome/shell/extensions/cast-to-tv]
+music-visualizer=true
+receiver-type='chromecast'
 
 [org/gnome/shell/extensions/clipboard-indicator]
 display-mode=0
@@ -485,6 +490,9 @@ icon-size='small'
 show-home=true
 show-trash=true
 
+[org/gnome/shell/extensions/extensions]
+position='panel'
+show-add=true
 
 [org/gnome/shell/extensions/freon]
 hot-sensors=['__max__']
@@ -536,6 +544,7 @@ computer-icon-visible=true
 font='Comfortaa 10'
 home-icon-visible=true
 network-icon-visible=true
+show-desktop-icons=true
 volumes-visible=true
 
 [org/nemo/preferences]
