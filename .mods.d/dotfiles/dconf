@@ -97,7 +97,7 @@ secondary-click-time=1.2
 exec='gnome-terminal'
 
 [org/cinnamon/desktop/background]
-picture-uri='file:///home/maciej/.mods.d/7-desktop-configuration/pics/wall.jpg'
+picture-uri='file:///home/maciej/.mods.d/7-desktop-configuration/pics//wall.jpg'
 
 [org/cinnamon/desktop/background/slideshow]
 delay=15
@@ -266,16 +266,14 @@ xkb-options=['grp:alt_shift_toggle', 'grp_led:scroll']
 [org/gnome/desktop/interface]
 clock-show-date=true
 clock-show-seconds=false
+cursor-theme='breeze_cursors'
 document-font-name='Roboto 11'
 enable-animations=true
-cursor-theme='breeze_cursors'
 gtk-im-module='gtk-im-context-simple'
-gtk-theme='Yaru-dark'
-icon-theme='Papirus-Light'
-monospace-font-name='Ubuntu Mono 11'
-scaling-factor=uint32 0
 gtk-theme='Ant-Dracula'
 icon-theme='Papirus-Dark'
+monospace-font-name='Ubuntu Mono 11'
+scaling-factor=uint32 0
 show-battery-percentage=false
 toolkit-accessibility=false
 
@@ -288,8 +286,8 @@ enable-sound-alerts=false
 show-banners=false
 
 [org/gnome/desktop/peripherals/mouse]
-natural-scroll=false
 accel-profile='adaptive'
+natural-scroll=false
 speed=1.0
 
 [org/gnome/desktop/peripherals/touchpad]
@@ -358,10 +356,10 @@ switch-to-workspace-right=['<Control><Alt>Right']
 switch-to-workspace-up=['<Super>Prior']
 switch-windows=['disabled']
 switch-windows-backward=['disabled']
+theme-name='__custom'
 toggle-maximized=['<Super>Down']
 toggle-shaded=['<Control><Alt>s']
 unmaximize=['<Control><Super>Down']
-theme-name='__custom'
 
 [org/gnome/desktop/wm/preferences]
 action-middle-click-titlebar='none'
@@ -414,8 +412,8 @@ show-tabs-mode='auto'
 
 [org/gnome/mutter]
 dynamic-workspaces=true
-workspaces-only-on-primary=true
 folder-status-filters=['modified']
+workspaces-only-on-primary=true
 
 [org/gnome/nautilus/compression]
 default-compression-format='tar.xz'
@@ -426,10 +424,6 @@ network-icon-visible=true
 
 [org/gnome/nautilus/icon-view]
 default-zoom-level='small'
-
-[org/gnome/nautilus/preferences]
-search-filter-time-type='last_modified'
-search-view='list-view'
 
 [org/gnome/rhythmbox/plugins]
 active-plugins=['daap', 'notification', 'mpris', 'ipod', 'mmkeys', 'rb', 'alternative-toolbar', 'artsearch', 'audioscrobbler', 'generic-player', 'iradio', 'power-manager', 'android', 'mtpdevice', 'dbus-media-server', 'audiocd']
@@ -442,22 +436,26 @@ locate-pointer=false
 
 [org/gnome/settings-daemon/plugins/color]
 night-light-enabled=true
+night-light-last-coordinates=(48.033299999999997, 8.8833000000000002)
 night-light-schedule-automatic=false
 night-light-schedule-from=17.0
 night-light-schedule-to=9.0
 night-light-temperature=uint32 3502
 
 [org/gnome/settings-daemon/plugins/media-keys]
-terminal='<Control><Alt>t'
 logout=['']
 media=['<Primary>KP_8']
 next=['<Primary>KP_3']
 play=['<Primary>KP_2']
 previous=['<Primary>KP_1']
 screensaver=['<Primary><Shift>l']
+terminal='<Control><Alt>t'
 volume-down=['<Primary>KP_4']
 volume-mute=['<Primary>KP_5']
 volume-up=['<Primary>KP_6']
+
+[org/gnome/settings-daemon/plugins/sharing/vino-server]
+enabled-connections=@as []
 
 [org/gnome/settings-daemon/plugins/xsettings]
 antialiasing='grayscale'
@@ -485,6 +483,7 @@ notify-on-copy=false
 
 [org/gnome/shell/extensions/dash-to-dock]
 dock-fixed=false
+
 [org/gnome/shell/extensions/desktop-icons]
 icon-size='small'
 show-home=true
@@ -514,13 +513,14 @@ window-maximized=true
 [org/gnome/shell/extensions/unite]
 autofocus-windows=false
 extend-left-box=false
-hide-activities-button=true
-hide-window-titlebars='maximized'
 greyscale-tray-icons=false
+hide-activities-button=true
 hide-aggregate-menu-arrow=true
+hide-window-titlebars='maximized'
 notifications-position='center'
 show-desktop-name=true
 show-legacy-tray=true
+show-window-buttons='maximized'
 
 [org/gnome/shell/extensions/user-theme]
 name='Ant-Dracula'
@@ -538,6 +538,9 @@ window-width=730
 
 [org/gnome/system/location]
 enabled=false
+
+[org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+audible-bell=false
 
 [org/nemo/desktop]
 computer-icon-visible=true
