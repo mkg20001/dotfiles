@@ -1,134 +1,440 @@
+[apps/light-locker]
+idle-hint=false
+late-locking=false
+lock-after-screensaver=uint32 5
+lock-on-lid=false
+lock-on-suspend=true
+
+[com/bajoja/indicator]
+list-device-dir=false
+
+[com/ubuntu/user-interface/desktop]
+cursor-size=24
+scaling-factor=uint32 0
+text-scaling-factor=1.0
+
 [desktop/ibus/general]
 preload-engines=['xkb:de::ger', 'xkb:us::eng']
 
-[org/gnome/rhythmbox/plugins]
-active-plugins=['rb', 'replaygain', 'power-manager', 'notification', 'mtpdevice', 'mpris', 'mmkeys', 'iradio', 'ipod', 'generic-player', 'dbus-media-server', 'daap', 'audioscrobbler', 'audiocd', 'artsearch', 'android']
+[org/baedert/corebird]
+round-avatars=true
 
-[org/gnome/eog/view]
-background-color='rgb(0,0,0)'
-use-background-color=true
+[org/blueman/general]
+plugin-list=['NetUsage']
 
-[org/gnome/nautilus/icon-view]
-default-zoom-level='small'
+[org/blueman/transfer]
+shared-path='/home/maciej/Downloads'
 
-[org/gnome/nautilus/desktop]
-home-icon-visible=true
-network-icon-visible=true
+[org/cinnamon]
+active-display-scale=1
+alttab-switcher-delay=100
+alttab-switcher-style='icons+preview'
+applet-cache-updated=1558351589
+command-history=['gnome-screenshot -ac', 'thunderbird+', 'thunderbird', 'gedit .gitconfig', 'gnome-calculator', 'gnome-disks', 'peek', '2fa google', '2fa github', 'gnome-terminal', 'xterm', 'gedit', '2fa npm+', '2fa npm']
+desklet-snap-interval=25
+desktop-effects-close-effect='traditional'
+desktop-effects-close-time=120
+desktop-effects-close-transition='easeOutQuad'
+desktop-effects-map-effect='traditional'
+desktop-effects-map-time=100
+desktop-effects-map-transition='easeOutQuad'
+desktop-effects-maximize-effect='none'
+desktop-effects-maximize-time=100
+desktop-effects-maximize-transition='easeInExpo'
+desktop-effects-minimize-effect='traditional'
+desktop-effects-minimize-time=160
+desktop-effects-minimize-transition='easeInQuad'
+desktop-effects-tile-effect='none'
+desktop-effects-tile-time=100
+desktop-effects-tile-transition='easeInQuad'
+desktop-effects-unmaximize-effect='none'
+desktop-effects-unmaximize-time=100
+desktop-effects-unmaximize-transition='easeNone'
+device-aliases=['/org/freedesktop/UPower/devices/battery_BAT1:=Intern']
+enabled-applets=['panel1:right:2:systray@cinnamon.org:0', 'panel2:left:0:menu@cinnamon.org:1', 'panel1:left:1:show-desktop@cinnamon.org:2', 'panel1:left:2:panel-launchers@cinnamon.org:3', 'panel1:left:3:window-list@cinnamon.org:4', 'panel1:right:3:keyboard@cinnamon.org:5', 'panel1:right:5:notifications@cinnamon.org:6', 'panel1:right:8:removable-drives@cinnamon.org:7', 'panel1:right:1:user@cinnamon.org:8', 'panel1:right:7:network@cinnamon.org:9', 'panel1:right:4:power@cinnamon.org:11', 'panel1:right:0:calendar@cinnamon.org:12', 'panel1:right:6:sound@cinnamon.org:13', 'panel2:left:1:window-list@cinnamon.org:14', 'panel3:center:0:calendar@cinnamon.org:15']
+enabled-desklets=['diskspace@schorschii:1:1825:75', 'binaryclock2@euxneks:9:1500:375']
+enabled-extensions=['Win7AltTab@entelechy']
+favorite-apps=['org.gnome.Terminal.desktop', 'firefox.desktop', 'atom.desktop', 'nemo.desktop', 'cinnamon-settings.desktop']
+hotcorner-layout=['expo:false:0', 'scale:false:0', 'scale:false:0', 'desktop:false:0']
+next-applet-id=17
+next-desklet-id=14
+panel-edit-mode=false
+panel-launchers=['DEPRECATED']
+panel-zone-icon-sizes='[{"panelId":1,"left":0,"center":0,"right":24},{"panelId":2,"left":0,"center":0,"right":0},{"panelId":3,"left":0,"center":0,"right":0}]'
+panels-autohide=['1:intel', '2:intel', '3:false']
+panels-enabled=['1:0:bottom', '2:0:left', '3:0:top']
+panels-height=['1:25', '2:50', '3:25']
+panels-hide-delay=['1:0', '2:50', '3:0']
+panels-resizable=['1:false', '2:true', '3:false']
+panels-scale-text-icons=['1:true', '2:true', '3:true']
+panels-show-delay=['1:0', '2:100', '3:0']
+show-media-keys-osd='medium'
+workspace-osd-duration=400
+workspace-osd-x=50
+workspace-osd-y=50
 
-[org/gnome/nautilus/preferences]
-search-view='list-view'
-default-folder-viewer='icon-view'
-search-filter-time-type='last_modified'
+[org/cinnamon/cinnamon-session]
+quit-time-delay=60
+
+[org/cinnamon/desktop/a11y/applications]
+screen-keyboard-enabled=false
+screen-reader-enabled=false
+
+[org/cinnamon/desktop/a11y/keyboard]
+bouncekeys-delay=300
+mousekeys-accel-time=300
+mousekeys-init-delay=300
+mousekeys-max-speed=10
+slowkeys-delay=300
+
+[org/cinnamon/desktop/a11y/mouse]
+dwell-click-enabled=false
+dwell-threshold=10
+dwell-time=1.2
+secondary-click-enabled=false
+secondary-click-time=1.2
+
+[org/cinnamon/desktop/applications/terminal]
+exec='gnome-terminal'
+
+[org/cinnamon/desktop/background]
+picture-uri='file:///home/maciej/.mods.d/7-desktop-configuration/pics/wall.jpg'
+
+[org/cinnamon/desktop/background/slideshow]
+delay=15
+image-source='directory:///home/maciej/Bilder'
+
+[org/cinnamon/desktop/interface]
+cursor-blink-time=1200
+cursor-theme='Yaru'
+font-name='Ubuntu 11'
+gtk-theme='Arc-Dark'
+icon-theme='Papirus-Dark'
+scaling-factor=uint32 0
+text-scaling-factor=1.0
+toolkit-accessibility=false
+
+[org/cinnamon/desktop/keybindings/media-keys]
+eject=['XF86Eject', '<Primary>KP_9']
+hibernate=['XF86Suspend', '<Shift>F2']
+media=['XF86AudioMedia', '<Primary>KP_8']
+mute-quiet=['XF86AudioMute', '<Primary>KP_5']
+next=['XF86AudioNext', '<Primary>KP_3']
+pause=['XF86AudioPause', '<Primary>KP_2']
+previous=['XF86AudioPrev', '<Primary>KP_1']
+screensaver=['<Control><Alt>l', 'XF86ScreenSaver', '<Primary><Shift>l']
+stop=['XF86AudioStop', '<Primary>KP_7']
+volume-down=['XF86AudioLowerVolume', '<Primary>KP_4']
+volume-down-quiet=['<Alt>XF86AudioLowerVolume', '<Primary>KP_4']
+volume-up=['XF86AudioRaiseVolume', '<Primary>KP_6']
+volume-up-quiet=['<Alt>XF86AudioRaiseVolume', '<Primary>KP_6']
+
+[org/cinnamon/desktop/keybindings/wm]
+maximize=@as []
+minimize=['<Primary><Shift>Down']
+move-to-center=@as []
+move-to-corner-ne=['<Super>Down']
+push-tile-up=['<Super>Up']
+switch-to-workspace-left=['<Primary><Shift>Left']
+switch-to-workspace-right=['<Primary><Shift>Right']
+toggle-maximized=['<Primary><Shift>Up']
+
+[org/cinnamon/desktop/media-handling]
+autorun-never=false
+
+[org/cinnamon/desktop/notifications]
+bottom-notifications=false
+remove-old=false
+
+[org/cinnamon/desktop/privacy]
+recent-files-max-age=-1
+
+[org/cinnamon/desktop/screensaver]
+layout-group=0
+screensaver-name='xscreensaver@cinnamon.org'
+xscreensaver-hack='barcode'
+
+[org/cinnamon/desktop/sound]
+event-sounds=false
+
+[org/cinnamon/desktop/wm/preferences]
+button-layout='close,minimize,maximize:shade'
+min-window-opacity=30
+theme='Arc-Dark'
+titlebar-font='Ubuntu 10'
+
+[org/cinnamon/muffin]
+resize-threshold=24
+tile-hud-threshold=25
+tile-maximize=true
+
+[org/cinnamon/settings-daemon/peripherals/keyboard]
+delay=uint32 500
+numlock-state='on'
+repeat-interval=uint32 30
+
+[org/cinnamon/settings-daemon/peripherals/touchpad]
+touchpad-enabled=true
+
+[org/cinnamon/settings-daemon/plugins/power]
+button-power='blank'
+lid-close-ac-action='suspend'
+lid-close-battery-action='suspend'
+sleep-display-ac=600
+sleep-display-battery=300
+sleep-inactive-ac-timeout=7200
+sleep-inactive-battery-timeout=900
+
+[org/cinnamon/settings-daemon/plugins/xsettings]
+antialiasing='grayscale'
+buttons-have-icons=true
+menus-have-icons=true
+rgba-order='rgba'
+
+[org/cinnamon/theme]
+name='Arc-Dark'
+
+[org/freedesktop/pulseaudio/module-groups/rtp-recv]
+args0=''
+enabled=false
+name0='module-rtp-recv'
+
+[org/freedesktop/pulseaudio/module-groups/zeroconf-discover]
+args0=''
+enabled=true
+name0='module-zeroconf-discover'
+
+[org/gnome/Totem]
+active-plugins=['skipto', 'apple-trailers', 'save-file', 'vimeo', 'movie-properties', 'screensaver', 'rotation', 'media_player_keys', 'autoload-subtitles', 'recent', 'variable-rate', 'screenshot']
+repeat=true
+subtitle-encoding='UTF-8'
+
+[org/gnome/calculator]
+accuracy=9
+angle-units='degrees'
+base=10
+button-mode='basic'
+number-format='automatic'
+show-thousands=false
+show-zeroes=false
+source-currency=''
+source-units='degree'
+target-currency=''
+target-units='radian'
+word-size=64
+
+[org/gnome/deja-dup]
+prompt-check='disabled'
+
+[org/gnome/desktop/a11y/applications]
+screen-keyboard-enabled=false
+screen-reader-enabled=false
+
+[org/gnome/desktop/a11y/mouse]
+dwell-click-enabled=false
+dwell-threshold=10
+dwell-time=1.2
+secondary-click-enabled=false
+secondary-click-time=1.2
+
+[org/gnome/desktop/background]
+color-shading-type='solid'
+draw-background=true
+picture-options='zoom'
+picture-uri='file://$MAIN/wall.jpg'
+primary-color='#000000'
+secondary-color='#000000'
+
+[org/gnome/desktop/calendar]
+show-weekdate=true
+
+[org/gnome/desktop/datetime]
+automatic-timezone=true
+
+[org/gnome/desktop/file-sharing]
+require-password='never'
+
+[org/gnome/desktop/input-sources]
+mru-sources=[('xkb', 'de'), ('xkb', 'us')]
+show-all-sources=true
+sources=[('xkb', 'de'), ('xkb', 'us')]
+xkb-options=['grp:alt_shift_toggle', 'grp_led:scroll']
+
+[org/gnome/desktop/interface]
+clock-show-date=true
+clock-show-seconds=false
+document-font-name='Roboto 11'
+enable-animations=true
+gtk-im-module='gtk-im-context-simple'
+gtk-theme='Yaru-dark'
+icon-theme='Papirus-Light'
+monospace-font-name='Ubuntu Mono 11'
+scaling-factor=uint32 0
+show-battery-percentage=false
+toolkit-accessibility=false
 
 [org/gnome/desktop/notifications]
 show-banners=false
 
 [org/gnome/desktop/notifications/application/org-gnome-shell-extensions-gsconnect]
-show-banners=true
 application-id='org.gnome.Shell.Extensions.GSConnect.desktop'
-enable-sound-alerts=true
-
-[org/gnome/desktop/calendar]
-show-weekdate=true
-
-[org/gnome/desktop/wm/preferences]
-theme='Adwaita'
-visual-bell=false
-
-[org/gnome/desktop/peripherals/touchpad]
-two-finger-scrolling-enabled=true
+enable-sound-alerts=false
+show-banners=false
 
 [org/gnome/desktop/peripherals/mouse]
+natural-scroll=false
 speed=1.0
-accel-profile='adaptive'
+
+[org/gnome/desktop/peripherals/touchpad]
+edge-scrolling-enabled=true
+two-finger-scrolling-enabled=false
+
+[org/gnome/desktop/privacy]
+disable-microphone=false
+
+[org/gnome/desktop/remote-access]
+view-only=false
 
 [org/gnome/desktop/screensaver]
-picture-options='zoom'
 color-shading-type='solid'
-secondary-color='#000000000000'
+picture-options='zoom'
 picture-uri='file://$MAIN/lock.png'
-primary-color='#000000000000'
+primary-color='#000000'
+secondary-color='#000000'
+
+[org/gnome/desktop/search-providers]
+disabled=['seahorse.desktop']
+enabled=['de.haeckerfelix.gradio.desktop']
+sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop']
+
+[org/gnome/desktop/session]
+idle-delay=uint32 120
 
 [org/gnome/desktop/sound]
 allow-volume-above-100-percent=false
+event-sounds=true
+theme-name='freedesktop'
 
-[org/gnome/desktop/datetime]
-automatic-timezone=true
+[org/gnome/desktop/wm/keybindings]
+activate-window-menu=['<Alt>space']
+begin-move=['<Alt>F7']
+begin-resize=['<Alt>F8']
+close=['<Alt>F4']
+lower=['disabled']
+maximize=['<Control><Super>Up']
+maximize-horizontally=['disabled']
+maximize-vertically=['disabled']
+minimize=['<Control><Alt>KP_0']
+move-to-workspace-down=['<Shift><Super>Next']
+move-to-workspace-left=['<Shift><Control><Alt>Left']
+move-to-workspace-right=['<Shift><Control><Alt>Right']
+move-to-workspace-up=['<Shift><Super>Prior']
+panel-main-menu=['<Alt>F1']
+panel-run-dialog=['<Alt>F2']
+raise=['disabled']
+show-desktop=['<Control><Super>d']
+switch-to-workspace-1=['<Super>Home']
+switch-to-workspace-10=['disabled']
+switch-to-workspace-11=['disabled']
+switch-to-workspace-12=['disabled']
+switch-to-workspace-2=['disabled']
+switch-to-workspace-3=['disabled']
+switch-to-workspace-4=['disabled']
+switch-to-workspace-5=['disabled']
+switch-to-workspace-6=['disabled']
+switch-to-workspace-7=['disabled']
+switch-to-workspace-8=['disabled']
+switch-to-workspace-9=['disabled']
+switch-to-workspace-down=['<Super>Next']
+switch-to-workspace-left=['<Control><Alt>Left']
+switch-to-workspace-right=['<Control><Alt>Right']
+switch-to-workspace-up=['<Super>Prior']
+switch-windows=['disabled']
+switch-windows-backward=['disabled']
+toggle-maximized=['<Super>Down']
+toggle-shaded=['<Control><Alt>s']
+unmaximize=['<Control><Super>Down']
 
-[org/gnome/desktop/background]
-picture-options='zoom'
-color-shading-type='solid'
-secondary-color='#000000'
-picture-uri='file://$MAIN/wall.jpg'
-primary-color='#000000'
+[org/gnome/desktop/wm/preferences]
+action-middle-click-titlebar='none'
+audible-bell=true
+button-layout='close,minimize,maximize:'
 
-[org/gnome/desktop/a11y/applications]
-screen-keyboard-enabled=false
-screen-magnifier-enabled=false
-screen-reader-enabled=false
+[org/gnome/eog/view]
+background-color='rgb(0,0,0)'
+use-background-color=true
 
-[org/gnome/desktop/a11y]
-always-show-universal-access-status=true
+[org/gnome/evince]
+document-directory=@ms nothing
 
-[org/gnome/desktop/a11y/keyboard]
-mousekeys-enable=false
-slowkeys-enable=false
-bouncekeys-enable=false
-stickykeys-enable=false
+[org/gnome/file-roller/dialogs/extract]
+recreate-folders=true
+skip-newer=false
 
-[org/gnome/desktop/search-providers]
-sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop']
+[org/gnome/file-roller/listing]
+list-mode='as-folder'
+name-column-width=250
+show-path=false
+sort-method='name'
+sort-type='ascending'
 
-[org/gnome/desktop/interface]
-gtk-im-module='gtk-im-context-simple'
-show-battery-percentage=false
-clock-show-date=true
-toolkit-accessibility=false
-gtk-theme='Yaru-dark'
-icon-theme='Papirus-Dark'
+[org/gnome/gedit/plugins]
+active-plugins=['charmap', 'terminal', 'wordcompletion', 'docinfo', 'quickhighlight', 'drawspaces', 'sort', 'codecomment', 'bracketcompletion', 'findinfiles', 'externaltools', 'bookmarks', 'spell', 'colorpicker', 'textsize', 'modelines', 'smartspaces', 'git', 'multiedit', 'snippets', 'time', 'filebrowser']
 
-[org/gnome/desktop/input-sources]
-mru-sources=[('xkb', 'de'), ('xkb', 'us')]
-sources=[('xkb', 'de'), ('xkb', 'us')]
-xkb-options=['grp_led:scroll']
+[org/gnome/gedit/plugins/drawspaces]
+draw-spaces=['space', 'tab', 'leading', 'trailing']
 
-[org/gnome/shell]
-enable-hot-corners=true
-app-picker-view=uint32 1
-favorite-apps=['rhythmbox.desktop', 'firefox.desktop', 'thunderbird.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'atom.desktop', 'telegramdesktop.desktop', 'org.gnome.Todo.desktop', 'pick-colour-picker.desktop', 'keybase.desktop', 'org.gnome.gedit.desktop']
-enabled-extensions=['ubuntu-dock@ubuntu.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'clipboard-indicator@tudmotu.com', 'freon@UshakovVasilii_Github.yahoo.com', 'hotel-manager@hardpixel.eu', 'unite@hardpixel.eu', 'gsconnect@andyholmes.github.io', 'desktop-icons@csoriano']
+[org/gnome/gedit/plugins/wordcompletion]
+minimum-word-size=uint32 3
 
-[org/gnome/shell/extensions/desktop-icons]
-show-trash=true
-icon-size='small'
-show-home=true
+[org/gnome/gedit/preferences/editor]
+auto-indent=true
+background-pattern='none'
+bracket-matching=true
+create-backup-copy=false
+display-line-numbers=true
+display-overview-map=true
+display-right-margin=false
+highlight-current-line=true
+scheme='oblivion'
+wrap-last-split-mode='word'
 
-[org/gnome/shell/extensions/freon]
-hot-sensors=['__max__']
-update-time=10
+[org/gnome/gedit/preferences/ui]
+show-tabs-mode='auto'
 
-[org/gnome/shell/extensions/clipboard-indicator]
-history-size=50
-notify-on-copy=false
+[org/gnome/meld]
+vc-status-filters=['flatten', 'modified']
 
-[org/gnome/shell/extensions/caffeine]
-show-notifications=false
-user-enabled=false
+[org/gnome/mines]
+use-animations=true
+window-height=426
+window-is-maximized=false
+window-width=600
 
-[org/gnome/shell/extensions/gsconnect]
-show-battery=true
-show-indicators=true
+[org/gnome/mutter]
+dynamic-workspaces=true
+workspaces-only-on-primary=true
 
-[org/gnome/shell/extensions/gsconnect/messaging]
-window-maximized=true
+[org/gnome/nautilus/compression]
+default-compression-format='tar.xz'
 
-[org/gnome/shell/extensions/unite]
-show-desktop-name=true
-show-legacy-tray=true
-autofocus-windows=false
-extend-left-box=false
-greyscale-tray-icons=false
-notifications-position='center'
+[org/gnome/nautilus/desktop]
+home-icon-visible=true
+network-icon-visible=true
+
+[org/gnome/nautilus/icon-view]
+default-zoom-level='small'
+
+[org/gnome/nautilus/list-view]
+default-zoom-level='small'
+
+[org/gnome/nautilus/preferences]
+default-folder-viewer='icon-view'
+search-filter-time-type='last_modified'
+search-view='list-view'
+
+[org/gnome/rhythmbox/plugins]
+active-plugins=['daap', 'notification', 'mpris', 'ipod', 'mmkeys', 'rb', 'alternative-toolbar', 'artsearch', 'audioscrobbler', 'generic-player', 'iradio', 'power-manager', 'android', 'mtpdevice', 'dbus-media-server', 'audiocd']
 
 [org/gnome/settings-daemon/peripherals/keyboard]
 numlock-state='on'
@@ -137,10 +443,8 @@ numlock-state='on'
 locate-pointer=false
 
 [org/gnome/settings-daemon/plugins/color]
-night-light-schedule-from=17.0
 night-light-enabled=true
-night-light-schedule-to=9.0
-night-light-schedule-automatic=false
+night-light-last-coordinates=(48.033299999999997, 8.8833000000000002)
 
 [org/gnome/settings-daemon/plugins/media-keys]
 previous='<Primary>KP_1'
@@ -152,51 +456,98 @@ screensaver='<Primary><Shift>l'
 volume-up='<Primary>KP_6'
 volume-mute='<Primary>KP_5'
 play='<Primary>KP_2'
+terminal='<Control><Alt>t'
+
+[org/gnome/settings-daemon/plugins/sharing/vino-server]
+enabled-connections=@as []
 
 [org/gnome/settings-daemon/plugins/xsettings]
+antialiasing='grayscale'
 hinting='slight'
 
-[org/gnome/Totem]
-subtitle-encoding='UTF-8'
-active-plugins=['vimeo', 'variable-rate', 'skipto', 'screenshot', 'screensaver', 'save-file', 'rotation', 'recent', 'movie-properties', 'media_player_keys', 'autoload-subtitles', 'apple-trailers']
-repeat=true
+[org/gnome/shell]
+app-picker-view=uint32 1
+disable-user-extensions=false
+enable-hot-corners=true
+enabled-extensions=['temperature@xtranophilist', 'cast-to-tv@rafostar.github.com', 'clipboard-indicator@tudmotu.com', 'freon@UshakovVasilii_Github.yahoo.com', 'hotel-manager@hardpixel.eu', 'ubuntu-appindicators@ubuntu.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'ubuntu-dock@ubuntu.com', 'unite@hardpixel.eu', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'mediaplayer@patapon.info', 'desktop-icons@csoriano', 'gsconnect@andyholmes.github.io', 'suspend-button@laserb']
+favorite-apps=['rhythmbox.desktop', 'thunderbird.desktop', 'org.gnome.gedit.desktop', 'org.gnome.Terminal.desktop', 'firefox.desktop', 'org.gnome.Nautilus.desktop', 'atom.desktop', 'telegramdesktop.desktop', 'org.gnome.Todo.desktop', 'google-chrome.desktop', 'anydesk.desktop']
 
-[org/gnome/deja-dup]
-backend='goa'
-prompt-check='disabled'
+[org/gnome/shell/extensions/caffeine]
+show-notifications=false
+user-enabled=true
 
-[org/gnome/gedit/plugins/wordcompletion]
-minimum-word-size=uint32 3
+[org/gnome/shell/extensions/cast-to-tv]
+music-visualizer=true
+receiver-type='chromecast'
 
-[org/gnome/gedit/plugins/drawspaces]
-draw-spaces=['space', 'tab', 'leading', 'trailing']
+[org/gnome/shell/extensions/clipboard-indicator]
+display-mode=0
+history-size=50
+notify-on-copy=false
 
-[org/gnome/gedit/plugins]
-active-plugins=['charmap', 'terminal', 'wordcompletion', 'docinfo', 'quickhighlight', 'drawspaces', 'sort', 'codecomment', 'bracketcompletion', 'findinfiles', 'externaltools', 'bookmarks', 'spell', 'colorpicker', 'textsize', 'modelines', 'smartspaces', 'git', 'multiedit', 'snippets', 'time', 'filebrowser']
+[org/gnome/shell/extensions/dash-to-dock]
+dock-fixed=false
 
-[org/gnome/gedit/preferences/editor]
-display-overview-map=true
-highlight-current-line=true
-display-right-margin=false
-display-line-numbers=true
-background-pattern='none'
-bracket-matching=true
-create-backup-copy=false
-scheme='oblivion'
-auto-indent=true
-wrap-last-split-mode='word'
+[org/gnome/shell/extensions/extensions]
+position='panel'
+show-add=true
 
-[org/gnome/gedit/preferences/ui]
-show-tabs-mode='auto'
+[org/gnome/shell/extensions/freon]
+gpu-utility='nvidia-settings'
+hot-sensors=['__max__']
+position-in-panel='right'
+show-decimal-value=false
+update-time=10
 
-[org/gnome/file-roller/dialogs/extract]
-skip-newer=false
-recreate-folders=true
+[org/gnome/shell/extensions/gsconnect]
+debug=false
+discoverable=true
+nautilus-integration=true
+show-battery=true
+show-indicators=true
+webbrowser-integration=true
 
-[org/gnome/file-roller/listing]
-sort-method='name'
-sort-type='ascending'
-list-mode='as-folder'
-name-column-width=250
-show-path=false
+[org/gnome/shell/extensions/gsconnect/messaging]
+window-maximized=true
+
+[org/gnome/shell/extensions/unite]
+autofocus-windows=false
+extend-left-box=false
+hide-activities-button=true
+hide-window-titlebars='maximized'
+notifications-position='center'
+show-desktop-name=true
+show-legacy-tray=true
+show-window-buttons='maximized'
+
+[org/gnome/shell/extensions/user-theme]
+name=''
+
+[org/gnome/solitaire/window-state]
+fullscreen=false
+height=600
+maximized=false
+width=800
+
+[org/gnome/sudoku]
+window-height=630
+window-is-maximized=false
+window-width=730
+
+[org/gnome/system/location]
+enabled=false
+
+[org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+audible-bell=false
+
+[org/nemo/desktop]
+computer-icon-visible=true
+font='Comfortaa 10'
+home-icon-visible=true
+network-icon-visible=true
+volumes-visible=true
+
+[org/nemo/preferences]
+show-hidden-files=false
+show-location-entry=true
 
