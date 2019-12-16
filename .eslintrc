@@ -1,2 +1,2 @@
 ---
-extends: /usr/lib/node_modules/eslint-config-aegir/index.js
+extends: /usr/lib/node_modules/eslint-config-aegir-standalone/index.js

@@ -133,6 +133,11 @@ function _ltmp() {
   rm -rfv "$_TMP"
 }
 
+# Nix
+
+alias _nbuild="nix-build -v -j 6"
+alias _no=_nbuild # keyboard ergonomics
+
 # "Upgrades"
 
 alias python="python3"
