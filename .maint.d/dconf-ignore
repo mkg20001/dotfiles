@@ -20,6 +20,9 @@ de/haeckerfelix/gradio@*
 org/baedert/corebird@*
 !org/baedert/corebird@round-avatars
 org/blueman/general@window-properties
+org/gnome/nautilus@default-folder-viewer
+org/gnome/shell/extensions/gsconnect@id
+org/gnome/shell/extensions/gsconnect@name
 
 org/cinnamon@desklet-cache-updated
 org/cinnamon@extension-cache-updated
@@ -32,12 +35,14 @@ org/gtk/settings/color-chooser@*
 org/gtk/settings/emoji-chooser@*
 org/nemo/window-state@*
 system/proxy/*@*
+org/gnome/desktop/peripherals/keyboard@numlock-state
 
 org/gnome/calculator@window-position
 org/gnome/cheese@*
 com/uploadedlobster/peek@*
 org/gnome/deja-dup@*
 !org/gnome/deja-dup@prompt-check
+org/gnome/shell/extensions/freon@gpu-utility
 
 desktop/ibus/general@version
 system/proxy@*

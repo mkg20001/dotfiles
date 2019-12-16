@@ -205,7 +205,7 @@ enabled=true
 name0='module-zeroconf-discover'
 
 [org/gnome/Totem]
-active-plugins=['skipto', 'apple-trailers', 'save-file', 'vimeo', 'movie-properties', 'screensaver', 'rotation', 'media_player_keys', 'autoload-subtitles', 'recent', 'variable-rate', 'screenshot']
+active-plugins=['open-directory', 'vimeo', 'variable-rate', 'skipto', 'screenshot', 'screensaver', 'save-file', 'rotation', 'recent', 'movie-properties', 'media-player-keys', 'autoload-subtitles', 'apple-trailers']
 repeat=true
 subtitle-encoding='UTF-8'
 
@@ -226,8 +226,12 @@ word-size=64
 [org/gnome/deja-dup]
 prompt-check='disabled'
 
+[org/gnome/desktop/a11y]
+always-show-universal-access-status=true
+
 [org/gnome/desktop/a11y/applications]
 screen-keyboard-enabled=false
+screen-magnifier-enabled=false
 screen-reader-enabled=false
 
 [org/gnome/desktop/a11y/mouse]
@@ -239,7 +243,6 @@ secondary-click-time=1.2
 
 [org/gnome/desktop/background]
 color-shading-type='solid'
-draw-background=true
 picture-options='zoom'
 picture-uri='file://$MAIN/wall.jpg'
 primary-color='#000000'
@@ -265,11 +268,14 @@ clock-show-date=true
 clock-show-seconds=false
 document-font-name='Roboto 11'
 enable-animations=true
+cursor-theme='breeze_cursors'
 gtk-im-module='gtk-im-context-simple'
 gtk-theme='Yaru-dark'
 icon-theme='Papirus-Light'
 monospace-font-name='Ubuntu Mono 11'
 scaling-factor=uint32 0
+gtk-theme='Ant-Dracula'
+icon-theme='Papirus-Dark'
 show-battery-percentage=false
 toolkit-accessibility=false
 
@@ -283,6 +289,7 @@ show-banners=false
 
 [org/gnome/desktop/peripherals/mouse]
 natural-scroll=false
+accel-profile='adaptive'
 speed=1.0
 
 [org/gnome/desktop/peripherals/touchpad]
@@ -313,7 +320,7 @@ idle-delay=uint32 120
 [org/gnome/desktop/sound]
 allow-volume-above-100-percent=false
 event-sounds=true
-theme-name='freedesktop'
+theme-name='__custom'
 
 [org/gnome/desktop/wm/keybindings]
 activate-window-menu=['<Alt>space']
@@ -354,18 +361,21 @@ switch-windows-backward=['disabled']
 toggle-maximized=['<Super>Down']
 toggle-shaded=['<Control><Alt>s']
 unmaximize=['<Control><Super>Down']
+theme-name='__custom'
 
 [org/gnome/desktop/wm/preferences]
 action-middle-click-titlebar='none'
 audible-bell=true
 button-layout='close,minimize,maximize:'
+theme='Adwaita'
+visual-bell=false
 
 [org/gnome/eog/view]
 background-color='rgb(0,0,0)'
 use-background-color=true
 
 [org/gnome/evince]
-document-directory=@ms nothing
+document-directory=@ms 'file:///home/maciej/B%C3%9CROKRATIE'
 
 [org/gnome/file-roller/dialogs/extract]
 recreate-folders=true
@@ -402,18 +412,10 @@ wrap-last-split-mode='word'
 [org/gnome/gedit/preferences/ui]
 show-tabs-mode='auto'
 
-[org/gnome/meld]
-vc-status-filters=['flatten', 'modified']
-
-[org/gnome/mines]
-use-animations=true
-window-height=426
-window-is-maximized=false
-window-width=600
-
 [org/gnome/mutter]
 dynamic-workspaces=true
 workspaces-only-on-primary=true
+folder-status-filters=['modified']
 
 [org/gnome/nautilus/compression]
 default-compression-format='tar.xz'
@@ -425,11 +427,7 @@ network-icon-visible=true
 [org/gnome/nautilus/icon-view]
 default-zoom-level='small'
 
-[org/gnome/nautilus/list-view]
-default-zoom-level='small'
-
 [org/gnome/nautilus/preferences]
-default-folder-viewer='icon-view'
 search-filter-time-type='last_modified'
 search-view='list-view'
 
@@ -444,22 +442,22 @@ locate-pointer=false
 
 [org/gnome/settings-daemon/plugins/color]
 night-light-enabled=true
-night-light-last-coordinates=(48.033299999999997, 8.8833000000000002)
+night-light-schedule-automatic=false
+night-light-schedule-from=17.0
+night-light-schedule-to=9.0
+night-light-temperature=uint32 3502
 
 [org/gnome/settings-daemon/plugins/media-keys]
-previous='<Primary>KP_1'
-media='<Primary>KP_8'
-logout=''
-volume-down='<Primary>KP_4'
-next='<Primary>KP_3'
-screensaver='<Primary><Shift>l'
-volume-up='<Primary>KP_6'
-volume-mute='<Primary>KP_5'
-play='<Primary>KP_2'
 terminal='<Control><Alt>t'
-
-[org/gnome/settings-daemon/plugins/sharing/vino-server]
-enabled-connections=@as []
+logout=['']
+media=['<Primary>KP_8']
+next=['<Primary>KP_3']
+play=['<Primary>KP_2']
+previous=['<Primary>KP_1']
+screensaver=['<Primary><Shift>l']
+volume-down=['<Primary>KP_4']
+volume-mute=['<Primary>KP_5']
+volume-up=['<Primary>KP_6']
 
 [org/gnome/settings-daemon/plugins/xsettings]
 antialiasing='grayscale'
@@ -474,11 +472,6 @@ favorite-apps=['rhythmbox.desktop', 'thunderbird.desktop', 'org.gnome.gedit.desk
 
 [org/gnome/shell/extensions/caffeine]
 show-notifications=false
-user-enabled=true
-
-[org/gnome/shell/extensions/cast-to-tv]
-music-visualizer=true
-receiver-type='chromecast'
 
 [org/gnome/shell/extensions/clipboard-indicator]
 display-mode=0
@@ -487,13 +480,13 @@ notify-on-copy=false
 
 [org/gnome/shell/extensions/dash-to-dock]
 dock-fixed=false
+[org/gnome/shell/extensions/desktop-icons]
+icon-size='small'
+show-home=true
+show-trash=true
 
-[org/gnome/shell/extensions/extensions]
-position='panel'
-show-add=true
 
 [org/gnome/shell/extensions/freon]
-gpu-utility='nvidia-settings'
 hot-sensors=['__max__']
 position-in-panel='right'
 show-decimal-value=false
@@ -515,13 +508,14 @@ autofocus-windows=false
 extend-left-box=false
 hide-activities-button=true
 hide-window-titlebars='maximized'
+greyscale-tray-icons=false
+hide-aggregate-menu-arrow=true
 notifications-position='center'
 show-desktop-name=true
 show-legacy-tray=true
-show-window-buttons='maximized'
 
 [org/gnome/shell/extensions/user-theme]
-name=''
+name='Ant-Dracula'
 
 [org/gnome/solitaire/window-state]
 fullscreen=false
@@ -536,9 +530,6 @@ window-width=730
 
 [org/gnome/system/location]
 enabled=false
-
-[org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
-audible-bell=false
 
 [org/nemo/desktop]
 computer-icon-visible=true
