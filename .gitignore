@@ -19,3 +19,6 @@
 !.htop.js
 !Vagrantfile
 !.vimrc
+!.config/
+!.config/clipit/
+!.config/clipit/clipitrc
