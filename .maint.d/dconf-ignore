@@ -12,7 +12,10 @@ org/compiz/*/*/*/*/*@*
 
 org/gnome/Xchat@*
 org/gnome/Xchat/*@*
-
+org/gnome/meld@*
+org/gnome/mines@*
+org/gnome/nautilus/list-view@*
+org/gnome/nautilus/preferences@*
 
 apps/seahorse/listing@*
 apps/seahorse/windows/key-manager@*
@@ -26,6 +29,7 @@ org/gnome/shell/extensions/gsconnect@name
 
 org/cinnamon@desklet-cache-updated
 org/cinnamon@extension-cache-updated
+org/cinnamon@applet-cache-updated
 org/cinnamon/theme@theme-cache-updated
 org/gnome/pomodoro/state@*
 org/gnome/power-manager@*
