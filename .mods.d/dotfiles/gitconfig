@@ -6,7 +6,6 @@
 	autocrlf = input
 	pager = diff-so-fancy | less --tabs=4 -RFX
 	editor = nano
-	hooksPath = $HOME/.hooks.d
 [color]
 	ui = true
 [gpg]

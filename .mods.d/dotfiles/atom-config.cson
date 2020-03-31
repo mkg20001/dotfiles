@@ -1,7 +1,7 @@
 "*":
   linter: {}
-  teletype: {}
   "ide-rust": {}
+  teletype: {}
   "todo-show": {}
   core:
     themes: [
@@ -12,54 +12,10 @@
     projectHome: "$HOME/Projekte"
     followSymlinks: false
     disabledPackages: [
-      "Hydrogen"
-      "language-ember-script"
-      "language-ember-htmlbars"
-      "language-ember"
-      "spell-check"
-      "linter-js-standard"
-      "atom-autocomplete-php"
-      "atom-arma-language"
-      "atom-jshint"
-      "linter"
-      "atom-typescript"
-      "atom-svg-icon-snippets"
-      "coffee-navigator"
-      "ember-cli-helper"
-      "emberjs-atom"
-      "ide-yaml"
-      "imagemin"
-      "lcov-info"
-      "teletype"
-      "coverage-gutter"
-      "coverage-markers"
-      "atom-ide-ui"
-      "linter-rust"
-      "tree-view"
-      "image-view"
-      "file-icons"
-      "Twitch-Atom"
-      "git-diff"
-      "markdown-image-helper"
-      "markdown-image-paste"
-      "markdown-img-paste"
-      "markdown-assistant"
+      "linter-shellcheck"
     ]
     telemetryConsent: "limited"
     uriHandlerRegistration: "always"
-    customFileTypes:
-      source:
-        ini: [
-          ".hgrc"
-          ".buckconfig"
-          ".flowconfig"
-        ]
-        json: [
-          "BUCK.autodeps"
-        ]
-        python: [
-          "BUCK"
-        ]
     packagesWithKeymapsDisabled: [
       "standard-formatter"
     ]
@@ -67,7 +23,6 @@
     fontSize: 13
     invisibles: {}
   "markdown-preview": {}
-  "linter-shellcheck": {}
   "atom-beautify":
     css: {}
     yaml: {}
@@ -76,11 +31,14 @@
       end_with_newline: true
       max_preserve_newlines: 1
       space_after_anon_function: true
-    json:
-      brace_style: "end-expand"
-      end_with_newline: true
     html:
       indent_size: 2
+    json:
+      brace_style: "expand"
+      beautify_on_save: true
+      end_with_newline: true
+      default_beautifier: "Prettier"
+      max_preserve_newlines: 1
     python:
       sort_imports: true
     coffeescript:
@@ -89,6 +47,7 @@
       max_preserve_newlines: 3
     markdown:
       default_beautifier: "Remark"
+  "linter-shellcheck": {}
   "linter-js-standard": {}
   "markdown-pdf":
     syntax: "one-dark-syntax"
@@ -108,10 +67,14 @@
       "git-diff": true
       pigments: true
       linterDecorationsZIndex: 0
-      pigmentsDecorationsZIndex: 0
       "git-diffDecorationsZIndex": 0
+      pigmentsDecorationsZIndex: 0
     disablePythonDocLinks: true
     adjustAbsoluteModeHeight: true
+  "eslint-fixer":
+    eslintPath: "/usr/lib/node_modules/eslint"
+  "linter-makensis":
+    advanced: {}
   "atom-package-deps":
     ignored: []
   "atom-ide-ui":
@@ -122,20 +85,22 @@
       "atom-ide-datatip": "default"
       "atom-ide-debugger": "default"
       "atom-ide-terminal": "default"
-      "atom-ide-code-format": "default"
-      "atom-ide-diagnostics": "default"
-      "atom-ide-definitions": "default"
       "atom-ide-busy-signal": "default"
+      "atom-ide-code-format": "default"
+      "atom-ide-definitions": "default"
+      "atom-ide-diagnostics": "default"
       "atom-ide-code-actions": "default"
       "atom-ide-outline-view": "default"
+      "atom-ide-code-highlight": "default"
       "atom-ide-diagnostics-ui": "default"
       "atom-ide-signature-help": "default"
-      "atom-ide-code-highlight": "default"
       "atom-ide-find-references": "default"
     "atom-ide-diagnostics-ui":
       autoVisibility: true
       showDirectoryColumn: true
       showDiagnosticTraces: true
+  "linter-ui-default":
+    showPanel: true
   "linter-eslint":
     autofix:
       fixOnSave: true
@@ -144,10 +109,11 @@
       ]
     global:
       eslintrcPath: "$HOME/.eslintrc"
+      globalNodePath: "/usr/lib"
       useGlobalEslint: true
     advanced:
       eslintRulesDirs: [
-        "/usr/lib/node_modules/aegir/node_modules"
+        "/usr/lib/node_modules/eslint-config-aegir-standalone/node_modules"
       ]
     disabling:
       disableWhenNoEslintConfig: false
@@ -163,3 +129,9 @@
     lintInlineJavaScript: true
   "autocomplete-plus":
     autoActivationDelay: 500
+  "markdown-preview-enhanced":
+    mermaidTheme: "dark"
+    previewTheme: "one-dark.css"
+    revealjsTheme: "moon.css"
+  "atom-time-tracker":
+    "$HOME/Projekte/psine/psine,$HOME/Projekte/arweave/arweb,$HOME/Projekte/arweave/arbase,$HOME/Projekte/arweave/arbase-crud,$HOME/Projekte/arweave/the-arf,$HOME/Projekte/arweave/arlang": 52440

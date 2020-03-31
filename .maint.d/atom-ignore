@@ -3,3 +3,4 @@
 *.general._analyticsUserId
 *.linter-ui-default.panelHeight
 *.exception-reporting.*
+*.wakatime.*

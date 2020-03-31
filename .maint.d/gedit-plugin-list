@@ -1,0 +1,5 @@
+ [org/gnome/gedit/plugins]
+-active-plugins=['charmap', 'terminal', 'wordcompletion', 'docinfo', 'quickhighlight', 'drawspaces', 'sort', 'codecomment', 'bracketcompletion', 'findinfiles', 'externaltools', 'bookmarks', 'spell', 'colorpicker', 'textsize', 'modelines', 'smartspaces', 'git', 'multiedit', 'snippets', 'time', 'filebrowser']
++active-plugins=['sort', 'filebrowser', 'quickhighlight', 'spell', 'docinfo', 'time', 'modelines']
+
+# GET EM ALL BACK

@@ -29,7 +29,6 @@ shared-path='/home/maciej/Downloads'
 active-display-scale=1
 alttab-switcher-delay=100
 alttab-switcher-style='icons+preview'
-command-history=['gnome-screenshot -ac', 'thunderbird+', 'thunderbird', 'gedit .gitconfig', 'gnome-calculator', 'gnome-disks', 'peek', '2fa google', '2fa github', 'gnome-terminal', 'xterm', 'gedit', '2fa npm+', '2fa npm']
 desklet-snap-interval=25
 desktop-effects-close-effect='traditional'
 desktop-effects-close-time=120
@@ -51,7 +50,6 @@ desktop-effects-unmaximize-time=100
 desktop-effects-unmaximize-transition='easeNone'
 device-aliases=['/org/freedesktop/UPower/devices/battery_BAT1:=Intern']
 enabled-applets=['panel1:right:3:systray@cinnamon.org:0', 'panel2:left:0:menu@cinnamon.org:1', 'panel1:left:1:show-desktop@cinnamon.org:2', 'panel1:left:2:panel-launchers@cinnamon.org:3', 'panel1:left:3:window-list@cinnamon.org:4', 'panel1:right:5:keyboard@cinnamon.org:5', 'panel1:right:7:notifications@cinnamon.org:6', 'panel1:right:10:removable-drives@cinnamon.org:7', 'panel1:right:2:user@cinnamon.org:8', 'panel1:right:9:network@cinnamon.org:9', 'panel1:right:6:power@cinnamon.org:11', 'panel1:right:1:calendar@cinnamon.org:12', 'panel1:right:8:sound@cinnamon.org:13', 'panel2:left:1:window-list@cinnamon.org:14', 'panel3:center:0:calendar@cinnamon.org:15', 'panel1:right:4:SpicesUpdate@claudiux:17']
-enabled-desklets=['diskspace@schorschii:1:1825:75', 'binaryclock2@euxneks:9:1500:375']
 enabled-extensions=['Win7AltTab@entelechy', 'desktop-icons-per-workspace@cardsurf', 'cinnamon-maximus@fmete']
 favorite-apps=['org.gnome.Terminal.desktop', 'firefox.desktop', 'atom.desktop', 'nemo.desktop', 'cinnamon-settings.desktop']
 hotcorner-layout=['expo:false:0', 'scale:false:0', 'scale:false:0', 'desktop:false:0']
@@ -60,6 +58,8 @@ next-desklet-id=14
 panel-edit-mode=false
 panel-launchers=['DEPRECATED']
 panel-zone-icon-sizes='[{"panelId":1,"left":0,"center":0,"right":24},{"panelId":2,"left":0,"center":0,"right":0},{"panelId":3,"left":0,"center":0,"right":0}]'
+panel-zone-symbolic-icon-sizes='[{"panelId":1,"left":28,"center":28,"right":16},{"left":28,"center":28,"right":28,"panelId":2},{"left":28,"center":28,"right":28,"panelId":3}]'
+panel-zone-text-sizes='[{"panelId":1,"left":0,"center":0,"right":0},{"left":0,"center":0,"right":0,"panelId":2},{"left":0,"center":0,"right":0,"panelId":3}]'
 panels-autohide=['1:intel', '2:intel', '3:false']
 panels-enabled=['1:0:bottom', '2:0:left', '3:0:top']
 panels-height=['1:25', '2:50', '3:25']
@@ -105,7 +105,8 @@ image-source='directory:///home/maciej/Bilder'
 
 [org/cinnamon/desktop/interface]
 cursor-blink-time=1200
-cursor-theme='Yaru'
+cursor-size=24
+cursor-theme='breeze_cursors'
 font-name='Ubuntu 11'
 gtk-theme='Arc-Dark'
 icon-theme='Papirus-Dark'
@@ -169,10 +170,15 @@ tile-maximize=true
 
 [org/cinnamon/settings-daemon/peripherals/keyboard]
 delay=uint32 500
-numlock-state='on'
 repeat-interval=uint32 30
 
+[org/cinnamon/settings-daemon/peripherals/mouse]
+double-click=400
+drag-threshold=8
+motion-threshold=1
+
 [org/cinnamon/settings-daemon/peripherals/touchpad]
+motion-threshold=1
 touchpad-enabled=true
 
 [org/cinnamon/settings-daemon/plugins/power]
@@ -203,6 +209,15 @@ args0=''
 enabled=true
 name0='module-zeroconf-discover'
 
+[org/gnome/Geary]
+autoselect=false
+compose-as-html=true
+folder-list-pane-horizontal=true
+migrated-config=true
+play-sounds=false
+show-notifications=false
+startup-notifications=true
+
 [org/gnome/Totem]
 active-plugins=['open-directory', 'vimeo', 'variable-rate', 'skipto', 'screenshot', 'screensaver', 'save-file', 'rotation', 'recent', 'movie-properties', 'media-player-keys', 'autoload-subtitles', 'apple-trailers']
 repeat=true
@@ -221,6 +236,9 @@ source-units='degree'
 target-currency=''
 target-units='radian'
 word-size=64
+
+[org/gnome/clocks]
+world-clocks=[{'location': <(uint32 2, <('Seattle', 'KBFI', true, [(0.82983133145337307, -2.134775231953554)], [(0.83088509144255718, -2.135097419733472)])>)>}, {'location': <(uint32 2, <('Lisbon / Portela', 'LPPT', false, [(0.6766059791742326, -0.15940673253105125)], @a(dd) [])>)>}, {'location': <(uint32 2, <('Berlin', 'EDDT', true, [(0.91746141594945008, 0.23241968454167572)], [(0.91658875132345297, 0.23387411976724018)])>)>}, {'location': <(uint32 2, <('Warsaw', 'EPWA', true, [(0.91048009894147275, 0.36593737231924195)], [(0.91193453416703718, 0.36651914291880922)])>)>}]
 
 [org/gnome/deja-dup]
 prompt-check='disabled'
@@ -372,22 +390,12 @@ visual-bell=false
 background-color='rgb(0,0,0)'
 use-background-color=true
 
-[org/gnome/evince]
-document-directory=@ms 'file:///home/maciej/B%C3%9CROKRATIE'
-
 [org/gnome/file-roller/dialogs/extract]
 recreate-folders=true
 skip-newer=false
 
-[org/gnome/file-roller/listing]
-list-mode='as-folder'
-name-column-width=250
-show-path=false
-sort-method='name'
-sort-type='ascending'
-
 [org/gnome/gedit/plugins]
-active-plugins=['charmap', 'terminal', 'wordcompletion', 'docinfo', 'quickhighlight', 'drawspaces', 'sort', 'codecomment', 'bracketcompletion', 'findinfiles', 'externaltools', 'bookmarks', 'spell', 'colorpicker', 'textsize', 'modelines', 'smartspaces', 'git', 'multiedit', 'snippets', 'time', 'filebrowser']
+active-plugins=['sort', 'filebrowser', 'quickhighlight', 'spell', 'docinfo', 'time', 'modelines']
 
 [org/gnome/gedit/plugins/drawspaces]
 draw-spaces=['space', 'tab', 'leading', 'trailing']
@@ -406,6 +414,15 @@ display-right-margin=false
 highlight-current-line=true
 scheme='oblivion'
 wrap-last-split-mode='word'
+
+[org/gnome/gedit/preferences/print]
+print-font-body-pango='Monospace 9'
+print-font-header-pango='Sans 11'
+print-font-numbers-pango='Sans 8'
+print-header=true
+print-line-numbers=uint32 0
+print-syntax-highlighting=true
+print-wrap-mode='word'
 
 [org/gnome/gedit/preferences/ui]
 show-tabs-mode='auto'
@@ -524,6 +541,13 @@ show-window-buttons='maximized'
 
 [org/gnome/shell/extensions/user-theme]
 name='Ant-Dracula'
+
+[org/gnome/simple-scan]
+document-type='text'
+paper-height=2970
+paper-width=2100
+photo-dpi=1200
+text-dpi=300
 
 [org/gnome/solitaire/window-state]
 fullscreen=false
