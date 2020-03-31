@@ -59,6 +59,7 @@ alias _aegir_release="npm_config_registry=https://registry.npmjs.org MASTER_PUSH
 alias nup="npm_config_registry=https://registry.npmjs.org ncu --dep prod,dev -u"
 alias nreg="npm_config_registry=https://registry.npmjs.org "
 alias ni="yarn install"
+alias _npmlock="npm i --package-lock-only"
 
 # Node debug/test
 
@@ -107,7 +108,7 @@ alias _tor=". torsocks on"
 alias _t="torify"
 alias no="yes | sed 's|y|n|g'"
 alias ldiff='function _ldiff() { sed -r "s|(.)|\1\n|g" "$1" > /tmp/ldiffA && sed -r "s|(.)|\1\n|g" "$2" > /tmp/ldiffB && meld /tmp/ldiffA /tmp/ldiffB; }; _ldiff "$@"' # line diff
-alias atom="ionice -c 3 /usr/bin/atom"
+alias atom="ionice -c 3 $(which atom)"
 alias wireshark="_w() { LC_ALL=C wireshark \"\$@\" & }; _w"
 alias ts3="bash $HOME/.ts3client/TS3/ts3client_runscript.sh"
 alias seddot="sed \"s|[^].[^ ]|:|g\""
