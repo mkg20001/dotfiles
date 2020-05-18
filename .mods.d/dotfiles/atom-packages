@@ -8,7 +8,7 @@ busy-signal@2.0.1
 color-picker@2.3.0
 eslint-fixer@1.3.0
 highlight-selected@0.17.0
-ide-css@0.3.3
+ide-css@0.3.4
 ide-flowtype@0.24.0
 ide-html@0.6.0
 ide-json@0.2.1
@@ -51,5 +51,5 @@ nix@2.1.0
 pigments@0.40.2
 pug@0.8.0
 svg-preview@0.14.0
-tool-bar@1.2.2
+tool-bar@1.3.0
 wakatime@9.0.2
