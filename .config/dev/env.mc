@@ -1,0 +1,12 @@
+nixpkgs.jdk
+nixpkgs.jetbrains.idea-ultimate
+nixpkgs.libGL
+nixpkgs.libpulseaudio
+nixpkgs.qt5.qtbase
+nixpkgs.xorg.libX11
+nixpkgs.xorg.libXcursor
+nixpkgs.xorg.libXext
+nixpkgs.xorg.libXrandr
+nixpkgs.xorg.libXxf86vm
+nixpkgs.xorg.xrandr
+nixpkgs.zlib

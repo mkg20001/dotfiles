@@ -136,7 +136,7 @@ function _ltmp() {
 
 # Nix
 
-alias _nbuild="nix-build -v -j 6"
+alias _nbuild="NIXPKGS_ALLOW_UNFREE=1 nix-build -v -j 6"
 alias _no=_nbuild # keyboard ergonomics
 
 # "Upgrades"

@@ -22,5 +22,8 @@
 !.config/
 !.config/clipit/
 !.config/clipit/clipitrc
+!.config/dev/
+!.config/dev/env.*
 !.profile
 !.bashrc
+!.config/nix-edit-package
