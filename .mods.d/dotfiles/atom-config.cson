@@ -1,5 +1,6 @@
 "*":
   linter: {}
+  "ide-rust": {}
   teletype: {}
   "todo-show": {}
   core:
@@ -20,6 +21,9 @@
     packagesWithKeymapsDisabled: [
       "standard-formatter"
     ]
+  editor:
+    fontSize: 15
+    invisibles: {}
   "markdown-preview": {}
   "atom-beautify":
     css: {}
@@ -45,8 +49,6 @@
       max_preserve_newlines: 3
     markdown:
       default_beautifier: "Remark"
-  editor:
-    invisibles: {}
   "ide-python":
     python: "/run/current-system/sw/bin/python3"
   "linter-shellcheck": {}
@@ -61,8 +63,6 @@
     rightEditorColor: "green"
   "atom-clock":
     dateFormat: "[Quarter] Q, [Week] W | dddd, MMMM Do YYYY | hh:mm"
-  "ide-rust":
-    rlsToolchain: "nightly"
   welcome:
     showOnStartup: false
   minimap:
@@ -103,8 +103,6 @@
       autoVisibility: true
       showDirectoryColumn: true
       showDiagnosticTraces: true
-  "linter-ui-default":
-    showPanel: true
   "linter-eslint":
     autofix:
       fixOnSave: true

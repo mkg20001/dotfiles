@@ -110,3 +110,9 @@ org/gnome/gnome-system-monitor/disktreenew@*
 org/gnome/gnome-system-monitor/proctree@*
 org/gnome/photos@*
 org/gnome/simple-scan@save-directory
+org/gnome/Geary@composer-window-size
+
+org/blueman/gsmsettings/*@*
+org/blueman/plugins/recentconns*@*
+org/gnome/nautilus/compression@*
+

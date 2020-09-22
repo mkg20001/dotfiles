@@ -21,9 +21,17 @@ round-avatars=true
 
 [org/blueman/general]
 plugin-list=['NetUsage']
+services-last-item=0
+
+[org/blueman/network]
+nap-enable=false
+
+[org/blueman/plugins/powermanager]
+auto-power-on=@mb true
 
 [org/blueman/transfer]
-shared-path='/home/maciej/Downloads'
+opp-accept=false
+shared-path=''
 
 [org/cinnamon]
 active-display-scale=1
@@ -48,25 +56,25 @@ desktop-effects-tile-transition='easeInQuad'
 desktop-effects-unmaximize-effect='none'
 desktop-effects-unmaximize-time=100
 desktop-effects-unmaximize-transition='easeNone'
-device-aliases=['/org/freedesktop/UPower/devices/battery_BAT1:=Intern']
-enabled-applets=['panel1:right:3:systray@cinnamon.org:0', 'panel2:left:0:menu@cinnamon.org:1', 'panel1:left:1:show-desktop@cinnamon.org:2', 'panel1:left:2:panel-launchers@cinnamon.org:3', 'panel1:left:3:window-list@cinnamon.org:4', 'panel1:right:5:keyboard@cinnamon.org:5', 'panel1:right:7:notifications@cinnamon.org:6', 'panel1:right:10:removable-drives@cinnamon.org:7', 'panel1:right:2:user@cinnamon.org:8', 'panel1:right:9:network@cinnamon.org:9', 'panel1:right:6:power@cinnamon.org:11', 'panel1:right:1:calendar@cinnamon.org:12', 'panel1:right:8:sound@cinnamon.org:13', 'panel2:left:1:window-list@cinnamon.org:14', 'panel3:center:0:calendar@cinnamon.org:15', 'panel1:right:4:SpicesUpdate@claudiux:17']
+device-aliases=['/org/freedesktop/UPower/devices/battery_BAT1:=Intern', '/org/freedesktop/UPower/devices/battery_BAT0:=Intern']
+enabled-applets=['panel1:right:3:systray@cinnamon.org:0', 'panel2:left:0:menu@cinnamon.org:1', 'panel1:left:1:show-desktop@cinnamon.org:2', 'panel1:left:2:panel-launchers@cinnamon.org:3', 'panel1:left:3:window-list@cinnamon.org:4', 'panel1:right:4:keyboard@cinnamon.org:5', 'panel1:right:6:notifications@cinnamon.org:6', 'panel1:right:1:removable-drives@cinnamon.org:7', 'panel1:right:2:user@cinnamon.org:8', 'panel1:right:8:network@cinnamon.org:9', 'panel1:right:5:power@cinnamon.org:11', 'panel1:right:9:calendar@cinnamon.org:12', 'panel1:right:7:sound@cinnamon.org:13', 'panel2:left:1:window-list@cinnamon.org:14', 'panel3:center:1:calendar@cinnamon.org:15', 'panel1:right:0:xapp-status@cinnamon.org:47']
 enabled-extensions=['Win7AltTab@entelechy', 'desktop-icons-per-workspace@cardsurf', 'cinnamon-maximus@fmete']
 favorite-apps=['org.gnome.Terminal.desktop', 'firefox.desktop', 'atom.desktop', 'nemo.desktop', 'cinnamon-settings.desktop']
 hotcorner-layout=['expo:false:0', 'scale:false:0', 'scale:false:0', 'desktop:false:0']
-next-applet-id=18
+next-applet-id=48
 next-desklet-id=14
 panel-edit-mode=false
 panel-launchers=['DEPRECATED']
 panel-zone-icon-sizes='[{"panelId":1,"left":0,"center":0,"right":24},{"panelId":2,"left":0,"center":0,"right":0},{"panelId":3,"left":0,"center":0,"right":0}]'
-panel-zone-symbolic-icon-sizes='[{"panelId":1,"left":28,"center":28,"right":16},{"left":28,"center":28,"right":28,"panelId":2},{"left":28,"center":28,"right":28,"panelId":3}]'
+panel-zone-symbolic-icon-sizes='[{"panelId": 1, "left": 28, "center": 28, "right": 16}, {"left": 28, "center": 28, "right": 28, "panelId": 2}, {"left": 28, "center": 28, "right": 28, "panelId": 3}]'
 panel-zone-text-sizes='[{"panelId":1,"left":0,"center":0,"right":0},{"left":0,"center":0,"right":0,"panelId":2},{"left":0,"center":0,"right":0,"panelId":3}]'
-panels-autohide=['1:intel', '2:intel', '3:false']
+panels-autohide=['1:intel', '2:intel', '3:false', '4:true']
 panels-enabled=['1:0:bottom', '2:0:left', '3:0:top']
-panels-height=['1:25', '2:50', '3:25']
-panels-hide-delay=['1:0', '2:50', '3:0']
+panels-height=['1:25', '2:50', '3:25', '4:40']
+panels-hide-delay=['1:0', '2:100', '3:0', '4:100']
 panels-resizable=['1:false', '2:true', '3:false']
 panels-scale-text-icons=['1:true', '2:true', '3:true']
-panels-show-delay=['1:0', '2:100', '3:0']
+panels-show-delay=['1:0', '2:50', '3:0', '4:500']
 show-media-keys-osd='medium'
 workspace-osd-duration=400
 workspace-osd-x=50
@@ -93,6 +101,9 @@ dwell-time=1.2
 secondary-click-enabled=false
 secondary-click-time=1.2
 
+[org/cinnamon/desktop/applications/calculator]
+exec='gnome-calculator'
+
 [org/cinnamon/desktop/applications/terminal]
 exec='gnome-terminal'
 
@@ -104,13 +115,15 @@ delay=15
 image-source='directory:///home/maciej/Bilder'
 
 [org/cinnamon/desktop/interface]
+clock-show-date=false
+clock-show-seconds=false
 cursor-blink-time=1200
 cursor-size=24
 cursor-theme='breeze_cursors'
 font-name='Ubuntu 11'
 gtk-theme='Arc-Dark'
 icon-theme='Papirus-Dark'
-scaling-factor=uint32 0
+scaling-factor=uint32 1
 text-scaling-factor=1.0
 toolkit-accessibility=false
 
@@ -144,6 +157,7 @@ autorun-never=false
 
 [org/cinnamon/desktop/notifications]
 bottom-notifications=false
+display-notifications=true
 remove-old=false
 
 [org/cinnamon/desktop/privacy]
@@ -153,6 +167,9 @@ recent-files-max-age=-1
 layout-group=0
 screensaver-name='xscreensaver@cinnamon.org'
 xscreensaver-hack='barcode'
+
+[org/cinnamon/desktop/session]
+idle-delay=uint32 300
 
 [org/cinnamon/desktop/sound]
 event-sounds=false
@@ -182,9 +199,11 @@ motion-threshold=1
 touchpad-enabled=true
 
 [org/cinnamon/settings-daemon/plugins/power]
-button-power='blank'
+button-power='suspend'
 lid-close-ac-action='suspend'
 lid-close-battery-action='suspend'
+lid-close-suspend-with-external-monitor=true
+lock-on-suspend=true
 sleep-display-ac=600
 sleep-display-battery=300
 sleep-inactive-ac-timeout=7200
@@ -195,6 +214,14 @@ antialiasing='grayscale'
 buttons-have-icons=true
 menus-have-icons=true
 rgba-order='rgba'
+
+[org/cinnamon/sounds]
+login-enabled=false
+logout-enabled=false
+plug-enabled=true
+switch-enabled=false
+tile-enabled=false
+unplug-enabled=true
 
 [org/cinnamon/theme]
 name='Arc-Dark'
@@ -210,13 +237,15 @@ enabled=true
 name0='module-zeroconf-discover'
 
 [org/gnome/Geary]
+ask-open-attachment=true
 autoselect=false
 compose-as-html=true
 folder-list-pane-horizontal=true
+formatting-toolbar-visible=true
 migrated-config=true
 play-sounds=false
 show-notifications=false
-startup-notifications=true
+startup-notifications=false
 
 [org/gnome/Totem]
 active-plugins=['open-directory', 'vimeo', 'variable-rate', 'skipto', 'screenshot', 'screensaver', 'save-file', 'rotation', 'recent', 'movie-properties', 'media-player-keys', 'autoload-subtitles', 'apple-trailers']
@@ -395,7 +424,7 @@ recreate-folders=true
 skip-newer=false
 
 [org/gnome/gedit/plugins]
-active-plugins=['sort', 'filebrowser', 'quickhighlight', 'spell', 'docinfo', 'time', 'modelines']
+active-plugins=['time', 'filebrowser', 'docinfo', 'modelines', 'spell', 'sort', 'quickhighlight']
 
 [org/gnome/gedit/plugins/drawspaces]
 draw-spaces=['space', 'tab', 'leading', 'trailing']
@@ -432,15 +461,15 @@ dynamic-workspaces=true
 folder-status-filters=['modified']
 workspaces-only-on-primary=true
 
-[org/gnome/nautilus/compression]
-default-compression-format='tar.xz'
-
 [org/gnome/nautilus/desktop]
 home-icon-visible=true
 network-icon-visible=true
 
 [org/gnome/nautilus/icon-view]
 default-zoom-level='small'
+
+[org/gnome/nm-applet]
+disable-vpn-notifications=true
 
 [org/gnome/rhythmbox/plugins]
 active-plugins=['daap', 'notification', 'mpris', 'ipod', 'mmkeys', 'rb', 'alternative-toolbar', 'artsearch', 'audioscrobbler', 'generic-player', 'iradio', 'power-manager', 'android', 'mtpdevice', 'dbus-media-server', 'audiocd']
@@ -577,4 +606,41 @@ volumes-visible=true
 [org/nemo/preferences]
 show-hidden-files=false
 show-location-entry=true
+
+[org/onboard]
+current-settings-page=0
+layout='/nix/store/rjyglgk78nm3jwaj9j0ji0jcprazkiql-onboard-1.4.1/share/onboard/layouts/Phone.onboard'
+schema-version='2.3'
+system-theme-associations={'HighContrast': 'HighContrast', 'HighContrastInverse': 'HighContrastInverse', 'LowContrast': 'LowContrast', 'ContrastHighInverse': 'HighContrastInverse', 'Default': '', 'Arc-Dark': '/nix/store/rjyglgk78nm3jwaj9j0ji0jcprazkiql-onboard-1.4.1/share/onboard/themes/Nightshade.theme'}
+theme='/nix/store/rjyglgk78nm3jwaj9j0ji0jcprazkiql-onboard-1.4.1/share/onboard/themes/Nightshade.theme'
+use-system-defaults=false
+
+[org/onboard/icon-palette]
+in-use=false
+
+[org/onboard/theme-settings]
+color-scheme='/nix/store/rjyglgk78nm3jwaj9j0ji0jcprazkiql-onboard-1.4.1/share/onboard/themes/Charcoal.colors'
+key-fill-gradient=8.0
+key-gradient-direction=-3.0
+key-shadow-size=0.0
+key-shadow-strength=0.0
+key-size=94.0
+key-stroke-gradient=8.0
+key-stroke-width=0.0
+key-style='gradient'
+roundrect-radius=20.0
+
+[org/onboard/window]
+docking-enabled=true
+docking-shrink-workarea=false
+transparent-background=false
+
+[org/onboard/window/landscape]
+dock-expand=false
+
+[org/onboard/window/portrait]
+dock-expand=false
+
+[org/x/warpinator/preferences]
+receiving-folder='file:///home/maciej/Warpinator'
 
