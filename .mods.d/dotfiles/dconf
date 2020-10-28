@@ -572,10 +572,10 @@ show-window-buttons='maximized'
 name='Ant-Dracula'
 
 [org/gnome/simple-scan]
-document-type='text'
+document-type='photo'
 paper-height=2970
 paper-width=2100
-photo-dpi=1200
+photo-dpi=300
 text-dpi=300
 
 [org/gnome/solitaire/window-state]
