@@ -116,3 +116,5 @@ org/blueman/gsmsettings/*@*
 org/blueman/plugins/recentconns*@*
 org/gnome/nautilus/compression@*
 
+com/belmoussaoui/Obfuscate@*
+org/gnome/Lollypop@*

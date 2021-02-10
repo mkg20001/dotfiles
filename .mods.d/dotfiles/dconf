@@ -123,7 +123,7 @@ cursor-theme='breeze_cursors'
 font-name='Ubuntu 11'
 gtk-theme='Arc-Dark'
 icon-theme='Papirus-Dark'
-scaling-factor=uint32 1
+scaling-factor=uint32 0
 text-scaling-factor=1.0
 toolkit-accessibility=false
 
@@ -256,7 +256,7 @@ subtitle-encoding='UTF-8'
 accuracy=9
 angle-units='degrees'
 base=10
-button-mode='basic'
+button-mode='advanced'
 number-format='automatic'
 show-thousands=false
 show-zeroes=false
@@ -267,6 +267,7 @@ target-units='radian'
 word-size=64
 
 [org/gnome/clocks]
+timers=@aa{sv} []
 world-clocks=[{'location': <(uint32 2, <('Seattle', 'KBFI', true, [(0.82983133145337307, -2.134775231953554)], [(0.83088509144255718, -2.135097419733472)])>)>}, {'location': <(uint32 2, <('Lisbon / Portela', 'LPPT', false, [(0.6766059791742326, -0.15940673253105125)], @a(dd) [])>)>}, {'location': <(uint32 2, <('Berlin', 'EDDT', true, [(0.91746141594945008, 0.23241968454167572)], [(0.91658875132345297, 0.23387411976724018)])>)>}, {'location': <(uint32 2, <('Warsaw', 'EPWA', true, [(0.91048009894147275, 0.36593737231924195)], [(0.91193453416703718, 0.36651914291880922)])>)>}]
 
 [org/gnome/deja-dup]
@@ -572,11 +573,12 @@ show-window-buttons='maximized'
 name='Ant-Dracula'
 
 [org/gnome/simple-scan]
-document-type='photo'
+document-type='text'
+jpeg-quality=100
 paper-height=2970
 paper-width=2100
 photo-dpi=300
-text-dpi=300
+text-dpi=150
 
 [org/gnome/solitaire/window-state]
 fullscreen=false
@@ -604,7 +606,7 @@ show-desktop-icons=true
 volumes-visible=true
 
 [org/nemo/preferences]
-show-hidden-files=false
+show-hidden-files=true
 show-location-entry=true
 
 [org/onboard]
