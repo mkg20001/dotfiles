@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+if git remote -v | grep upstream >/dev/null 2>/dev/null; then
+  git fetch upstream pull/$1/head:pr-$1
+else
+  git fetch origin pull/$1/head:pr-$1
+fi
+
+git checkout pr-$1
