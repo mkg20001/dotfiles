@@ -12,6 +12,10 @@ if [ -d "$HOME/.private.d/.bash.d" ]; then
   done
 fi
 
+if [ ! -z "$IS_DEV" ]; then
+  PS1="$(tput bold; tput setaf 7)($DEV_ENV) $PS1"
+fi
+
 # Colors
 
 RED='\033[1;33m'
@@ -119,7 +123,10 @@ alias usbtty2="sudo screen /dev/ttyUSB0 115200"
 alias curlpost='curl --header "Content-Type: application/json" --request POST --data'
 alias curlput='curl --header "Content-Type: application/json" --request PUT --data'
 alias sysrq='function _sysrq() { sudo sh -c "echo $1 > /proc/sysrq-trigger"; }; _sysrq'
-alias _syncclean='find -iname "*sync-conflict*" -print -delete'
+alias _syncclean='find -iname "*sync-conflict*" -print -delete && find -iname ".syncthing.*.tmp" -print -delete'
+alias rcp="rsync -rcvSzP"
+
+alias diffof="diffoscope --html-dir /tmp/diffof --progress"
 
 function _mktmp() {
   PREV="$PWD"
@@ -167,6 +174,7 @@ alias _isthisflashdeadyet='sudo badblocks -b 4096 -c 4096 -n -s'
 alias ytdl='function _ytdl() { for v in "$@"; do youtube-dl -x --audio-format best $v ; done ; }; _ytdl'
 alias ytpldl='youtube-dl --download-archive downloaded.txt --no-post-overwrites -ciwx --write-info-json -x --embed-thumbnail --add-metadata --audio-format opus'
 alias _btm="clear;tput cup 100000 0"
+alias infect='function _infect() { ssh root@"$1" "tee -a /etc/dropbear/authorized_keys" < ~/.ssh/id_ed25519.pub; }; _infect'
 
 # Banners and stuff
 
