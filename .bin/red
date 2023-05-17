@@ -1,5 +1,8 @@
 #!/bin/sh
 
-killall -r ".*redshift.*"
-redshift -b 0.6:0.4 -t 3500:3500
+set -euxo pipefail
 
+killall -v -s SIGPWR -r ".*redshift.*" 2>/dev/null | /bin/true
+#redshift-gtk -b 0.6:0.4 -t 3500:3500
+redshift-gtk -t 4000:2000 &
+true
