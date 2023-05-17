@@ -1,17 +1,17 @@
-atom:
+pulsar:
   commands:
     list:
-      - apm
+      - ppm
       - list
       - "--bare"
       - "--installed"
     install:
-      - apm
+      - ppm
       - install
       - "#"
     install.multi: true
     remove:
-      - apm
+      - ppm
       - remove
       - "#"
     remove.multi: true
@@ -24,7 +24,7 @@ atom:
       version: 2
     pkg-format: "NAME@VER"
   fs:
-    directory: "$HOME/.atom/packages"
+    directory: "$HOME/.pulsar/packages"
 gnome-shell:
   commands:
     list:
