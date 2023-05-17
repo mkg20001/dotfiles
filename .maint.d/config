@@ -1,6 +1,6 @@
 type=dconf pathLocal=/ pathRemote=.mods.d/dotfiles/dconf ignore=dconf-ignore
-type=cson pathLocal=.atom/config.cson pathRemote=.mods.d/dotfiles/atom-config.cson ignore=atom-ignore
-type=cson pathLocal=.atom/keymap.cson pathRemote=.mods.d/dotfiles/atom-keymap.cson
+type=cson pathLocal=.pulsar/config.cson pathRemote=.mods.d/dotfiles/pulsar-config.cson ignore=pulsar-ignore
+type=cson pathLocal=.pulsar/keymap.cson pathRemote=.mods.d/dotfiles/pulsar-keymap.cson
 type=gitconf pathLocal=.gitconfig pathRemote=.mods.d/dotfiles/gitconfig ignore=git-ignore
 
-type=pkg:atom pathLocal=.atom pathRemote=.mods.d/dotfiles/atom-packages
+type=pkg:pulsar pathLocal=.pulsar pathRemote=.mods.d/dotfiles/pulsar-packages

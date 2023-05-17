@@ -573,7 +573,7 @@ show-window-buttons='maximized'
 name='Ant-Dracula'
 
 [org/gnome/simple-scan]
-document-type='text'
+document-type='photo'
 jpeg-quality=100
 paper-height=2970
 paper-width=2100
