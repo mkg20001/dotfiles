@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -euo pipefail
+
+echo "[shared]
+comment=shared
+path=$1
+uid=1000
+gid=1000
+
+[global]
+port=873" > /tmp/rsync.conf
+
+sudo iptables -I INPUT -p tcp --dport 873 -j ACCEPT
+sudo rsync --daemon --no-detach --config=/tmp/rsync.conf
+
