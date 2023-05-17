@@ -101,6 +101,8 @@ org/gnome/Geary@*position*
 org/gnome/clocks/state/window@*
 org/gnome/epiphany@*
 org/gnome/epiphany/*@*
+org/gnome/epiphany/*/*@*
+org/gnome/epiphany/*/*/*@*
 org/gnome/evince@*
 org/gnome/file-roller/dialogs/new@*
 org/gnome/file-roller/listing@*
@@ -118,3 +120,19 @@ org/gnome/nautilus/compression@*
 
 com/belmoussaoui/Obfuscate@*
 org/gnome/Lollypop@*
+
+com/github/parnold-x/nasc@*
+org/blueman/plugins/autoconnect@*
+org/blueman/general@last-adapter
+org/gnome/gitg/state/window@*
+org/gnome/maps@*
+org/gnome/shotwell/profiles/preferences/window@*
+org/gnucash/*/*@*
+org/gnucash/*/*/*@*
+org/gnucash/*/*/*/*@*
+org/gnucash/*/*/*/*/*@*
+org/gtk/gtk4/settings/file-chooser@window-size
+org/virt-manager/virt-manager@*
+org/x/pix/browser@*
+org/x/reader/default@*
+org/x/warpinator/preferences@connect-id

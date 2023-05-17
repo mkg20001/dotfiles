@@ -57,19 +57,20 @@ desktop-effects-unmaximize-effect='none'
 desktop-effects-unmaximize-time=100
 desktop-effects-unmaximize-transition='easeNone'
 device-aliases=['/org/freedesktop/UPower/devices/battery_BAT1:=Intern', '/org/freedesktop/UPower/devices/battery_BAT0:=Intern']
-enabled-applets=['panel1:right:3:systray@cinnamon.org:0', 'panel2:left:0:menu@cinnamon.org:1', 'panel1:left:1:show-desktop@cinnamon.org:2', 'panel1:left:2:panel-launchers@cinnamon.org:3', 'panel1:left:3:window-list@cinnamon.org:4', 'panel1:right:4:keyboard@cinnamon.org:5', 'panel1:right:6:notifications@cinnamon.org:6', 'panel1:right:1:removable-drives@cinnamon.org:7', 'panel1:right:2:user@cinnamon.org:8', 'panel1:right:8:network@cinnamon.org:9', 'panel1:right:5:power@cinnamon.org:11', 'panel1:right:9:calendar@cinnamon.org:12', 'panel1:right:7:sound@cinnamon.org:13', 'panel2:left:1:window-list@cinnamon.org:14', 'panel3:center:1:calendar@cinnamon.org:15', 'panel1:right:0:xapp-status@cinnamon.org:47']
+enabled-applets=['panel1:right:3:systray@cinnamon.org:0', 'panel2:left:0:menu@cinnamon.org:1', 'panel1:left:1:show-desktop@cinnamon.org:2', 'panel1:left:2:panel-launchers@cinnamon.org:3', 'panel1:left:3:window-list@cinnamon.org:4', 'panel1:right:4:keyboard@cinnamon.org:5', 'panel1:right:6:notifications@cinnamon.org:6', 'panel1:right:1:removable-drives@cinnamon.org:7', 'panel1:right:2:user@cinnamon.org:8', 'panel1:right:8:network@cinnamon.org:9', 'panel1:right:5:power@cinnamon.org:11', 'panel1:right:9:calendar@cinnamon.org:12', 'panel1:right:7:sound@cinnamon.org:13', 'panel2:left:1:window-list@cinnamon.org:14', 'panel3:center:1:calendar@cinnamon.org:15', 'panel1:right:0:xapp-status@cinnamon.org:47', 'panel4:right:2:xrandr@cinnamon.org:48', 'panel4:right:1:printers@cinnamon.org:49', 'panel4:right:0:inhibit@cinnamon.org:50']
 enabled-extensions=['Win7AltTab@entelechy', 'desktop-icons-per-workspace@cardsurf', 'cinnamon-maximus@fmete']
 favorite-apps=['org.gnome.Terminal.desktop', 'firefox.desktop', 'atom.desktop', 'nemo.desktop', 'cinnamon-settings.desktop']
 hotcorner-layout=['expo:false:0', 'scale:false:0', 'scale:false:0', 'desktop:false:0']
-next-applet-id=48
+next-applet-id=51
 next-desklet-id=14
+no-adjacent-panel-barriers=false
 panel-edit-mode=false
 panel-launchers=['DEPRECATED']
-panel-zone-icon-sizes='[{"panelId":1,"left":0,"center":0,"right":24},{"panelId":2,"left":0,"center":0,"right":0},{"panelId":3,"left":0,"center":0,"right":0}]'
-panel-zone-symbolic-icon-sizes='[{"panelId": 1, "left": 28, "center": 28, "right": 16}, {"left": 28, "center": 28, "right": 28, "panelId": 2}, {"left": 28, "center": 28, "right": 28, "panelId": 3}]'
-panel-zone-text-sizes='[{"panelId":1,"left":0,"center":0,"right":0},{"left":0,"center":0,"right":0,"panelId":2},{"left":0,"center":0,"right":0,"panelId":3}]'
+panel-zone-icon-sizes='[{"panelId":1,"left":0,"center":0,"right":24},{"panelId":2,"left":0,"center":0,"right":0},{"panelId":3,"left":0,"center":0,"right":0},{"left":0,"center":0,"right":0,"panelId":4}]'
+panel-zone-symbolic-icon-sizes='[{"panelId": 1, "left": 28, "center": 28, "right": 16}, {"left": 28, "center": 28, "right": 28, "panelId": 2}, {"left": 28, "center": 28, "right": 28, "panelId": 3}, {"left": 28, "center": 28, "right": 28, "panelId": 4}]'
+panel-zone-text-sizes='[{"panelId":1,"left":0,"center":0,"right":0},{"left":0,"center":0,"right":0,"panelId":2},{"left":0,"center":0,"right":0,"panelId":3},{"left":0,"center":0,"right":0,"panelId":4}]'
 panels-autohide=['1:intel', '2:intel', '3:false', '4:true']
-panels-enabled=['1:0:bottom', '2:0:left', '3:0:top']
+panels-enabled=['1:0:bottom', '2:0:left', '3:0:top', '4:0:right']
 panels-height=['1:25', '2:50', '3:25', '4:40']
 panels-hide-delay=['1:0', '2:100', '3:0', '4:100']
 panels-resizable=['1:false', '2:true', '3:false']
@@ -85,7 +86,7 @@ quit-time-delay=60
 
 [org/cinnamon/desktop/a11y/applications]
 screen-keyboard-enabled=false
-screen-reader-enabled=false
+screen-reader-enabled=true
 
 [org/cinnamon/desktop/a11y/keyboard]
 bouncekeys-delay=300
@@ -108,7 +109,11 @@ exec='gnome-calculator'
 exec='gnome-terminal'
 
 [org/cinnamon/desktop/background]
+color-shading-type='solid'
+picture-options='zoom'
 picture-uri='file:///home/maciej/.mods.d/7-desktop-configuration/pics//wall.jpg'
+primary-color='#000000'
+secondary-color='#000000'
 
 [org/cinnamon/desktop/background/slideshow]
 delay=15
@@ -116,7 +121,7 @@ image-source='directory:///home/maciej/Bilder'
 
 [org/cinnamon/desktop/interface]
 clock-show-date=false
-clock-show-seconds=false
+clock-show-seconds=true
 cursor-blink-time=1200
 cursor-size=24
 cursor-theme='breeze_cursors'
@@ -125,7 +130,7 @@ gtk-theme='Arc-Dark'
 icon-theme='Papirus-Dark'
 scaling-factor=uint32 0
 text-scaling-factor=1.0
-toolkit-accessibility=false
+toolkit-accessibility=true
 
 [org/cinnamon/desktop/keybindings/media-keys]
 eject=['XF86Eject', '<Primary>KP_9']
@@ -154,11 +159,30 @@ toggle-maximized=['<Primary><Shift>Up']
 
 [org/cinnamon/desktop/media-handling]
 autorun-never=false
+autorun-x-content-ignore=@as []
+autorun-x-content-open-folder=@as []
+autorun-x-content-start-app=['x-content/unix-software']
 
 [org/cinnamon/desktop/notifications]
 bottom-notifications=false
-display-notifications=true
+display-notifications=false
 remove-old=false
+
+[org/cinnamon/desktop/peripherals/keyboard]
+delay=uint32 500
+numlock-state=true
+repeat-interval=uint32 30
+
+[org/cinnamon/desktop/peripherals/mouse]
+double-click=400
+drag-threshold=8
+locate-pointer=false
+middle-click-emulation=false
+speed=0.31018518518518512
+
+[org/cinnamon/desktop/peripherals/touchpad]
+send-events='enabled'
+speed=0.0
 
 [org/cinnamon/desktop/privacy]
 recent-files-max-age=-1
@@ -180,28 +204,22 @@ min-window-opacity=30
 theme='Arc-Dark'
 titlebar-font='Ubuntu 10'
 
+[org/cinnamon/launcher]
+check-frequency=300
+memory-limit=2048
+
 [org/cinnamon/muffin]
 resize-threshold=24
 tile-hud-threshold=25
 tile-maximize=true
 
-[org/cinnamon/settings-daemon/peripherals/keyboard]
-delay=uint32 500
-repeat-interval=uint32 30
-
-[org/cinnamon/settings-daemon/peripherals/mouse]
-double-click=400
-drag-threshold=8
-motion-threshold=1
-
-[org/cinnamon/settings-daemon/peripherals/touchpad]
-motion-threshold=1
-touchpad-enabled=true
+[org/cinnamon/settings-daemon/peripherals/touchscreen]
+orientation-lock=false
 
 [org/cinnamon/settings-daemon/plugins/power]
 button-power='suspend'
-lid-close-ac-action='suspend'
-lid-close-battery-action='suspend'
+lid-close-ac-action='nothing'
+lid-close-battery-action='nothing'
 lid-close-suspend-with-external-monitor=true
 lock-on-suspend=true
 sleep-display-ac=600
@@ -236,6 +254,9 @@ args0=''
 enabled=true
 name0='module-zeroconf-discover'
 
+[org/gnome/Console]
+last-window-size=(652, 481)
+
 [org/gnome/Geary]
 ask-open-attachment=true
 autoselect=false
@@ -248,7 +269,7 @@ show-notifications=false
 startup-notifications=false
 
 [org/gnome/Totem]
-active-plugins=['open-directory', 'vimeo', 'variable-rate', 'skipto', 'screenshot', 'screensaver', 'save-file', 'rotation', 'recent', 'movie-properties', 'media-player-keys', 'autoload-subtitles', 'apple-trailers']
+active-plugins=['movie-properties', 'variable-rate', 'vimeo', 'mpris', 'screensaver', 'rotation', 'open-directory', 'save-file', 'apple-trailers', 'autoload-subtitles', 'skipto', 'recent', 'screenshot']
 repeat=true
 subtitle-encoding='UTF-8'
 
@@ -312,6 +333,7 @@ sources=[('xkb', 'de'), ('xkb', 'us')]
 xkb-options=['grp:alt_shift_toggle', 'grp_led:scroll']
 
 [org/gnome/desktop/interface]
+clock-format='24h'
 clock-show-date=true
 clock-show-seconds=false
 cursor-theme='breeze_cursors'
@@ -320,7 +342,7 @@ enable-animations=true
 gtk-im-module='gtk-im-context-simple'
 gtk-theme='Ant-Dracula'
 icon-theme='Papirus-Dark'
-monospace-font-name='Ubuntu Mono 11'
+monospace-font-name='Source Code Pro 10'
 scaling-factor=uint32 0
 show-battery-percentage=false
 toolkit-accessibility=false
@@ -350,6 +372,8 @@ view-only=false
 
 [org/gnome/desktop/screensaver]
 color-shading-type='solid'
+embedded-keyboard-command='onboard --xid'
+embedded-keyboard-enabled=true
 picture-options='zoom'
 picture-uri='file://$MAIN/lock.png'
 primary-color='#000000'
@@ -416,6 +440,9 @@ button-layout='close,minimize,maximize:'
 theme='Adwaita'
 visual-bell=false
 
+[org/gnome/eog/ui]
+sidebar=true
+
 [org/gnome/eog/view]
 background-color='rgb(0,0,0)'
 use-background-color=true
@@ -435,14 +462,16 @@ minimum-word-size=uint32 3
 
 [org/gnome/gedit/preferences/editor]
 auto-indent=true
-background-pattern='none'
+background-pattern='grid'
 bracket-matching=true
 create-backup-copy=false
 display-line-numbers=true
 display-overview-map=true
 display-right-margin=false
 highlight-current-line=true
+insert-spaces=false
 scheme='oblivion'
+tabs-size=uint32 8
 wrap-last-split-mode='word'
 
 [org/gnome/gedit/preferences/print]
@@ -456,6 +485,14 @@ print-wrap-mode='word'
 
 [org/gnome/gedit/preferences/ui]
 show-tabs-mode='auto'
+side-panel-visible=false
+
+[org/gnome/gitg/preferences/interface]
+enable-monitoring=true
+
+[org/gnome/gnome-system-monitor/memmapstree]
+sort-col=0
+sort-order=0
 
 [org/gnome/mutter]
 dynamic-workspaces=true
@@ -473,7 +510,7 @@ default-zoom-level='small'
 disable-vpn-notifications=true
 
 [org/gnome/rhythmbox/plugins]
-active-plugins=['daap', 'notification', 'mpris', 'ipod', 'mmkeys', 'rb', 'alternative-toolbar', 'artsearch', 'audioscrobbler', 'generic-player', 'iradio', 'power-manager', 'android', 'mtpdevice', 'dbus-media-server', 'audiocd']
+active-plugins=['audiocd', 'notification', 'dbus-media-server', 'mpris', 'cd-recorder', 'audioscrobbler', 'mtpdevice', 'ipod', 'generic-player', 'iradio', 'rb', 'artsearch', 'power-manager', 'android', 'daap']
 
 [org/gnome/settings-daemon/peripherals/keyboard]
 numlock-state='on'
@@ -572,12 +609,35 @@ show-window-buttons='maximized'
 [org/gnome/shell/extensions/user-theme]
 name='Ant-Dracula'
 
+[org/gnome/shotwell/profiles/preferences/ui]
+display-basic-properties=true
+display-event-comments=false
+display-extended-properties=false
+display-map-widget=true
+display-photo-comments=false
+display-photo-ratings=true
+display-photo-tags=true
+display-photo-titles=false
+display-search-bar=false
+display-sidebar=true
+event-photos-sort-ascending=true
+event-photos-sort-by=2
+events-sort-ascending=false
+library-photos-sort-ascending=false
+library-photos-sort-by=2
+show-welcome-dialog=false
+sidebar-position=214
+
 [org/gnome/simple-scan]
 document-type='photo'
-jpeg-quality=100
+jpeg-quality=47
+page-delay=3000
+page-side='front'
 paper-height=2970
 paper-width=2100
 photo-dpi=300
+save-format='application/pdf'
+selected-device='escl:https://192.168.178.25:443'
 text-dpi=150
 
 [org/gnome/solitaire/window-state]
@@ -596,6 +656,39 @@ enabled=false
 
 [org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
 audible-bell=false
+palette=['rgb(23,20,33)', 'rgb(192,28,40)', 'rgb(38,162,105)', 'rgb(162,115,76)', 'rgb(54,101,161)', 'rgb(163,71,186)', 'rgb(42,161,179)', 'rgb(208,207,204)', 'rgb(94,92,100)', 'rgb(246,97,81)', 'rgb(51,218,122)', 'rgb(233,173,12)', 'rgb(42,123,222)', 'rgb(192,97,203)', 'rgb(51,199,222)', 'rgb(255,255,255)']
+
+[org/gnome/yelp]
+show-cursor=true
+
+[org/gnucash/general]
+date-completion-thisyear=false
+prefs-version=406
+
+[org/gnucash/history]
+file0='postgres://postgres@localhost/gnucash'
+file1=''
+file2=''
+file3=''
+file4=''
+file5=''
+file6=''
+file7=''
+file8=''
+file9=''
+
+[org/gtk/gtk4/settings/file-chooser]
+date-format='regular'
+location-mode='filename-entry'
+show-hidden=true
+show-size-column=true
+show-type-column=true
+sidebar-width=140
+sort-column='name'
+sort-directories-first=false
+sort-order='ascending'
+type-format='category'
+view-type='list'
 
 [org/nemo/desktop]
 computer-icon-visible=true
@@ -609,6 +702,10 @@ volumes-visible=true
 show-hidden-files=true
 show-location-entry=true
 
+[org/nemo/search]
+search-file-case-sensitive=true
+search-files-recursively=true
+
 [org/onboard]
 current-settings-page=0
 layout='/nix/store/rjyglgk78nm3jwaj9j0ji0jcprazkiql-onboard-1.4.1/share/onboard/layouts/Phone.onboard'
@@ -620,17 +717,20 @@ use-system-defaults=false
 [org/onboard/icon-palette]
 in-use=false
 
+[org/onboard/keyboard]
+show-click-buttons=false
+
 [org/onboard/theme-settings]
-color-scheme='/nix/store/rjyglgk78nm3jwaj9j0ji0jcprazkiql-onboard-1.4.1/share/onboard/themes/Charcoal.colors'
+color-scheme='/nix/store/rpswxxqphs9fwsvz2a9w8ibga6drk20l-onboard-1.4.1/share/onboard/themes/Classic Onboard.colors'
 key-fill-gradient=8.0
 key-gradient-direction=-3.0
 key-shadow-size=0.0
 key-shadow-strength=0.0
-key-size=94.0
-key-stroke-gradient=8.0
-key-stroke-width=0.0
-key-style='gradient'
-roundrect-radius=20.0
+key-size=100.0
+key-stroke-gradient=40.0
+key-stroke-width=100.0
+key-style='flat'
+roundrect-radius=0.0
 
 [org/onboard/window]
 docking-enabled=true
@@ -639,10 +739,44 @@ transparent-background=false
 
 [org/onboard/window/landscape]
 dock-expand=false
+dock-height=228
 
 [org/onboard/window/portrait]
 dock-expand=false
 
+[org/virt-manager/virt-manager/connections]
+autoconnect=@as []
+uris=@as []
+
+[org/virt-manager/virt-manager/vmlist-fields]
+disk-usage=false
+network-traffic=false
+
+[org/x/pix/data-migration]
+catalogs-2-10=true
+
+[org/x/pix/general]
+active-extensions=['23hq', 'bookmarks', 'burn_disc', 'catalogs', 'change_date', 'comments', 'contact_sheet', 'convert_format', 'desktop_background', 'edit_metadata', 'exiv2_tools', 'facebook', 'file_manager', 'file_tools', 'find_duplicates', 'flicker', 'gstreamer_tools', 'gstreamer_utils', 'image_print', 'image_rotation', 'image_viewer', 'importer', 'jpeg_utils', 'list_tools', 'oauth', 'photo_importer', 'photobucket', 'picasaweb', 'raw_files', 'red_eye_removal', 'rename_series', 'resize_images', 'search', 'selections', 'slideshow', 'webalbums']
+
+[org/x/player]
+active-plugins=['movie-properties', 'vimeo', 'media_player_keys', 'screensaver', 'chapters', 'apple-trailers', 'autoload-subtitles', 'skipto', 'recent', 'screenshot', 'opensubtitles', 'dbusservice']
+debug=false
+subtitle-encoding='UTF-8'
+
+[org/x/reader]
+document-directory=@ms nothing
+
+[org/x/viewer/view]
+background-color='rgb(0,0,0)'
+use-background-color=true
+
+[org/x/viewer/window]
+maximized=true
+
 [org/x/warpinator/preferences]
+ask-for-send-permission=true
+autostart=false
+group-code='Warpinator'
+no-overwrite=true
 receiving-folder='file:///home/maciej/Warpinator'
 

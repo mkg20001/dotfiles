@@ -57,8 +57,22 @@
 	gpgsign = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
+	smudge = git-lfs smudge --skip -- %f
+	process = git-lfs filter-process --skip
 	required = true
 [init]
 	defaultBranch = master
+[branch]
+	autoSetupRebase = always
+[safe]
+	directory = $HOME/epikur/akama
+[url "git@ci.mgit.at:"]
+	insteadOf = https://ci.mgit.at/
+[includeIf "gitdir:~/mgit/"]
+	    path = ~/mgit/.gitconfig
+[diff "ansible-vault"]
+	    textconv = ansible-vault view
+	    cachetextconv = false
+[merge "ansible-vault"]
+	    name = ansible-vault merge driver
+	    driver = ansible-vault-merge -- %O %A %B %P

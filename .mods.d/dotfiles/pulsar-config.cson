@@ -1,7 +1,6 @@
 "*":
   linter: {}
   "ide-rust": {}
-  teletype: {}
   "todo-show": {}
   core:
     themes: [
@@ -15,19 +14,34 @@
       "linter-shellcheck"
       "tool-bar"
       "linter-rust"
+      "linter-erb"
+      "ide-python"
+      "linter-eslint"
+      "eslint-fixer"
+      "linter-eslint-node"
     ]
     telemetryConsent: "limited"
     uriHandlerRegistration: "always"
     packagesWithKeymapsDisabled: [
       "standard-formatter"
     ]
+  teletype:
+    dev: {}
   editor:
-    fontSize: 15
+    fontSize: 16
+    fontFamily: "Source Code Pro, Menlo, Consolas, DejaVu Sans Mono, monospace"
     invisibles: {}
   "markdown-preview": {}
   "atom-beautify":
     css: {}
     yaml: {}
+    json:
+      disabled: true
+      brace_style: "expand"
+      beautify_on_save: true
+      end_with_newline: true
+      default_beautifier: "Prettier"
+      max_preserve_newlines: 1
     js:
       jslint_happy: true
       end_with_newline: true
@@ -35,12 +49,6 @@
       space_after_anon_function: true
     html:
       indent_size: 2
-    json:
-      brace_style: "expand"
-      beautify_on_save: true
-      end_with_newline: true
-      default_beautifier: "Prettier"
-      max_preserve_newlines: 1
     python:
       sort_imports: true
     coffeescript:
@@ -99,10 +107,17 @@
       "atom-ide-diagnostics-ui": "default"
       "atom-ide-signature-help": "default"
       "atom-ide-find-references": "default"
+    "atom-ide-code-format":
+      formatOnSave: true
     "atom-ide-diagnostics-ui":
       autoVisibility: true
       showDirectoryColumn: true
       showDiagnosticTraces: true
+  "linter-eslint-node":
+    disabling: {}
+    autofix:
+      fixOnSave: true
+      ignoreFixableRulesWhileTyping: true
   "linter-eslint":
     autofix:
       fixOnSave: true
@@ -112,7 +127,6 @@
     global:
       eslintrcPath: "$HOME/.eslintrc"
       globalNodePath: "/usr/lib"
-      useGlobalEslint: true
     advanced:
       eslintRulesDirs: [
         "/usr/lib/node_modules/eslint-config-aegir-standalone/node_modules"
@@ -135,5 +149,13 @@
     mermaidTheme: "dark"
     previewTheme: "one-dark.css"
     revealjsTheme: "moon.css"
+  "x-terminal-reloaded":
+    terminalSettings:
+      colors: {}
+      fontSize: 10
+      fontFamily: "Source Code Pro, Menlo, Consolas, DejaVu Sans Mono, monospace"
+      allowHiddenToStayActive: true
+    spawnPtySettings:
+      projectCwd: true
   "atom-time-tracker":
     "$HOME/Projekte/psine/psine,$HOME/Projekte/arweave/arweb,$HOME/Projekte/arweave/arbase,$HOME/Projekte/arweave/arbase-crud,$HOME/Projekte/arweave/the-arf,$HOME/Projekte/arweave/arlang": 52440
