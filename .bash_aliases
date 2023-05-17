@@ -14,6 +14,7 @@ fi
 
 if [ ! -z "$IS_DEV" ]; then
   PS1="$(tput bold; tput setaf 7)($DEV_ENV) $PS1"
+  HISTFILE="$HOME/.bash_history.dev.$DEV_ENV"
 fi
 
 # Colors
@@ -78,7 +79,7 @@ alias nrun='nodemon index.js | bunyan -l 0'
 
 # Moz
 
-export PATH="/home/maciej/.mozbuild/git-cinnabar:$PATH"
+export PATH="/home/maciej/.mozbuild/git-cinnabar:/home/maciej/.config/yarn/global/node_modules/.bin:$PATH"
 
 # Git
 
@@ -112,7 +113,8 @@ alias _tor=". torsocks on"
 alias _t="torify"
 alias no="yes | sed 's|y|n|g'"
 alias ldiff='function _ldiff() { sed -r "s|(.)|\1\n|g" "$1" > /tmp/ldiffA && sed -r "s|(.)|\1\n|g" "$2" > /tmp/ldiffB && meld /tmp/ldiffA /tmp/ldiffB; }; _ldiff "$@"' # line diff
-alias atom="ionice -c 3 $(which atom)"
+alias bdiff='function _bdiff() { meld <(od -An -tx1 -w1 -v "$1") <(od -An -tx1 -w1 -v "$2"); }; _bdiff "$@"' # line diff
+alias pulsar="ionice -c 3 $(which pulsar)"
 alias wireshark="_w() { LC_ALL=C wireshark \"\$@\" & }; _w"
 alias ts3="bash $HOME/.ts3client/TS3/ts3client_runscript.sh"
 alias seddot="sed \"s|[^].[^ ]|:|g\""
