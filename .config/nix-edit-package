@@ -1,1 +1,1 @@
-NIXPKGS_ROOT="$HOME/Projekte/nixpkgs"
+NIXPKGS_ROOT="$HOME/Projekte/nixpkgs/unstable"

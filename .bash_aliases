@@ -41,9 +41,10 @@ if [ -e "$HOME/Android-Dev/android-studio/jre" ]; then
   export USE_CCACHE=1
   export CCACHE_COMPRESS=1
   export ANDROID_JACK_VM_ARGS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4G"
-  export JAVA_HOME="$HOME/Android-Dev/android-studio/jre"
+  # export JAVA_HOME="$HOME/Android-Dev/android-studio/jre"
 else
-  export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
+  true
+  # export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
 fi
 
 alias gradle="./gradlew"
@@ -105,10 +106,11 @@ alias _unhook="rm -rfv .git/hooks"
 alias _pureb="git pull ; git rebase origin/master && pu"
 alias _git2ssh='git remote set-url origin $(git remote -v | grep "^origin" | tr "\t" "\n" | tr " " "\n" | head -n 2 | tail -n 1 | sed -r "s|https*://([a-z0-9.]+)/(.+)|git@\1:\2|g")'
 alias _baka="for f in \$(git clean -dxn | sed 's|Würde ||g' | sed 's| löschen||g'); do mkdir -p $(dirname ../bakbak/\$f); mv \$f ../bakbak/\$f; done"
+alias _sanerebase='git rebase -i $(git merge-base master HEAD)'
 
 # Other
 
-alias nano="vim"
+#alias nano="vim"
 alias _tor=". torsocks on"
 alias _t="torify"
 alias no="yes | sed 's|y|n|g'"
@@ -127,6 +129,7 @@ alias curlput='curl --header "Content-Type: application/json" --request PUT --da
 alias sysrq='function _sysrq() { sudo sh -c "echo $1 > /proc/sysrq-trigger"; }; _sysrq'
 alias _syncclean='find -iname "*sync-conflict*" -print -delete && find -iname ".syncthing.*.tmp" -print -delete'
 alias rcp="rsync -rcvSzP"
+alias gl="glab"
 
 alias diffof="diffoscope --html-dir /tmp/diffof --progress"
 
@@ -143,6 +146,15 @@ function _ltmp() {
   rm -rfv "$_TMP"
 }
 
+ssh-add_wf ()
+{
+    while read -r line; do
+        for file in ~/.ssh/*.pub;
+        do
+            printf "%s %s\n" "$(ssh-keygen -lf "$file" | awk '{$1=""}1')" "$file";
+        done | column -t | grep --color=auto "$line" || echo "$line";
+    done < <(ssh-add -l | awk '{print $2}')
+}
 # Nix
 
 alias _nbuild="NIXPKGS_ALLOW_UNFREE=1 nix-build -v -j 6"
@@ -178,6 +190,16 @@ alias ytpldl='youtube-dl --download-archive downloaded.txt --no-post-overwrites 
 alias _btm="clear;tput cup 100000 0"
 alias infect='function _infect() { ssh root@"$1" "tee -a /etc/dropbear/authorized_keys" < ~/.ssh/id_ed25519.pub; }; _infect'
 
+# Nixpkgs
+
+alias _nixpkgs-backport="gh pr edit --add-label 'backport release-25.05'"
+alias _nixpkgs-todo="gh pr edit --add-project 'Nixos upstream todo'"
+alias _nixpkgs-staging="git rebase --onto upstream/staging... upstream/master"
+
+# Nix
+
+alias _nixprof='function _nixprof() { nix profile list | grep -B 3 -A 3 "$@"; }; _nixprof'
+
 # Banners and stuff
 
 showbanner=true
@@ -192,7 +214,11 @@ if $showbanner; then
 
   normal=$(tput sgr0)
   # Show a nice htop header
-  node $HOME/.htop.js
-  echo $normal
+  # node $HOME/.htop.js
+  # echo $normal
 fi
 
+
+alias ttnix="nix develop /home/maciej/mgit/timetacansible/nixos-flake"
+alias nixpkgsreview="nixpkgs-review pr --systems x86_64-linux --systems aarch64-linux --post-result"
+alias ansiblecollect="ansible-galaxy collection install -r requirements.yml -p ./collections --force --no-deps"
